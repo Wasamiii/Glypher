@@ -1,10 +1,9 @@
 <?php
 namespace Wamp\www\model;
-
-class Members{
+require_once('model/Manager.php');
+class Members extends Manager
+{
 
 }
-
-
 
 ?>
