@@ -1,0 +1,22 @@
+body,header{
+    background: #0C242C;
+}
+header{
+    display:flex;
+    justify-content:space-around;
+
+}
+a#Logo-site{
+    width: auto;
+    height:auto;
+}
+a #img-logo-site{
+    width: 100%;
+    height: auto;
+}
+input{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
