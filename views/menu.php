@@ -1,4 +1,4 @@
-<a href="index.php"><img src="public/IMG/58a1fbccc8dd3432c6fa8214.png" alt="logo du site">Glypher</a>
+<a href="index.php" id="Logo-site"><img src="public/IMG/Logo-site128x128.png" alt="logo du site" id="img-logo-site"></a>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
@@ -21,7 +21,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 ?>
 <div id="allForm">
 <form action="index.php?action=getlog" method="post" id="connexionForm">
-        <p id="titleSigin">Connexion:</p>
         <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
         <input type="password" name="password" placeholder="Mot de passe" class="inputSigin" required>
         <input type="submit" value="connexion" name="signin" id="connexionSigin">
