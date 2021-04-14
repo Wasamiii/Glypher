@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+require 'vendor/autoload.php';
 require('controller/controller.php');
 //chercher à faire les choses en POO
 class Index extends Controller{
