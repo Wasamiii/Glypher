@@ -30,19 +30,19 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b60e5dfa8b9cb7ef39ef63fe980e8a02a60e79df',
-    'name' => 'test/ons',
+    'reference' => '90f0e473b0ca3cc2bdcc7de7b796b87778da6169',
+    'name' => 'vendor/glyphs',
   ),
   'versions' => 
   array (
-    'test/ons' => 
+    'vendor/glyphs' => 
     array (
       'pretty_version' => 'dev-main',
       'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'b60e5dfa8b9cb7ef39ef63fe980e8a02a60e79df',
+      'reference' => '90f0e473b0ca3cc2bdcc7de7b796b87778da6169',
     ),
   ),
 );

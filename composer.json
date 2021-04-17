@@ -9,7 +9,8 @@
     ],
 	"autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "Tocontrol\\": "controller/",
+            "Views\\":"views/"
         }
     },
     "require": {}
