@@ -1,4 +1,8 @@
 <a href="index.php" id="Logo-site"><img src="public/IMG/Logo-site128x128.png" alt="logo du site" id="img-logo-site"></a>
+<i class="fas fa-bars"></i>
+<a href="index.php" id="homepage">Home</a>
+<a href="about.php" id="about">About</a>
+<div class="nightmode"><a href="nightmode" class="nightmode"><i class="fas fa-moon"></i></a></div>
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
