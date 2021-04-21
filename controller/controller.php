@@ -1,5 +1,8 @@
 <?php
 
+use Wamp\www\model\Members;
+
+
 //Charge les fichers qui appel la base de données
 require_once('model/Manager.php');
 require_once('model/Members.php');
@@ -7,20 +10,20 @@ class Controller{
     
     function basicglypher()
     {
-        $postManager = new Wamp\www\model\Members();
+        $postManager = new Members();
         // die(var_dump('dans le controller'));
         require('views/basicsglypher.php');
     }
 
     public function signup()
     {
-        $sign = new Wamp\www\model\Members();
+        $sign = new Members();
         require('views/signupView.php');
     }
 
     public function postsignup()
     {
-    $register = new Wamp\www\model\Members();
+    $register = new Members();
         if(isset($_POST['inscription'])){
         $pseudo = $_POST['pseudo'];
         $email = $_POST['email'];
@@ -49,7 +52,7 @@ class Controller{
 
     public function verifPseudo($pseudo)
     {
-        $verifpseudo = new Wamp\www\model\Members();
+        $verifpseudo = new Members();
         if(isset($_POST['inscription'])){
             $pseudo = $_POST['pseudo'];
             $pseudos = $verifpseudo -> getsignup($pseudo);
@@ -64,7 +67,7 @@ class Controller{
 
     public function verifyLogin()
     {
-        $verifylogin = new Wamp\www\model\Members();
+        $verifylogin = new Members();
         if(isset($_POST['signin'])){
             $pseudo = $_POST['pseudo'];
             $password = $_POST['password'];
