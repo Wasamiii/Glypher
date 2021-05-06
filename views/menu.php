@@ -1,8 +1,10 @@
 <a href="index.php" id="Logo-site"><img src="public/IMG/Logo-site128x128.png" alt="logo du site" id="img-logo-site"></a>
 <i class="fas fa-bars"></i>
 <a href="index.php" id="homepage">Home</a>
+<!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
 <a href="about.php" id="about">About</a>
-<div class="nightmode"><a href="nightmode" class="nightmode"><i class="fas fa-moon"></i></a></div>
+<a href="nightmode" class="nightmode"><i class="fas fa-moon"></i></a>
+<!--<a href="lightmode" class="lightmode"><i class="far fa-sun"></i></a>-->
 
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
