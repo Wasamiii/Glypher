@@ -1,6 +1,14 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../Fonts/OpenSans-Regular.ttf');
+    src: url('../Fonts/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body,header{
     background: #0C242C;
 }
+/*----MENU----*/
 header{
     display:flex;
     justify-content:space-around;
@@ -21,7 +29,7 @@ input{
     border-radius: 50px;
 }
 a#homepage, a#about{
-    font-family: "Open Sans";
+    font-family: "OpenSans";
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
@@ -33,22 +41,38 @@ a#homepage, a#about{
     text-decoration: none;
     color: #A3A3A3;
 }
-div.nightmode{
+
+a.nightmode{
     width: 127px;
     height: 48px;
     background: #11A7B0;
     border: 1px solid #141414;
     box-sizing: border-box;
     border-radius: 50px;
+    
 }
-a.nightmode{
-    position: relative;
-    left: 45%;
-    right: 14.46%;
-    top: 32.14%;
-    bottom: 38.39%;
-
+i.fa-bars{
+    font-size: 32px;
+    color: #A3A3A3;
 }
 i.fa-moon{
+    position: relative;
+    font-size: 32px;
+    left: 40%;
+
+    top: 18%;
+
     color: #141414;
 }
+img#svgnight,img#svgday{
+    width: 1.5%;
+    height: auto;
+}
+
+  #night { color: darkblue; }
+  #day { color: orange; }
+  #night, #day {
+    font-weight: bold;
+    display: none;
+  }
+  #timer[data-cycle=night] #night, #timer[data-cycle=day] #day { display: inline }
