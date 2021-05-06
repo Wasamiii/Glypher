@@ -1,16 +1,15 @@
 <?php
+
 session_start();
 require 'vendor/autoload.php';
 require('controller/controller.php');
 //chercher à faire les choses en POO
 class Index extends Controller{
     public function __construct() {
-        // die(var_dump('dans le constructeur'));
         $instancecontroller = new Controller();
         try{
             if(isset($_GET['action'])){
                 $callAction =$_GET['action'];
-        
             }else{
                 $callAction = "";
             }
