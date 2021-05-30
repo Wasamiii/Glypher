@@ -7,13 +7,17 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="public/CSS/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <!-- <script src="public/JS/main.js" type="text/javascript"></script> -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/JS/CallApi.js"></script>
+
+
 </head>
 <header>
     <?php require_once("menu.php");?>
 </header>
 <body>
+
     <div id="timer" data-cycle="">
     <span id="day"><img id="svgday" src="public\IMG\sun-solid.svg"></i>Day</span>
     <span id="night"><img  id="svgnight"src="public\IMG\moon-solid.svg" alt="Night on cetus"></img>Night</span>
@@ -22,6 +26,6 @@
     <?=$content?>
     
     <footer></footer>
-    <script src="public/JS/countdowncetus.js"></script>
+
 </body>
 </html>
