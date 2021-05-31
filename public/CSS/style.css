@@ -51,6 +51,20 @@ a.nightmode{
     border-radius: 50px;
     
 }
+a#singupLink{
+    padding: 0.5% 1%;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: none;
+    color:#000000;
+    background: #11A7B0;
+    border: 1px solid #141414;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+
+
 i.fa-bars{
     font-size: 32px;
     color: #A3A3A3;
