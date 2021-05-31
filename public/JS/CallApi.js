@@ -1,17 +1,24 @@
-//Passer en object class{constructor(){}} 
-let gettimer = document.querySelector("#timer");
+class Api{
+  constructor(){
 
-let url = "views/api.php";
-let allTimers;
-async function callApi() {
-  await axios
-    .get(url)
-    .then((response) => {
-      allTimers = response.data;
-      // console.log(allTimers.replaceAll("\\", ""));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  }
+   syndicate(){
+    let url = "views/api.php";
+    let allTimers;
+    async function callApi() {
+      await axios
+        .get(url)
+        .then((response) => {
+          allTimers = response.data;
+          // console.log(allTimers.replaceAll("\\", ""));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    callApi();
+  }
 }
-callApi();
+
+let callApi = new Api();
+callApi.syndicate();
