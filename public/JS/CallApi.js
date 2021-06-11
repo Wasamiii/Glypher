@@ -1,24 +1,41 @@
 class Api{
   constructor(){
-
+    this.url = "views/api.php";
+    // this.allTimers;
   }
-   syndicate(){
-    let url = "views/api.php";
-    let allTimers;
-    async function callApi() {
-      await axios
-        .get(url)
-        .then((response) => {
-          allTimers = response.data;
-          // console.log(allTimers.replaceAll("\\", ""));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-    callApi();
+  async syndicate(){
+    
+
+    // async function callApi() {
+       let cetusMissions =  await axios.get(this.url);
+       return cetusMissions;
+        // .then((response) => {
+        //   this.allTimers = response.data;
+        //   return new Promise((resolve,reject)=>{
+        //     resolve = this.allTimers;
+
+        //   });
+        //   // console.log(allTimers.replaceAll("\\", ""));
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+    // }
+    // callApi();
   }
 }
 
 let callApi = new Api();
-callApi.syndicate();
+let timers = callApi.syndicate();
+timers.then(response => {
+  console.log(response);
+  const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
+  if (!cetusSyndicate){
+    return callback(undefined);
+  }
+  let stringifyCetus = JSON.stringify(cetusSyndicate);
+  localStorage.setItem('CetusTimers', stringifyCetus);
+return cetusSyndicate;
+})
+.then();
+console.log(timers);
