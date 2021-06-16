@@ -7,10 +7,9 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="public/CSS/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="public/JS/CallApi.js"></script>
-    <script src="public/JS/timerCetus.js"></script>
+
+    
+   
 
 
 </head>
@@ -28,4 +27,8 @@
     
     <footer></footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="public/JS/CallApi.js"></script>
+<script src="public/JS/timerCetus.js"></script>
 </html>
