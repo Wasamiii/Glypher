@@ -28,14 +28,12 @@ class Api{
 let callApi = new Api();
 let timers = callApi.syndicate();
 timers.then(response => {
-  console.log(response);
   const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
   if (!cetusSyndicate){
     return callback(undefined);
   }
   let stringifyCetus = JSON.stringify(cetusSyndicate);
-  localStorage.setItem('CetusTimers', stringifyCetus);
+  sessionStorage.setItem('CetusTimers', stringifyCetus);
 return cetusSyndicate;
 })
 .then();
-console.log(timers);
