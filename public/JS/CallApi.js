@@ -24,16 +24,23 @@ class Api{
     // callApi();
   }
 }
+let refreshAPI = ()=>{
+  let callApi = new Api();
+  let timers = callApi.syndicate();
+  timers.then(response => {
+    const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
+    console.log(cetusSyndicate);
+    if (!cetusSyndicate){
+      return callback(undefined);
+    }
+    let stringifyCetus = JSON.stringify(cetusSyndicate);
+    sessionStorage.setItem('CetusTimers', stringifyCetus);
+    let dateTime = new Date();
+    sessionStorage.setItem('Date', dateTime);
+  
+  return cetusSyndicate;
+  })
+  .then();
 
-let callApi = new Api();
-let timers = callApi.syndicate();
-timers.then(response => {
-  const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
-  if (!cetusSyndicate){
-    return callback(undefined);
-  }
-  let stringifyCetus = JSON.stringify(cetusSyndicate);
-  sessionStorage.setItem('CetusTimers', stringifyCetus);
-return cetusSyndicate;
-})
-.then();
+}
+refreshAPI();
