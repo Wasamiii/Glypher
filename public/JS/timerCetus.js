@@ -15,8 +15,9 @@ class TimerCetus{
             //Problème les 2 values en parse ne bougent pas donc soit -date soit elle doivent bouger d'elles même
             let cetus_JSON = sessionStorage.getItem('CetusTimers');
             if (sessionStorage.getItem('CetusTimers')== null){
-                let callerApi = new Api();
-                callerApi.syndicate();
+                // let callerApi = new Api();
+                // callerApi.syndicate();
+                refreshAPI();
             }else{
                 parseCetus = JSON.parse(cetus_JSON);
                 // console.log(parseCetus);
@@ -27,15 +28,24 @@ class TimerCetus{
     
                 const date = Date.now();
                 let time_date = Math.floor(date / 1000);
-                //
                 let timerEidos = get_timestamp_eidos_expiry - time_date;
+
+                console.log(timerEidos);
                 if(timerEidos>3000){
                     //day
                     this.attributeCetus.setAttribute('data-cycle', 'day');
+                    console.log("jour");
                     timerEidos = timerEidos - 3000;
-                }else{
-                    //night
+                    console.log(timerEidos);
+                }else {
+                    if(timerEidos < 0){
+                        //problème d'actualisation du sessionStorage
+                        refreshAPI();
+                    }else{
+                         //night
                     this.attributeCetus.setAttribute('data-cycle', 'night');
+                    console.log("nuit");
+                    }
                 }
                 let eidos_S = Math.floor(timerEidos %60);
                 let eidos_M = (((timerEidos - eidos_S) /60)%60);
