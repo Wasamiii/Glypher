@@ -21,7 +21,7 @@
       $addBginningResult = '{';
       $addEndingResult = '}';
       $posStingStartSyndicate = strpos($result, '"SyndicateMissions');
-      $posStingEndSyndicate = strpos($result,',"ActiveMissions"');
+      $posStingEndSyndicate = strpos($result,',"GlobalUpgrades"');
       $substrToPos = substr($result,$posStingStartSyndicate,$posStingEndSyndicate-$posStingStartSyndicate);
       $newResult = $addBginningResult . $substrToPos . $addEndingResult;
       echo $newResult;
