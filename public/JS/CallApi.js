@@ -4,27 +4,11 @@ class Api{
     // this.allTimers;
   }
   async syndicate(){
-    
-
-    // async function callApi() {
        let cetusMissions =  await axios.get(this.url);
        return cetusMissions;
-        // .then((response) => {
-        //   this.allTimers = response.data;
-        //   return new Promise((resolve,reject)=>{
-        //     resolve = this.allTimers;
-
-        //   });
-        //   // console.log(allTimers.replaceAll("\\", ""));
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        // });
-    // }
-    // callApi();
   }
 }
-let refreshAPI = ()=>{
+let refreshAPIcetus = ()=>{
   let callApi = new Api();
   let timers = callApi.syndicate();
   timers.then(response => {
@@ -41,6 +25,21 @@ let refreshAPI = ()=>{
   return cetusSyndicate;
   })
   .then();
-
-}
-refreshAPI();
+};
+let refreshAPIfissures = ()=>{
+  let callApi = new Api();
+  let timers = callApi.syndicate();
+  timers.then(response =>{
+    const fissuresMissions = response.data.ActiveMissions;
+    // console.log(fissuresMissions);
+    if (!fissuresMissions){
+      return callback(undefined);
+    }
+    let stringifyFissures = JSON.stringify(fissuresMissions);
+    sessionStorage.setItem('Fissures',stringifyFissures);
+    return fissuresMissions;
+  })
+  .then();
+};
+refreshAPIcetus();
+refreshAPIfissures();
