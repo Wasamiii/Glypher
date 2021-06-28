@@ -17,7 +17,7 @@ class TimerCetus{
             if (sessionStorage.getItem('CetusTimers')== null){
                 // let callerApi = new Api();
                 // callerApi.syndicate();
-                refreshAPI();
+                refreshAPIcetus();
             }else{
                 parseCetus = JSON.parse(cetus_JSON);
                 // console.log(parseCetus);
@@ -30,21 +30,17 @@ class TimerCetus{
                 let time_date = Math.floor(date / 1000);
                 let timerEidos = get_timestamp_eidos_expiry - time_date;
 
-                console.log(timerEidos);
                 if(timerEidos>3000){
                     //day
                     this.attributeCetus.setAttribute('data-cycle', 'day');
-                    console.log("jour");
                     timerEidos = timerEidos - 3000;
-                    console.log(timerEidos);
                 }else {
                     if(timerEidos < 0){
                         //problème d'actualisation du sessionStorage
-                        refreshAPI();
+                        refreshAPIcetus();
                     }else{
                          //night
                     this.attributeCetus.setAttribute('data-cycle', 'night');
-                    console.log("nuit");
                     }
                 }
                 let eidos_S = Math.floor(timerEidos %60);
