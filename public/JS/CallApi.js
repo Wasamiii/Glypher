@@ -13,7 +13,7 @@ let refreshAPIcetus = ()=>{
   let timers = callApi.syndicate();
   timers.then(response => {
     const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
-    console.log(cetusSyndicate);
+    // console.log(cetusSyndicate);
     if (!cetusSyndicate){
       return callback(undefined);
     }
@@ -21,7 +21,7 @@ let refreshAPIcetus = ()=>{
     sessionStorage.setItem('CetusTimers', stringifyCetus);
     let dateTime = new Date();
     sessionStorage.setItem('Date', dateTime);
-  
+
   return cetusSyndicate;
   })
   .then();
@@ -29,7 +29,7 @@ let refreshAPIcetus = ()=>{
 let refreshAPIfissures = ()=>{
   let callApi = new Api();
   let timers = callApi.syndicate();
-  timers.then(response =>{
+  timers.then(response => {
     const fissuresMissions = response.data.ActiveMissions;
     // console.log(fissuresMissions);
     if (!fissuresMissions){
@@ -41,5 +41,21 @@ let refreshAPIfissures = ()=>{
   })
   .then();
 };
+let refreshApiBaro = ()=>{
+  let callApi = new Api();
+  let timers = callApi.syndicate();
+  timers.then(response=>{
+    const Baro = response.data.VoidTraders;
+    // console.log(Baro);
+    if (!Baro){
+      return callback(undefined);
+    }
+    let stringifyBaro = JSON.stringify(Baro);
+    sessionStorage.setItem('BaroKiteer',stringifyBaro);
+    return Baro;
+  })
+  .then();
+};
 refreshAPIcetus();
 refreshAPIfissures();
+refreshApiBaro();
