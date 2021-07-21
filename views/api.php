@@ -20,10 +20,16 @@
       // Afficher le résultat du serveur
       $addBginningResult = '{';
       $addEndingResult = '}';
+      //position de syndicate mission
       $posStingStartSyndicate = strpos($result, '"SyndicateMissions');
+      //les fissures sont avant GlobalUpgrades
       $posStingEndSyndicate = strpos($result,',"GlobalUpgrades"');
       $substrToPos = substr($result,$posStingStartSyndicate,$posStingEndSyndicate-$posStingStartSyndicate);
-      $newResult = $addBginningResult . $substrToPos . $addEndingResult;
+      //position de Baro
+      $posStingStartBaro = strpos($result,'"VoidTraders"');
+      $posStingEndBaro = strpos($result,',"VoidStorms"' );
+      $substrToPosBaro = substr($result, $posStingStartBaro,$posStingEndBaro-$posStingStartBaro);
+      $newResult = $addBginningResult . $substrToPos .','.$substrToPosBaro. $addEndingResult;
       echo $newResult;
       //echo $substrToPosDelete;
       // $json = print($newResult);
