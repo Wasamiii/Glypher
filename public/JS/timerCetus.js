@@ -1,7 +1,7 @@
 class TimerCetus{
     constructor(){    
     this.interval = 0;
-    this.countCetus = document.getElementById('countdown');
+    this.countCetus = document.getElementById('countdowncetus');
     this.attributeCetus = document.getElementById("timer");
     }
     initTimerCetus(){
