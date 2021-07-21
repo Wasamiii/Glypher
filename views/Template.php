@@ -21,7 +21,12 @@
     <div id="timer" data-cycle="">
     <span id="day"><img id="svgday" src="public\IMG\sun-solid.svg"></i>Day</span>
     <span id="night"><img  id="svgnight"src="public\IMG\moon-solid.svg" alt="Night on cetus"></img>Night</span>
-    <span id="countdown"></span>
+    <span id="countdowncetus"></span>
+    </div>
+    <div id="timerBaro">
+    <p id="barokiteer">Baro Kiteer</p>
+    <span id="itsBaro"></span>
+    <span id="countdownbaro"></span>
     </div>
     <?=$content?>
     
@@ -31,4 +36,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="public/JS/CallApi.js"></script>
 <script src="public/JS/timerCetus.js"></script>
+<script src="public/JS/fissures.js"></script>
+<script src="public/JS/barokiteer.js"></script>
 </html>
