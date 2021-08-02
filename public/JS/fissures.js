@@ -1,7 +1,7 @@
 class Fissures{
     constructor(){
     this.interval = 0;
-    this.countCetus = document.getElementById('countdowncetus');
+    this.countCetus = document.getElementById('countdownfissures');
     this.attributeCetus = document.getElementById("timer");
     }
     callAPIfissures(){
