@@ -28,6 +28,25 @@
     <span id="itsBaro"></span>
     <span id="countdownbaro"></span>
     </div>
+    <?php 
+    while($data = $getFissures->fetch()){
+    ?>
+        <div id="fissures">
+            <span id="namefissures">
+                <?= htmlspecialchars(($data['mission_fissures'])) ?>
+            </span>
+            <span id="missionfissures">
+                <?= htmlspecialchars(($data['trad_mission'])) ?>
+            </span>
+            <span id="regionfissures">
+            <?= htmlspecialchars(($data['planete'])) ?>
+            </span>
+            <span id="countdownfissures"></span>
+            </div>
+    
+    <?php    
+    }
+    ?>
     <?=$content?>
     
     <footer></footer>
