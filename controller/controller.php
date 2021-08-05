@@ -1,16 +1,20 @@
 <?php
 
 use Wamp\www\model\Members;
+use Wamp\www\model\Fissures;
 
 
 //Charge les fichers qui appel la base de données
 require_once('model/Manager.php');
 require_once('model/Members.php');
+require_once('model/Fissures.php');
 class Controller{
     
     function basicglypher()
     {
         $postManager = new Members();
+        $Fissures = new Fissures();
+        $getFissures = $Fissures->howToGetFissuresTypeMissions();
         // die(var_dump('dans le controller'));
         require('views/basicsglypher.php');
     }
