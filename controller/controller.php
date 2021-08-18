@@ -15,6 +15,64 @@ class Controller{
         $postManager = new Members();
         $Fissures = new Fissures();
         $getFissures = $Fissures->howToGetFissuresTypeMissions();
+    /*TODO:
+     * V- récupérer les fissures de l'api en php
+     * V- création d'un tableau de résultat
+     * V- pour chaques fissure regarder si le node est en BDD (if node1 est en BDD) [utiliser les rowCount]
+     * - chaque node est ajouté au tableau 
+     * - si présente dans la BDD le node = ''
+     * - sinon vaut le node en lui même
+     * - ajouter la valeur du modifier voidT 1-2-3-4-5
+     * - créé 5 tableaux donc un par hauteur de void et push dans le bon tableau
+     * - apeller la vue pour afficher le tableau tiré
+     * - elle refera un test si elle est présente sinon affiche le node
+     */
+        $urlFissures = "http://localhost/views/api.php";
+        $ch = curl_init($urlFissures);
+        curl_setopt($ch, CURLOPT_URL, $urlFissures);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'Content-Type: application/json');
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }else{
+          // Afficher le résultat du serveur
+          $addBginningResult = '{';
+          $addEndingResult = '}';
+          //position de syndicate mission
+          $posStingStartSyndicate = strpos($result, '"ActiveMissions"');
+          //les fissures sont dans ActiveMissions
+          $posStingEndSyndicate = strpos($result,',"VoidTraders"');
+          $substrToPos = substr($result,$posStingStartSyndicate,$posStingEndSyndicate-$posStingStartSyndicate );
+        //   var_dump($substrToPos);
+          $newResult = json_decode(($addBginningResult . $substrToPos . $addEndingResult),true);
+        //   var_dump($newResult);
+        //   var_dump(substr($substrToPos,2000));
+        //   var_dump($newResult['ActiveMissions']);
+          //il compte bien ici
+            // var_dump(count($newResult['ActiveMissions']));
+         
+          for($i=0; $i<count($newResult['ActiveMissions']); $i++){
+            //il faut touver les différents Node
+            $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
+            var_dump($infos);
+            }
+
+
+
+        //   $nodeResult = ['Node'];
+        //   var_dump($nodeResult);
+          //BDD
+          $data = $getFissures ->fetch();
+        //   var_dump($data) ;
+          $nodeData = $data['node'];
+          //! Surement à modifier car rowCount à une erreur
+        //   $rowCont = $nodeData ->rowCount();
+          if($nodeData == $newResult){
+              var_dump('je suis dans le if');
+          }
+        }
+        curl_close ($ch);
         // die(var_dump('dans le controller'));
         require('views/basicsglypher.php');
     }
