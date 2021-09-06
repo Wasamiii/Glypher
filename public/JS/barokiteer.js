@@ -30,7 +30,7 @@ class Baro {
                 refreshApiBaro();
             }else{
                 let baro_S = Math.floor(timerForBaro %60);
-                let baro_M = (((timerForBaro - baro_S) /60)%60);
+                let baro_M = Math.floor(((timerForBaro - baro_S) /60)%60);
                 let baro_H = Math.floor((((timerForBaro - baro_S) /60)/60)%24);
                 let baro_J = Math.floor((((timerForBaro - baro_S)/60)/60)/24);
                 this.baro.innerHTML =baro_J+ "d" + baro_H + "h" + baro_M + "m" + baro_S + "s";
