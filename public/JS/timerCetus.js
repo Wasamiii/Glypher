@@ -44,7 +44,7 @@ class TimerCetus{
                     }
                 }
                 let eidos_S = Math.floor(timerEidos %60);
-                let eidos_M = (((timerEidos - eidos_S) /60)%60);
+                let eidos_M = Math.floor(((timerEidos - eidos_S) /60)%60);
                 let eidos_H = Math.floor(((timerEidos - eidos_S) /60)/60);
                 this.countCetus.innerHTML = eidos_H +"h"+ eidos_M +"m"+ eidos_S +"s";
             }
