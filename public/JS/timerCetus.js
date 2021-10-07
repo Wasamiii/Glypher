@@ -23,7 +23,7 @@ class TimerCetus{
                 // console.log(parseCetus);
                 const get_timestamp_eidos_expiry = Math.floor(parseCetus["Expiry"]["$date"]["$numberLong"] / 1000);
                 //fonctionne pas mais à voir comment le faire fonctionner
-                const get_timestamp_eidos_activation = Math.floor(parseCetus["Activation"]["$date"]["$numberLong"] / 1000);
+                //const get_timestamp_eidos_activation = Math.floor(parseCetus["Activation"]["$date"]["$numberLong"] / 1000);
                 // console.log(get_timestamp_eidos_activation);
     
                 const date = Date.now();
