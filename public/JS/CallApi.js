@@ -4,8 +4,8 @@ class Api{
     // this.allTimers;
   }
   async syndicate(){
-       let cetusMissions =  await axios.get(this.url);
-       return cetusMissions;
+       let APIMissions =  await axios.get(this.url);
+       return APIMissions;
   }
 }
 let refreshAPIcetus = ()=>{
