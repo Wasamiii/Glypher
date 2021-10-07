@@ -1,12 +1,14 @@
 <?php
-namespace Wamp\www\model;
+namespace model;
+require '../vendor/autoload.php';
+use model\Manager;
 
-use Wamp\www\model\Manager;
-require_once('model/Manager.php');
 
 class Fissures extends Manager
 {
-    
+    public function __construct(){
+
+    }
     public function howToGetFissuresTypeMissions(){
         $db = $this->dbConnect();
         $getFissures= $db -> prepare('SELECT fissures.node, fissures.mission_fissures,mission_type.trad_mission,region.planete 

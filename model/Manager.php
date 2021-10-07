@@ -1,5 +1,5 @@
 <?php
-namespace Wamp\www\model;  
+namespace model;  
 
 class Manager
 {
