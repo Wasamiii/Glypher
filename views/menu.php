@@ -3,7 +3,7 @@
 <a href="index.php" id="homepage">Home</a>
 <!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
 <a href="about.php" id="about">About</a>
-<a href="nightmode" class="nightmode"><i class="fas fa-moon"></i></a>
+<a href="" class="nightmode"><i class="fas fa-moon"></i></a>
 <!--<a href="lightmode" class="lightmode"><i class="far fa-sun"></i></a>-->
 
 <?php
