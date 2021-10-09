@@ -1,8 +1,9 @@
 <?php
-namespace Wamp\www\model;
+namespace model;
+require_once('Manager.php');
+// require '../vendor/autoload.php';
+use model\Manager;
 
-use Wamp\www\model\Manager;
-require_once('model/Manager.php');
 class Members extends Manager
 {
     public function postsignup($pseudo,$email,$pass_hache){

@@ -1,5 +1,6 @@
 <?php
-namespace model;  
+namespace model; 
+// require '../vendor/autoload.php'; 
 
 class Manager
 {

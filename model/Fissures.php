@@ -1,6 +1,7 @@
 <?php
 namespace model;
-require '../vendor/autoload.php';
+require_once('Manager.php');
+// require '../vendor/autoload.php';
 use model\Manager;
 
 
