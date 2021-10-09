@@ -1,32 +1,25 @@
 <?php
-
-use Wamp\www\model\Members;
-use Wamp\www\model\Fissures;
-
+namespace controller;
+// var_dump(require 'vendor/autoload.php');
 
 //Charge les fichers qui appel la base de données
 require_once('model/Manager.php');
 require_once('model/Members.php');
 require_once('model/Fissures.php');
+
+// use model\Manager;
+use model\Members;
+use model\Fissures;
+
 class Controller{
-    
     function basicglypher()
     {
+        
         $postManager = new Members();
         $Fissures = new Fissures();
+        
         $getFissures = $Fissures->howToGetFissuresTypeMissions();
-    /*TODO:
-     * V- récupérer les fissures de l'api en php
-     * V- création d'un tableau de résultat
-     * V- pour chaques fissure regarder si le node est en BDD (if node1 est en BDD) [utiliser les rowCount]
-     * - chaque node est ajouté au tableau 
-     * - si présente dans la BDD le node = ''
-     * - sinon vaut le node en lui même
-     * - ajouter la valeur du modifier voidT 1-2-3-4-5
-     * - créé 5 tableaux donc un par hauteur de void et push dans le bon tableau
-     * - apeller la vue pour afficher le tableau tiré
-     * - elle refera un test si elle est présente sinon affiche le node
-     */
+
         $urlFissures = "http://localhost/views/api.php";
         $ch = curl_init($urlFissures);
         curl_setopt($ch, CURLOPT_URL, $urlFissures);
@@ -36,45 +29,63 @@ class Controller{
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
         }else{
-          // Afficher le résultat du serveur
-          $addBginningResult = '{';
-          $addEndingResult = '}';
-          //position de syndicate mission
-          $posStingStartSyndicate = strpos($result, '"ActiveMissions"');
-          //les fissures sont dans ActiveMissions
-          $posStingEndSyndicate = strpos($result,',"VoidTraders"');
-          $substrToPos = substr($result,$posStingStartSyndicate,$posStingEndSyndicate-$posStingStartSyndicate );
-        //   var_dump($substrToPos);
-          $newResult = json_decode(($addBginningResult . $substrToPos . $addEndingResult),true);
-        //   var_dump($newResult);
-        //   var_dump(substr($substrToPos,2000));
-        //   var_dump($newResult['ActiveMissions']);
-          //il compte bien ici
-            // var_dump(count($newResult['ActiveMissions']));
-         
-          for($i=0; $i<count($newResult['ActiveMissions']); $i++){
-            //il faut touver les différents Node
-            $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
-            var_dump($infos);
+            // Afficher le résultat du serveur
+            $addBiginningResult = '{';
+            $addEndingResult = '}';
+            //position de ActiveMissions
+            $posStingStartActive = strpos($result, '"ActiveMissions"');
+            
+            //les fissures sont dans ActiveMissions
+            $posStingEndActive = strpos($result, ',"VoidTraders"');
+            $substrToPos = substr($result, $posStingStartActive, $posStingEndActive-$posStingStartActive);
+            $newResult = json_decode(($addBiginningResult . $substrToPos . $addEndingResult), true);
+            // var_dump($newResult);
+            //il compte bien ici
+            $arrayT1 = [];
+            $arrayT2 = [];
+            $arrayT3 = [];
+            $arrayT4 = [];
+            $arrayT5 = [];
+            $notInDB = [];
+
+            for ($i=0; $i<count($newResult['ActiveMissions']); $i++) {
+            
+                //il faut touver les différents Node
+    
+                $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
+                
+                
+                 $timeFissures = $newResult['ActiveMissions'][$i]["Expiry"]["\$date"]["\$numberLong"];
+
+                // $countr_Fissurres = floor(($timeFissures/10000) - (time()/1000));
+                
+    
+                $node = $Fissures->infosFissures($infos['node']);
+                
+               
+                if ($node->rowCount()!= null) {
+                    $void = substr($newResult['ActiveMissions'][$i]['Modifier'], 5, 1);
+                    switch ($void) {
+                    case '1': array_push($arrayT1, array_merge($node->fetch(),array("Expiry"=> $timeFissures)));
+                    break;
+                    case '2': array_push($arrayT2, array_merge($node->fetch(),array("Expiry"=> $timeFissures)));
+                    break;
+                    case '3': array_push($arrayT3, array_merge($node->fetch(),array("Expiry"=> $timeFissures)));
+                    break;
+                    case '4': array_push($arrayT4, array_merge($node->fetch(),array("Expiry"=> $timeFissures)));
+                    break;
+                    case '5': array_push($arrayT5, array_merge($node->fetch(),array("Expiry"=> $timeFissures)));
+                    break;
+                }
+                } else {
+                    array_push($notInDB,array("node"=> $newResult['ActiveMissions'][$i]['Node'],"Expiry"=> $timeFissures));
+                }
             }
 
-
-
-        //   $nodeResult = ['Node'];
-        //   var_dump($nodeResult);
-          //BDD
-          $data = $getFissures ->fetch();
-        //   var_dump($data) ;
-          $nodeData = $data['node'];
-          //! Surement à modifier car rowCount à une erreur
-        //   $rowCont = $nodeData ->rowCount();
-          if($nodeData == $newResult){
-              var_dump('je suis dans le if');
-          }
         }
         curl_close ($ch);
-        // die(var_dump('dans le controller'));
         require('views/basicsglypher.php');
+        
     }
 
     public function signup()
