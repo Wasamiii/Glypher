@@ -9,9 +9,9 @@
     ],
 	"autoload": {
         "psr-4": {
-            "model\\":"model/",
             "controller\\": "controller/",
-            "Views\\":"views/"
+            "model\\":"model/",
+            "views\\":"views/"
         }
     },
     "require": {}
