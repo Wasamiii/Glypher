@@ -3,7 +3,7 @@ namespace controller;
 // var_dump(require 'vendor/autoload.php');
 
 //Charge les fichers qui appel la base de données
-require_once('model/Manager.php');
+// require_once('model/Manager.php');
 require_once('model/Members.php');
 require_once('model/Fissures.php');
 
