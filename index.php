@@ -1,8 +1,8 @@
 <?php
-
 session_start();
-require 'vendor/autoload.php';
-require('controller/controller.php');
+require('controller/Controller.php');
+// var_dump(require 'vendor/autoload.php');
+use controller\Controller;
 //chercher à faire les choses en POO
 class Index extends Controller{
     public function __construct() {
@@ -36,7 +36,7 @@ class Index extends Controller{
                 break;
                 //Affiche la liste de base non membre connecté
                 default: 
-                    $instancecontroller->basicglypher();
+                $instancecontroller->basicglypher();
                 break;
             }
         }
