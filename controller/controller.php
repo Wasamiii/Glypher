@@ -1,17 +1,20 @@
 <?php
 namespace controller;
-// var_dump(require 'vendor/autoload.php');
+//require "vendor/autoload.php";
 
 //Charge les fichers qui appel la base de données
-// require_once('model/Manager.php');
+require_once('model/Manager.php');
 require_once('model/Members.php');
 require_once('model/Fissures.php');
 
-// use model\Manager;
-use model\Members;
+use model\Manager;
 use model\Fissures;
+use model\Members;
 
 class Controller{
+    public function __construct(){
+
+    }
     function basicglypher()
     {
         
@@ -40,7 +43,7 @@ class Controller{
             $substrToPos = substr($result, $posStingStartActive, $posStingEndActive-$posStingStartActive);
             $newResult = json_decode(($addBiginningResult . $substrToPos . $addEndingResult), true);
             // var_dump($newResult);
-            //il compte bien ici
+            //Tableau de rangement des fissures en fonction de leurs hauteur VoidT?
             $arrayT1 = [];
             $arrayT2 = [];
             $arrayT3 = [];
@@ -51,15 +54,10 @@ class Controller{
             for ($i=0; $i<count($newResult['ActiveMissions']); $i++) {
             
                 //il faut touver les différents Node
-    
                 $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
-                
-                
                  $timeFissures = $newResult['ActiveMissions'][$i]["Expiry"]["\$date"]["\$numberLong"];
-
                 // $countr_Fissurres = floor(($timeFissures/10000) - (time()/1000));
-                
-    
+                //Récupérer les Nodes aussi dans la BDD pour les comparer
                 $node = $Fissures->infosFissures($infos['node']);
                 
                
@@ -115,8 +113,8 @@ class Controller{
             }
         }
         //à modifier en fonction des différentes condition 2 pseudo identiques on retourne faux 
-        if($signup = false){
-        throw new Exception('Impossibilité de s\'inscrire pour l\'instant');
+        if($signup !== false){
+        echo('Impossibilité de s\'inscrire pour l\'instant');
         
         }else{
         header('Location: index.php');
@@ -133,7 +131,7 @@ class Controller{
             if($pseudos == 0){
                 echo "Pseudo disponible";
             }else{
-                throw new Exception('Pseudo non disponible');
+                echo('Pseudo non disponible');
             }
         }
     }
