@@ -1,6 +1,7 @@
 <?php $title = 'Glyphers'?>
 <?php ob_start(); ?>
     <?php require_once('views/timers.php');?>
+    <?php require_once('views/glyph.php'); ?>
 <!--Ici se trouvera la totalité des glyphes mais non cochables car utilisateurs non inscrit -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
