@@ -1,6 +1,6 @@
 <?php
-// require '../vendor/autoload.php';
-require_once('../model/Fissures.php');
+require '../vendor/autoload.php';
+// require_once('../model/Fissures.php');
 use model\Fissures;
 function public_Api(){
   // $Fissures = new Fissures();
@@ -46,9 +46,9 @@ function public_Api(){
     $posStingStartBaro = strpos($result,'"VoidTraders"');
     $posStingEndBaro = strpos($result,',"VoidStorms"' );
     $substrToPosBaro = substr($result, $posStingStartBaro,$posStingEndBaro-$posStingStartBaro);
-    //! ne pas oublier de supprimer ce qu'il y à ci-dessous + '],' à changer en ',' et supprimer l'autre
-    $fissuresTest = '{"_id":{"$oid":"614c6101c6da6fe6117d91"},"Region":19,"Seed":76520,"Activation":{"$date":{"$numberLong":"1632395521629"}},"Expiry":{"$date":{"$numberLong":"'.((time()*1000)+ 60000).'"}},"Node":"SolNode999","MissionType":"MT_INTEL","Modifier":"VoidT5"}';
-    $newResult = $addBginningResult . $substrToPosSyndicate .','.$substrToPosActive. ',' . $fissuresTest .'],'. $substrToPosBaro . $addEndingResult;
+    
+    
+    $newResult = $addBginningResult . $substrToPosSyndicate .','.$substrToPosActive. '],'. $substrToPosBaro . $addEndingResult;
     
     //echo $testResult;
     //echo $substrToPosDelete;
