@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '193fa24705bb37ca9fa13ba5314b756c3f8edfc2',
+    'reference' => '1ba592bb339a06b8982e9580ad39b2db022744fb',
     'name' => 'vendor/glyphs',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '193fa24705bb37ca9fa13ba5314b756c3f8edfc2',
+      'reference' => '1ba592bb339a06b8982e9580ad39b2db022744fb',
     ),
   ),
 );
