@@ -40,7 +40,7 @@ callAPIfissures(){
                     let addmodifier = "fissuresTimer" + modifierFissures;
                     let PFTimertiers = "PFTimer" + modifierFissures;
                     if(document.getElementById(get_node_Fissures) === null){
-                        console.log(get_Modifier_Fissures);
+                        // console.log(get_Modifier_Fissures);
                         switch (get_Modifier_Fissures){
                             case 'VoidT1':
                                 //T1
@@ -151,20 +151,20 @@ callAPIfissures(){
                                 let classDivt5 = newDiv1t5.setAttribute("class", addmodifier);
                             break;
                             default:
-                                console.log("En dehors de l'expression dans switch");
+                                //console.log("En dehors de l'expression dans switch");
                         }
                     }
 
                     //je récupère l'id ici et ça compare directement entre get_node_Fissures(qui viens de l'api) et l'id 
                     let getIDfissures = document.getElementById(get_node_Fissures);
-                    console.log(getIDfissures);
+                    //console.log(getIDfissures);
                     
                     //!event pour supprimer le bon élément dans la session [array] lorsque l'expiry - date est à 0 
                     //! reprendre le total des fissures et les comprarer pour pas avoir de doublons
 
                    if(timer_Fissures <= 0 || getIDfissures === null){
                     
-                    console.log('fissures suprimé!' + JSON.parse(sessionStorage.getItem('Fissures')));
+                    //console.log('fissures suprimé!' + JSON.parse(sessionStorage.getItem('Fissures')));
                     let FstElement = document.getElementById('fissuresTimerT1');
                     while (FstElement.firstChild) {
                         FstElement.removeChild(FstElement.firstChild);
@@ -187,10 +187,10 @@ callAPIfissures(){
                     }
                     sessionStorage.removeItem('Fissures');
 
-                    console.log(modifierFissures);
+                    // console.log(modifierFissures);
                     }else{
                     
-                    console.log(timer_Fissures);
+                    // console.log(timer_Fissures);
                     let fissures_S = Math.floor(timer_Fissures %60);
                     let fissures_M = Math.floor(((timer_Fissures - fissures_S) /60)%60);
                     let fissures_H = Math.floor((((timer_Fissures - fissures_S)/60)/60));
