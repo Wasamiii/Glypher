@@ -6,15 +6,23 @@ namespace controller;
 require_once('model/Manager.php');
 require_once('model/Members.php');
 require_once('model/Fissures.php');
+require_once('model/Glyph.php');
 
 use model\Manager;
 use model\Fissures;
 use model\Members;
+use model\Glyph;
 
 class Controller{
     public function __construct(){
 
     }
+    // function testGlyph(){
+    //     $glypher = new Glyph();
+    //     $getglyph = $glypher->GetGlyph();
+    //     return $getglyph;
+
+    // }
     function basicglypher()
     {
         
@@ -82,10 +90,14 @@ class Controller{
 
         }
         curl_close ($ch);
+
+
+        $glypher = new Glyph();
+        $getglyph = $glypher->GetGlyph();
         require('views/basicsglypher.php');
         
     }
-
+    
     public function signup()
     {
         $sign = new Members();
