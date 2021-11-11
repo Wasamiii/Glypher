@@ -105,3 +105,28 @@ span#countdown{
 #timerBaro{
     display: inline-block;
 }
+
+#container-glyph{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+figure{
+    display: block;
+    margin: 0.5% 0.5%;
+    border:  0.5px solid #11A7B0;
+    border-radius: 3%;
+}
+figcaption{
+    display: flex;
+    justify-content:center;
+}
+figcaption p {
+    width: auto;
+}
+#img-glyph{
+    width: 128px;
+    height: 128px;
+    border-radius: 3%;
+}
