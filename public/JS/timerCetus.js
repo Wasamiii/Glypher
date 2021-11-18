@@ -2,7 +2,7 @@ class TimerCetus{
     constructor(){    
     this.interval = 0;
     this.countCetus = document.getElementById('countdowncetus');
-    this.attributeCetus = document.getElementById("timer");
+    this.attributeCetus = document.getElementById("cetustimer");
     }
     initTimerCetus(){
         let CetusIsDay = document.getElementById('#day');
@@ -46,7 +46,7 @@ class TimerCetus{
                 let eidos_S = Math.floor(timerEidos %60);
                 let eidos_M = Math.floor(((timerEidos - eidos_S) /60)%60);
                 let eidos_H = Math.floor(((timerEidos - eidos_S) /60)/60);
-                this.countCetus.innerHTML = eidos_H +"h"+ eidos_M +"m"+ eidos_S +"s";
+                this.countCetus.innerHTML = eidos_H +"h "+ eidos_M +"m "+ eidos_S +"s ";
             }
         };
         //setInterval fonctionne mais cause de l'appel de la fonction fait des appel d'api à chaque fois ce qui est pas bon 
