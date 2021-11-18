@@ -194,7 +194,7 @@ callAPIfissures(){
                     let fissures_S = Math.floor(timer_Fissures %60);
                     let fissures_M = Math.floor(((timer_Fissures - fissures_S) /60)%60);
                     let fissures_H = Math.floor((((timer_Fissures - fissures_S)/60)/60));
-                    getIDfissures.textContent =  fissures_H +"h " + fissures_M + "min " + fissures_S + "s";
+                    getIDfissures.textContent = ": " + fissures_H +"h " + fissures_M + "min " + fissures_S + "s";
                     }
                     //console.log(get_node_Fissures);
                     // console.log(get_Mission_Fissures);
