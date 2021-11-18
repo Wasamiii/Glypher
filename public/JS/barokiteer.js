@@ -33,11 +33,11 @@ class Baro {
                 let baro_M = Math.floor(((timerForBaro - baro_S) /60)%60);
                 let baro_H = Math.floor((((timerForBaro - baro_S) /60)/60)%24);
                 let baro_J = Math.floor((((timerForBaro - baro_S)/60)/60)/24);
-                this.baro.innerHTML =baro_J+ "d" + baro_H + "h" + baro_M + "m" + baro_S + "s";
+                this.baro.innerHTML =baro_J+ "d " + baro_H + "h " + baro_M + "m " + baro_S + "s";
                 if(timerBaro !== null){
-                    this.itsbaro.innerHTML = "Baro Arrive dans:";
+                    this.itsbaro.innerHTML = "Baro Arrives in:";
                 }else{
-                    this.itsbaro.innerHTML = "Baro est là !";
+                    this.itsbaro.innerHTML = "Baro is here !";
                 }
             }
         };
