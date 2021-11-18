@@ -1,14 +1,28 @@
 @font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../Fonts/Roboto-Regular.ttf');
+    src: url('../Fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../Fonts/Roboto-Bold.ttf');
+    src: url('../Fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
     font-family: 'OpenSans';
     src: url('../Fonts/OpenSans-Regular.ttf');
     src: url('../Fonts/OpenSans-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal
 }
 
 body,header{
-    background: #0C242C;
-    color: #A3A3A3;
+    background: #060e33;
+    color: #bbbbbb;
 }
 /*----MENU----*/
 header{
@@ -31,7 +45,7 @@ input{
     border-radius: 50px;
 }
 a#homepage, a#about{
-    font-family: "OpenSans";
+    font-family: "Roboto-Regular";
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
@@ -41,7 +55,7 @@ a#homepage, a#about{
     text-align: center;
     text-transform: capitalize;
     text-decoration: none;
-    color: #A3A3A3;
+    color: #dadada;
 }
 
 a.nightmode{
@@ -54,9 +68,10 @@ a.nightmode{
     
 }
 a#singupLink{
+    font-family: 'Roboto-Regular';
     padding: 0.5% 1%;
     font-weight: 800;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 22px;
     text-decoration: none;
     color:#000000;
@@ -66,10 +81,15 @@ a#singupLink{
     border-radius: 50px;
 }
 
-
+div#timers{
+    font-family: 'Roboto-Regular';
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
 i.fa-bars{
     font-size: 32px;
-    color: #A3A3A3;
+    color: #dadada;
 }
 i.fa-moon{
     position: relative;
@@ -78,38 +98,46 @@ i.fa-moon{
 
     top: 18%;
 
-    color: #141414;
-}
+    color: #000000;
+} 
 img#svgnight,img#svgday{
-    width: 1.5%;
-    height: auto;
+    
+    width: 21px;
+    height: 21px;
 }
 /*Modifier les svg en fonction des couleurs demandé*/
-img#svgnight{
-    color: rgb(0, 147, 206);
-}
-img#svgday{ color: orange;}
-  
 
-#night { color: rgb(0, 147, 206); }
+#night { color: #0093ce; }
 #day,img#svgday { color: orange; }
 #night, #day {
     font-weight: bold;
     display: none;
   }
-#timer[data-cycle=night] #night, #timer[data-cycle=day] #day { display: inline }
+#cetustimer[data-cycle=night] #night, #cetustimer[data-cycle=day] #day { display: inline }
 span#countdown{
-      color: #A3A3A3;
+      color: #dadada;
   }
 
 #timerBaro{
     display: inline-block;
 }
+#cetustimer,#timerBaro,#fissures{
+    border: 1px solid #11A7B0;
+    border-radius: 1.5%;
+    padding: 2%;
+}
+#countdowncetus,#countdownbaro,span.fissuresTimerT1,span.fissuresTimerT2,span.fissuresTimerT3,span.fissuresTimerT4,span.fissuresTimerT5{
+ font-family: 'Roboto-Bold';
+}
+/* div#fissures{
 
+    
+} */
 #container-glyph{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    font-family: 'Roboto-Regular';
 }
 
 figure{
