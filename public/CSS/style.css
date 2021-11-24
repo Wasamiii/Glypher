@@ -19,11 +19,11 @@
     font-weight: normal;
     font-style: normal
 }
-
-body,header{
-    background: #060e33;
-    color: #bbbbbb;
+body.dark{
+    background: #060e33!important;
+    color: #bbbbbb!important;
 }
+
 /*----MENU----*/
 header{
     display:flex;
@@ -44,6 +44,7 @@ input{
     box-sizing: border-box;
     border-radius: 50px;
 }
+
 a#homepage, a#about{
     font-family: "Roboto-Regular";
     font-style: normal;
@@ -55,18 +56,9 @@ a#homepage, a#about{
     text-align: center;
     text-transform: capitalize;
     text-decoration: none;
-    color: #dadada;
+    color:#11A7B0;
 }
 
-a.nightmode{
-    width: 127px;
-    height: 48px;
-    background: #11A7B0;
-    border: 1px solid #141414;
-    box-sizing: border-box;
-    border-radius: 50px;
-    
-}
 a#singupLink{
     font-family: 'Roboto-Regular';
     padding: 0.5% 1%;
@@ -80,7 +72,6 @@ a#singupLink{
     box-sizing: border-box;
     border-radius: 50px;
 }
-
 div#timers{
     font-family: 'Roboto-Regular';
     display: flex;
@@ -89,17 +80,9 @@ div#timers{
 }
 i.fa-bars{
     font-size: 32px;
-    color: #dadada;
+
 }
-i.fa-moon{
-    position: relative;
-    font-size: 32px;
-    left: 40%;
 
-    top: 18%;
-
-    color: #000000;
-} 
 img#svgnight,img#svgday{
     
     width: 21px;
@@ -112,8 +95,10 @@ img#svgnight,img#svgday{
 #night, #day {
     font-weight: bold;
     display: none;
-  }
+}
+
 #cetustimer[data-cycle=night] #night, #cetustimer[data-cycle=day] #day { display: inline }
+
 span#countdown{
       color: #dadada;
   }
@@ -146,6 +131,9 @@ figure{
     border:  0.5px solid #11A7B0;
     border-radius: 3%;
 }
+figure.transcande{
+    border:  0.5px solid #60ef01;
+}
 figcaption{
     display: flex;
     justify-content:center;
@@ -157,4 +145,72 @@ figcaption p {
     width: 128px;
     height: 128px;
     border-radius: 3%;
+}
+
+
+
+/*----Nightmode----*/
+div.nightmode{
+    width: 127px;
+    height: 48px;
+    background: #11A7B0;
+    border: 3px solid #141414;
+    box-sizing: border-box;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+div.nightmode i.fa-sun{
+    position: relative;
+    font-size: 32px;
+    left: 40%;
+    top: 18%;
+    color: #000000;
+} 
+/*----Lightmode----*/
+body.light{
+    background:#f1f1f1;
+    color:#1f1f1f;
+}
+div.lightmode{
+    display: none;
+    width: 127px;
+    height: 48px;
+    background:#f1f1f1;
+    border: 3px solid #141414;
+    box-sizing: border-box;
+    border-radius: 50px;
+    cursor: pointer;
+}
+div.lightmode i.fa-moon{
+    position: relative;
+    font-size: 32px;
+    left: 40%;
+    top: 18%;
+    color: #141414;
+}
+/*----Transcand----*/
+body.transcande{
+    background: #0001ec;
+    color: #ff00f2;
+    }
+div.transcand{
+    display: none;
+    width: 127px;
+    height: 48px;
+    background:#ff00f2;
+    border: 3px solid #60ef01;
+    box-sizing: border-box;
+    border-radius: 50px;
+    cursor: pointer;
+}
+div.transcand img{
+    position: relative;
+    left: 40%;
+    top: 18%;
+    width: 32px;
+    height: 32px;
+}
+div#cetustimer > span.transcande, div#timerBaro > span.transcande,div#fissures > span.transcande{
+    color: #60ef01;
 }
