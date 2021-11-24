@@ -1,11 +1,13 @@
-<a href="index.php" id="Logo-site"><img src="public/IMG/Logo-site128x128.png" alt="logo du site" id="img-logo-site"></a>
+<a href="index.php" id="Logo-site"><img src="public/IMG/Warframe-logo-site-128.png" alt="logo du site" id="img-logo-site"></a>
 <i class="fas fa-bars"></i>
 <a href="index.php" id="homepage">Home</a>
 <!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
 <a href="about.php" id="about">About</a>
-<a href="" class="nightmode"><i class="fas fa-moon"></i></a>
-<!--<a href="lightmode" class="lightmode"><i class="far fa-sun"></i></a>-->
-
+<div class="btn-toggle">
+<div class="nightmode"><i class="far fa-sun"></i></div>
+<div class="lightmode"><i class="fas fa-moon"></i></div>
+<div class="transcand"><img src="public/IMG/PLOT.png"></div>
+</div>
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     {
@@ -30,7 +32,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
         <input type="password" name="password" placeholder="Password" class="inputSigin" required>
         <input type="submit" value="Login" name="signin" id="connexionSigin">
-        <a href="index.php?action=members" id="singupLink">Singup</a>
+        <a href="index.php?action=members" id="singupLink">Signup</a>
 </form>
 </div>
 </div>
