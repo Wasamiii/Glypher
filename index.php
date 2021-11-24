@@ -34,8 +34,11 @@ class Index extends Controller{
                 case'disconnect':
                     $instancecontroller->disconnect();
                 break;
+                case 'submit':
+                    $instancecontroller->submit();
+                break;
                 //Affiche la liste de base non membre connecté
-                default: 
+                default:
                 $instancecontroller->basicglypher();
                 break;
             }
