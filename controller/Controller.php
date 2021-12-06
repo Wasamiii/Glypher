@@ -95,9 +95,32 @@ class Controller{
         $glypher = new Glyph();
         $getglyph = $glypher->GetGlyph();
         require('views/basicsglypher.php');
-        
     }
-    
+    public function submit(){
+        require('views/submit.php');
+    }
+    public function addpost($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
+        $newGlyph = new Glyph();
+        $addGlyph = $newGlyph -> addGlyph(
+            $titlePost,
+            $img_submit,
+            $submit_Youtube,
+            $submit_Twitch,
+            $submit_Discord,
+            $submit_Tiwtter,
+            $submit_Instagram,
+            $submit_Facebook,
+            $submit_Site_1,
+            $submit_Site_2,
+            $desc_submit,
+            $author
+        );
+        if($addGlyph === false){
+            die(var_dump("Its not possible to add glyph"));
+        }else{
+            header('Location: index.php');
+        }
+    }
     public function signup()
     {
         $sign = new Members();

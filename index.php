@@ -34,8 +34,31 @@ class Index extends Controller{
                 case'disconnect':
                     $instancecontroller->disconnect();
                 break;
+                case 'submit': 
+                    $instancecontroller->submit();
+                break;
+                case 'addpost':
+                    if(!empty($_POST['titlePost']) && !empty($_POST['img_submit']) && !empty($_POST['desc_submit'])){
+                        $instancecontroller->addpost(
+                            $_POST['titlePost'],
+                            $_POST['img_submit'],
+                            $_POST['submit_Youtube'],
+                            $_POST['submit_Twitch'],
+                            $_POST['submit_Discord'],
+                            $_POST['submit_Tiwtter'],
+                            $_POST['submit_Instagram'],
+                            $_POST['submit_Facebook'],
+                            $_POST['submit_Site_1'],
+                            $_POST['submit_Site_2'],
+                            $_POST['desc_submit'],
+                            $_SESSION['id']
+                        );
+                    }else{
+                        die(var_dump('not valid'));
+                    }
+                break;
                 //Affiche la liste de base non membre connecté
-                default: 
+                default:
                 $instancecontroller->basicglypher();
                 break;
             }

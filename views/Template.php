@@ -7,7 +7,7 @@
     <title><?= $title ?></title>
     <link rel="shortcut icon" href="public/IMG/Warframe-glypher-head_256.png" type="image/x-icon"/>
     <link rel="icon" type="image/png" href="public/IMG/Warframe-glypher-head_256.png"/>
-    <link rel="stylesheet" href="public/CSS/style.css">
+    <link rel="stylesheet" href="public/CSS/style.scss">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 <body class ="dark">
@@ -17,4 +17,5 @@
     <?=$content?>
     <footer></footer>
 </body>
+<script src="public/JS/style.js"></script>
 </html>
