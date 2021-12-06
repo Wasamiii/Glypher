@@ -40,7 +40,7 @@ class TimerCetus{
                         refreshAPIcetus();
                     }else{
                          //night
-                    this.attributeCetus.setAttribute('data-cycle', 'night');
+                        this.attributeCetus.setAttribute('data-cycle', 'night');
                     }
                 }
                 let eidos_S = Math.floor(timerEidos %60);
