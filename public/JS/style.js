@@ -19,7 +19,7 @@ class Style {
     this.fissuresTimer = document.querySelector('div#fissures');
     this.childfissuresTimer = document.querySelector('div#fissures > span');
     //figures
-    this.figure = document.querySelector('figure');
+    this.figure = document.querySelectorAll('figure');
   }
   darkAndlight() {
     style.basicGlypher();
@@ -73,7 +73,9 @@ class Style {
             this.fissuresTimer.classList.add('transcande');
             this.childfissuresTimer.classList.add('transcande');
             //figure
-            this.figure.classList.add('transcande');
+            for(let i = 0; i< this.figure.length; i++){
+              this.figure[i].classList.add('transcande');
+            }
             //display
             this.light.style.display = 'none';
             this.night.style.display = 'none';
@@ -94,7 +96,9 @@ class Style {
             this.fissuresTimer.classList.add('transcande');
             this.childfissuresTimer.classList.add('transcande');
             //figure
-            this.figure.classList.add('transcande');
+            for(let i = 0; i< this.figure.length; i++){
+              this.figure[i].classList.add('transcande');
+            }
             //display
             this.light.style.display = 'none';
             this.night.style.display = 'none';
@@ -105,7 +109,7 @@ class Style {
           this.body.classList.add('dark');
           this.body.classList.remove('transcande');
           this.body.classList.remove('light');
-          this.title.classList.replace('titleight', 'titlenight');
+          this.title.classList.replace('titlelight', 'titlenight');
           //cetus
           this.cetusTimer.classList.remove('transcande');
           this.childcetusTimer.classList.remove('transcande');
@@ -116,7 +120,9 @@ class Style {
           this.fissuresTimer.classList.remove('transcande');
           this.childfissuresTimer.classList.remove('transcande');
           //figure
-          this.figure.classList.remove('transcande');
+          for(let i = 0; i< this.figure.length; i++){
+            this.figure[i].classList.remove('transcande');
+          }
           //display
           this.light.style.display = 'none';
           this.night.style.display = 'flex';
