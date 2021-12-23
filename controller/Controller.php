@@ -23,8 +23,10 @@ class Controller{
     //     return $getglyph;
 
     // }
-    function basicglypher()
-    {
+    
+
+    //affichage global
+    function basicglypher(){
         
         $postManager = new Members();
         $Fissures = new Fissures();
@@ -96,11 +98,33 @@ class Controller{
         $getglyph = $glypher->GetGlyph();
         require('views/basicsglypher.php');
     }
+    //redirect to submit
     public function submit(){
         require('views/submit.php');
     }
+    //fonction for add glyph
     public function addpost($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
         $newGlyph = new Glyph();
+        //! modifier pour en faire un upload + rename
+        if(isset($_FILES["img_submit"]) && $_FILES['img_submit']['error'] == 0 ){
+            $fileInfo = pathinfo($_FILES['img_submit']['name']);
+            $extension = $fileInfo['extension'];
+            $allowedExtensions = ['png'];
+            var_dump($fileInfo);
+            if (in_array($extension, $allowedExtensions)){
+                $temp =  explode(".",$_FILES["img_submit"]["name"]);
+                $newfilename = $_POST['titlePost'].'.'.end($temp);
+                $newdir = 'public\IMG\submit\\';
+                $mod = chmod($_FILES["img_submit"]["tmp_name"], 777);
+                $mod = $_FILES['img_submit']['tmp_name'];
+                $img_submit = move_uploaded_file($mod ,$newdir . $newfilename);
+                $img_submit = $newfilename;
+            }else{
+                echo "This is not a PNG image.";
+            }
+        }else{
+            echo "Return Code: ". $_FILES['img_submit']['error'];
+        }
         $addGlyph = $newGlyph -> addGlyph(
             $titlePost,
             $img_submit,
@@ -112,23 +136,22 @@ class Controller{
             $submit_Facebook,
             $submit_Site_1,
             $submit_Site_2,
-            $desc_submit,
+            nl2br($desc_submit),
             $author
         );
+       
         if($addGlyph === false){
             die(var_dump("Its not possible to add glyph"));
         }else{
-            header('Location: index.php');
+            //header('Location: index.php');
         }
     }
-    public function signup()
-    {
+    public function signup(){
         $sign = new Members();
         require('views/signupView.php');
     }
-
-    public function postsignup()
-    {
+    // function form signup
+    public function postsignup(){
     $register = new Members();
         if(isset($_POST['inscription'])){
         $pseudo = $_POST['pseudo'];
@@ -155,9 +178,8 @@ class Controller{
         header('Location: index.php');
         }
     }
-
-    public function verifPseudo($pseudo)
-    {
+    // verify for valid pseudo
+    public function verifPseudo($pseudo){
         $verifpseudo = new Members();
         if(isset($_POST['inscription'])){
             $pseudo = $_POST['pseudo'];
@@ -170,9 +192,8 @@ class Controller{
             }
         }
     }
-
-    public function verifyLogin()
-    {
+    // verif for login form
+    public function verifyLogin(){
         $verifylogin = new Members();
         if(isset($_POST['signin'])){
             $pseudo = $_POST['pseudo'];
@@ -181,24 +202,26 @@ class Controller{
         // Comparaison du pass envoyé via le formulaire avec la base
             $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
             
-            if (!$resultat)
-            {
+            if (!$resultat){
                 echo 'Mauvais identifiant !';
-            }
-            else
-            {
+            }else{
                 if ($isPasswordCorrect) {
                     $_SESSION['id'] = $resultat['user_id'];
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['admin']= $resultat['admin'];
                     header('Location: index.php');
-            }else {
+            }else{
                     echo 'Mauvais mot de passe !';
                 }
             }
         }
     }
-    
+    function admin(){
+        $glypher = new Glyph();
+        $getglyph = $glypher->getsubmit();
+        require_once('views/admin.php');
+    }
+    //function disconnect
     function disconnect(){
         session_destroy();
         header('Location: index.php');
