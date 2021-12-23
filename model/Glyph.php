@@ -8,9 +8,11 @@ class Glyph extends Manager{
     }
     public function GetGlyph(){
         $db = $this->dbConnect();
-        $reqgetglyph = $db -> query('SELECT * 
-        FROM glyphs 
-        ORDER BY  title ASC');
+        $reqgetglyph = $db -> query(
+            'SELECT * 
+            FROM glyphs 
+            ORDER BY  title ASC'
+        );
         //$reqgetglyph -> execute(array());
         //$getglyph = $reqgetglyph->fetchAll();
         return $reqgetglyph;
@@ -32,11 +34,21 @@ class Glyph extends Manager{
             desc_submit,
             date,
             validation,
-            id_user,
+            id_user
         ) 
-        VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  NOW(), 0, ?)');
+        VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  NOW(), 0, ? )');
         $adderGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
+        var_dump($adderGlyph);
         return $adderGlyph;
+    }
+    public function getsubmit(){
+        $db=$this->dbConnect();
+        $getSubmit = $db -> query(
+            'SELECT * 
+            FROM submit
+            ORDER BY id_submit ASC'
+        );
+        return $getSubmit;
     }
 }
 ?>
