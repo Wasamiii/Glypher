@@ -38,10 +38,10 @@ class Index extends Controller{
                     $instancecontroller->submit();
                 break;
                 case 'addpost':
-                    if(!empty($_POST['titlePost']) && !empty($_POST['img_submit']) && !empty($_POST['desc_submit'])){
+                    if(!empty($_POST['titlePost']) && !empty($_POST['desc_submit'])){
                         $instancecontroller->addpost(
                             $_POST['titlePost'],
-                            $_POST['img_submit'],
+                            $_FILES['img_submit'],
                             $_POST['submit_Youtube'],
                             $_POST['submit_Twitch'],
                             $_POST['submit_Discord'],
@@ -57,6 +57,12 @@ class Index extends Controller{
                         die(var_dump('not valid'));
                     }
                 break;
+                case 'admin':
+                    if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
+                        $instancecontroller->admin();
+                    }else{
+                        header("Location: index.php");
+                    }
                 //Affiche la liste de base non membre connecté
                 default:
                 $instancecontroller->basicglypher();
