@@ -10,13 +10,16 @@
   </script>
 
 
-<form id="blockSubmit" action="index.php?action=addpost" method="post">
+<form id="blockSubmit" action="index.php?action=addpost" method="post" enctype="multipart/form-data">
   <div class="groupForm">
     <p>Nom du partenaire:</p>
     <input type="text" name="titlePost" placeholder="Title" required>
+    <p>Image:</p>
+    <!-- Problème avec le drop area l'input ne fonctionne plus réellement renvoi undefined
+    / le drag&drop renvoi quelque chose mais n'envoi rien en BDD -->
     <div class="drag-area">
-      <p>Image:</p>
-      <input type="file" name="img_submit"  placeholder="img" class="drag-area" required>
+      <input type="file" name="img_submit"  placeholder="img" class="input-file" id="img-submit" accept="image/png">
+      <label for="img-submit" class="label-file">Get the file</label>
     </div>
     <p>Youtube:</p>
     <input type="text" name="submit_Youtube" placeholder="Youtube">
@@ -60,12 +63,11 @@
     <script>
       let input = document.querySelector("input.btn-submit");
       input.addEventListener("click",()=>{
-          console.log('ça clique');
           let form = document.querySelector("form");
           form.submit();
       });
     </script>
-    <script src="public/JS/drag-drop.js"></script>
+    <!-- <script src="public/JS/drag-drop.js"></script> -->
 <?php $content = ob_get_clean(); ?>
 <?php
 require('views/template.php');
