@@ -103,9 +103,8 @@ class Controller{
         require('views/submit.php');
     }
     //fonction for add glyph
-    public function addpost($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
+    public function addpost($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
         $newGlyph = new Glyph();
-        //! modifier pour en faire un upload + rename
         if(isset($_FILES["img_submit"]) && $_FILES['img_submit']['error'] == 0 ){
             $fileInfo = pathinfo($_FILES['img_submit']['name']);
             $extension = $fileInfo['extension'];
@@ -115,35 +114,56 @@ class Controller{
                 $temp =  explode(".",$_FILES["img_submit"]["name"]);
                 $newfilename = $_POST['titlePost'].'.'.end($temp);
                 $newdir = 'public\IMG\submit\\';
+                $newFileDIR = $newdir . $newfilename;
+                var_dump($newFileDIR);
+                var_dump(file_exists($newFileDIR));
                 $mod = chmod($_FILES["img_submit"]["tmp_name"], 777);
                 $mod = $_FILES['img_submit']['tmp_name'];
-                $img_submit = move_uploaded_file($mod ,$newdir . $newfilename);
-                $img_submit = $newfilename;
+                if (file_exists($newFileDIR)) {
+                    var_dump("dans le if");
+                    echo "Already exist !";
+                    $i = 1;
+                    while (file_exists($newdir .$_POST['titlePost'] . '('. $i . ').'. end($temp))) {
+                        $i++;
+                    }
+                        $newfilename = $_POST['titlePost'] . '('. $i . ').'. end($temp);
+                        var_dump($newfilename);
+                        $img_submit = move_uploaded_file($mod, $newdir . $newfilename);
+                        $img_submit = $newfilename;
+                        var_dump($img_submit);
+                        var_dump($i);
+                }else{
+                    var_dump("dans le else");
+                    $img_submit = move_uploaded_file($mod, $newdir . $newfilename);
+                    $img_submit = $newfilename;
+                    var_dump($img_submit);
+                }
             }else{
                 echo "This is not a PNG image.";
             }
         }else{
             echo "Return Code: ". $_FILES['img_submit']['error'];
         }
+        //add on BDD the submit form
         $addGlyph = $newGlyph -> addGlyph(
             $titlePost,
             $img_submit,
             $submit_Youtube,
             $submit_Twitch,
             $submit_Discord,
-            $submit_Tiwtter,
+            $submit_Twitter,
             $submit_Instagram,
             $submit_Facebook,
             $submit_Site_1,
             $submit_Site_2,
-            nl2br($desc_submit),
+            $desc_submit,
             $author
         );
        
         if($addGlyph === false){
             die(var_dump("Its not possible to add glyph"));
         }else{
-            //header('Location: index.php');
+            header('Location: index.php');
         }
     }
     public function signup(){
