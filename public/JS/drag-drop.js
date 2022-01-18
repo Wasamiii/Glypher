@@ -1,0 +1,80 @@
+class DragandDrop{
+    constructor(){
+        this.form = document.getElementById('blockSubmit');
+        this.droparea = document.querySelector('div.drag-area');
+        this.active = () => this.droparea.classList.add('green-border');
+        this.inactive = () => this.droparea.classList.remove('green-border');
+        this.preventDefault = (e) => e.preventDefault();
+    }
+    
+    goToDragandDrop(){
+        let inputIMG = document.querySelector('input[type="file"]');
+        let labelFile = document.querySelector('label.label-file');
+        let droppedFiles;
+        let inputFile;
+        
+        inputIMG.addEventListener("change", function(e){
+            droppedFiles = e.target.files;
+            labelFile.innerHTML = droppedFiles[0].name;
+        });
+        
+        let showFiles = (files) => {
+            this.fileReader = new FileReader(); 
+            this.img = new Image(128,128);
+            this.fileReader.readAsDataURL(files);
+            this.fileReader.onload= (files)=>{
+                this.img.src = files.target.result;
+                console.log(this.img.src);
+                inputIMG.after(this.img);
+            };
+        };
+        
+        if(this.droparea){
+            ['dragenter','dragover', 'dragleave', 'drop'].forEach(evtName =>{
+                this.droparea.addEventListener(evtName,this.preventDefault);
+            });
+
+            ['dragenter', 'dragover'].forEach(evtName =>{
+                this.droparea.addEventListener(evtName, this.active);
+            });
+
+            ['dragleave','drop'].forEach(evtName =>{
+                this.droparea.addEventListener(evtName,this.inactive);
+            });
+
+            this.droparea.addEventListener('drop', function(e){
+                droppedFiles = e.dataTransfer.files;
+                //verify === png image
+                if(droppedFiles[0].type ==='image/png'){
+                    labelFile.innerHTML = droppedFiles[0].name;
+                    const dt = new DataTransfer();
+                    dt.items.add(droppedFiles[0]);
+                    inputIMG.files = dt.files;
+                    console.log(inputIMG.files);
+                    inputIMG.setAttribute('filename', droppedFiles[0].name);
+                    //this.inputIMG.value = e.dataTransfer.files[0];
+                    showFiles(droppedFiles[0]);
+                    //console.log(showFiles(droppedFiles));
+                }else{
+                    alert('is not a png');
+                }
+            });
+        }
+
+        this.droparea.addEventListener("change",function(e){
+            labelFile.innerHTML = e.target.files[0].name;
+            inputIMG.setAttribute('value', e.target.files[0].name);
+            showFiles(e.target.files[0]);
+        });
+
+        let input = document.querySelector("input.btn-submit");
+
+        input.addEventListener("click",()=>{
+            let form = document.getElementById('blockSubmit');
+            form.submit();
+        });
+    }
+}
+
+let draganddrop = new DragandDrop();
+let declarethis = draganddrop.goToDragandDrop();
