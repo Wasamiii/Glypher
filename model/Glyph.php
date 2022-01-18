@@ -17,7 +17,7 @@ class Glyph extends Manager{
         //$getglyph = $reqgetglyph->fetchAll();
         return $reqgetglyph;
     }
-    public function addGlyph($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
+    public function addGlyph($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author){
         $db=$this->dbConnect();
         $adderGlyph = $db->prepare('INSERT INTO submit
         (
@@ -37,7 +37,7 @@ class Glyph extends Manager{
             id_user
         ) 
         VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  NOW(), 0, ? )');
-        $adderGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Tiwtter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
+        $adderGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
         var_dump($adderGlyph);
         return $adderGlyph;
     }
