@@ -151,7 +151,7 @@ span#countdown{
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid #11A7B0;
-    border-radius: 3%;
+    border-radius: 23px;
     padding: 2%;
 }
 #countdowncetus,#countdownbaro,span.fissuresTimerT1,span.fissuresTimerT2,span.fissuresTimerT3,span.fissuresTimerT4,span.fissuresTimerT5{
@@ -324,7 +324,11 @@ input.input-file{
     background-color: transparent;
     border-color: transparent;
     width: 90px;
+    cursor: pointer;
     
+}
+label.label-file{
+    cursor: pointer;
 }
 .drag-area{
     display: flex;
@@ -350,7 +354,41 @@ div#contain-glyph-admin{
     align-items: center;
 
 }
-// figure#figure-admin{
-
-
-// }
+ul.listg-admin{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+}
+li.list-admin{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+    justify-content: space-around;
+    border: 2px solid #11A7B0;
+    border-radius: 23px;
+}
+p#title-of-glyph{
+    align-self: center;
+}
+div.contain-btn-admin{
+    display: flex;
+    width: 10%;
+    justify-content: space-evenly;
+}
+a.btn-admin{
+    flex-shrink: 0;
+    align-self: center;
+    padding: 5%;
+    border: 1px solid #11a8b000 ;
+    border-radius: 13%;
+    color: #141414;
+}
+a#btn-valid-admin{
+    background-color: #2c6e00;
+}
+a#btn-suppr-admin{
+    background-color: #cf0000;
+}
