@@ -54,7 +54,7 @@
         if(count($arrayT3) != 0){
             for($i = 0; $i<count($arrayT3);$i++){
                 ?>
-                <p id="PfTimerT3"> Neso |  
+                <p id="PfTimerT3"> Neo |  
                     <span><?= $arrayT3[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT3[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT3[$i]['planete'] ?></span>
