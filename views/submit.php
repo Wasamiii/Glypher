@@ -1,13 +1,6 @@
 <?php $title = 'Submit'?>
 <?php ob_start(); ?>
-  <script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      toolbar_mode: 'floating',
-    });
-  </script>
+  
 
 
 <form id="blockSubmit" action="index.php?action=addpost" method="post" enctype="multipart/form-data">
@@ -42,8 +35,10 @@
     <input type="submit" value="Submit" class="btn-submit">
   </div>
 </form>
+<script src="https://cdn.tiny.cloud/1/n11767hjwn9rpu0tdqxd0ul2yyve71z7k5rakdrdv0ldvjmc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
+        forced_root_block : false,
         selector: 'textarea#tinymce',
         menubar: false,
         plugins: [
@@ -60,14 +55,7 @@
         tinycomments_author: 'Author name',
     });
     </script>
-    <script>
-      let input = document.querySelector("input.btn-submit");
-      input.addEventListener("click",()=>{
-          let form = document.querySelector("form");
-          form.submit();
-      });
-    </script>
-    <!-- <script src="public/JS/drag-drop.js"></script> -->
+    <script src="public/JS/drag-drop.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php
 require('views/template.php');
