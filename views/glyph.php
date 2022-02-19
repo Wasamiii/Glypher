@@ -1,4 +1,8 @@
 <?php //Ne pas oublier la search bar ?>
+<div class="search-bar">
+<i class="fas fa-search"></i>
+    <input class="search-input" type="text">
+</div>
 
 <div id="container-glyph">
     <a href="index.php?action=submit" id="box-submit">
@@ -7,10 +11,29 @@
         </svg>
     </a>
 <?php while($data = $getglyph->fetch()){?>
-    <figure>
-        <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" id="img-glyph">
-        <figcaption><p id="title-of-glyph"><?= $data['title'] ?></p>
+    <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>">
+        <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" class="img-glyph">
+        <figcaption>
+            <p class="title-of-glyph"><?= $data['title'] ?></p>
         </figcaption>
     </figure>
+    
+    <div class="modal-container id_<?= $data['id'] ?>">
+        <div class="background-modal"></div>
+        <div class="modal-div">
+            <p class="title-of-glyph"><?= $data['title'] ?></p>
+            <a class="close-modale id_<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
+            <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" class="img-glyph-modal">
+            <a target="_blank" href="<?= $data['Youtube'] ?>"><i class="fa-brands fa-youtube"></i></a>
+            <a target="_blank" href="<?= $data['Twitch'] ?>"><i class="fa-brands fa-twitch"></i></a>
+            <a target="_blank" href="<?= $data['Discord'] ?>"><i class="fa-brands fa-discord"></i></a>
+            <a target="_blank" href="<?= $data['Twitter'] ?>"><i class="fa-brands fa-twitter"></i></a>
+            <a target="_blank" href="<?= $data['Instagram'] ?>"><i class="fa-brands fa-instagram"></i></a>
+            <a target="_blank" href="<?= $data['Facebook'] ?>"><i class="fa-brands fa-facebook"></i></a>
+            <a target="_blank" href="<?= $data['Site_1'] ?>"><i class="fa-solid fa-globe"></i></a>
+            <a target="_blank" href="<?= $data['Site_2'] ?>"><i class="fa-solid fa-globe"></i></a>
+            <p class="desc-of-glyph"><?= $data['description'] ?></p>
+        </div>
+    </div>
 <?php } ?>
 </div>
