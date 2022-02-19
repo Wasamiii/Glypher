@@ -18,8 +18,9 @@ class Style {
     //fissures
     this.fissuresTimer = document.querySelector('div#fissures');
     this.childfissuresTimer = document.querySelector('div#fissures > span');
-    //figures
+    //all figures
     this.figure = document.querySelectorAll('figure');
+
   }
   darkAndlight() {
     style.basicGlypher();
@@ -50,11 +51,6 @@ class Style {
     document.onkeydown = (ev) => {
       let shift = ev.shiftKey;
       this.btntoggle.addEventListener("click", () => {
-        // console.log(ev.shiftKey);
-        // console.log(this.body);
-        // console.log(this.body.classList.contains('dark'));
-        // console.log(this.body.classList.contains('light'));
-        // console.log(this.body.classList.contains('transcande'));
         if (shift === true) {
           //! this.body undefined but document.body is defined wtf
           //console.log(this.body);
@@ -132,8 +128,40 @@ class Style {
       });
     };
   }
-}
+  modal(){
+    let figures = document.querySelectorAll('.modal-trigger');
+    //modal
+    let modale = document.querySelectorAll('.modal-container');
+    let close_modale = document.querySelectorAll('.close-modale');
+    let back_modale = document.querySelectorAll('.background-modal');
+    let i;
+    for(i=0;i<figures.length;i++){
+      figures[i].setAttribute('data-index',i);
+      modale[i].setAttribute('data-index',i);
+      back_modale[i].setAttribute('data-index',i);
+      close_modale[i].setAttribute('data-index',i);
+    }
+    for(i=0;i<figures.length;i++){
+      figures[i].addEventListener("click",  function clicker(e){
+        e.preventDefault();
+        let elementindex = this.getAttribute('data-index');
+        modale[elementindex].classList.toggle('active');
+      });
+      back_modale[i].addEventListener("click", function bgclick(evt){
+        evt.preventDefault();
+        let elemIndex = this.getAttribute('data-index');
+        modale[elemIndex].classList.remove('active');
+      });
+      close_modale[i].addEventListener('click',function btnclick(evt){
+        evt.preventDefault();
+        let elemIndex = this.getAttribute('data-index');
+        modale[elemIndex].classList.remove('active');
+      });
+    }
 
+  }
+}
 let style = new Style();
 style.darkAndlight();
 style.shiftKey();
+style.modal();
