@@ -21,7 +21,7 @@
     <p>Discord:</p>
     <input type="text" name="submit_Discord" placeholder="Discord">
     <p>Twitter:</p>
-    <input type="text" name="submit_Tiwtter" placeholder="Twitter">
+    <input type="text" name="submit_Twitter" placeholder="Twitter">
     <p>Instagram:</p>
     <input type="text" name="submit_Instagram" placeholder="Instagram">
     <p>Facebook:</p>
