@@ -11,13 +11,12 @@ class DragandDrop{
         let inputIMG = document.querySelector('input[type="file"]');
         let labelFile = document.querySelector('label.label-file');
         let droppedFiles;
-        let inputFile;
         
         inputIMG.addEventListener("change", function(e){
             droppedFiles = e.target.files;
             labelFile.innerHTML = droppedFiles[0].name;
         });
-        
+        //!la preview à modifier un petit peu car elle affiche plusieurs images mais la derniere est envoyé à la BDD donc afficher que la derniere
         let showFiles = (files) => {
             this.fileReader = new FileReader(); 
             this.img = new Image(128,128);
@@ -30,18 +29,19 @@ class DragandDrop{
         };
         
         if(this.droparea){
+            //reset propagation
             ['dragenter','dragover', 'dragleave', 'drop'].forEach(evtName =>{
                 this.droparea.addEventListener(evtName,this.preventDefault);
             });
-
+            //change statut on CSS his change color
             ['dragenter', 'dragover'].forEach(evtName =>{
                 this.droparea.addEventListener(evtName, this.active);
             });
-
+            //change statut on CSS his change color
             ['dragleave','drop'].forEach(evtName =>{
                 this.droparea.addEventListener(evtName,this.inactive);
             });
-
+            //event drop image on div
             this.droparea.addEventListener('drop', function(e){
                 droppedFiles = e.dataTransfer.files;
                 //verify === png image
@@ -60,7 +60,7 @@ class DragandDrop{
                 }
             });
         }
-
+        //change statut on label and input
         this.droparea.addEventListener("change",function(e){
             labelFile.innerHTML = e.target.files[0].name;
             inputIMG.setAttribute('value', e.target.files[0].name);
@@ -68,7 +68,8 @@ class DragandDrop{
         });
 
         let input = document.querySelector("input.btn-submit");
-
+        //event submit form
+        //treatment  on php
         input.addEventListener("click",()=>{
             let form = document.getElementById('blockSubmit');
             form.submit();
