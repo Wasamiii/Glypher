@@ -20,7 +20,6 @@ class Style {
     this.childfissuresTimer = document.querySelector('div#fissures > span');
     //all figures
     this.figure = document.querySelectorAll('figure');
-
   }
   darkAndlight() {
     style.basicGlypher();
@@ -132,6 +131,7 @@ class Style {
     let figures = document.querySelectorAll('.modal-trigger');
     //modal
     let modale = document.querySelectorAll('.modal-container');
+    let card_modale = document.querySelectorAll('.modal-div');
     let close_modale = document.querySelectorAll('.close-modale');
     let back_modale = document.querySelectorAll('.background-modal');
     let i;
@@ -146,19 +146,21 @@ class Style {
         e.preventDefault();
         let elementindex = this.getAttribute('data-index');
         modale[elementindex].classList.toggle('active');
+        card_modale[elementindex].classList.toggle('active');
       });
       back_modale[i].addEventListener("click", function bgclick(evt){
         evt.preventDefault();
         let elemIndex = this.getAttribute('data-index');
         modale[elemIndex].classList.remove('active');
+        card_modale[elemIndex].classList.remove('active');
       });
       close_modale[i].addEventListener('click',function btnclick(evt){
         evt.preventDefault();
         let elemIndex = this.getAttribute('data-index');
         modale[elemIndex].classList.remove('active');
+        card_modale[elemIndex].classList.remove('active');
       });
     }
-
   }
 }
 let style = new Style();
