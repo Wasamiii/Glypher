@@ -1,7 +1,7 @@
 <?php //Ne pas oublier la search bar ?>
 <div class="search-bar">
 <i class="fas fa-search"></i>
-    <input class="search-input" type="text">
+    <input class="search_input" type="text">
 </div>
 
 <div id="container-glyph">
@@ -21,17 +21,21 @@
     <div class="modal-container id_<?= $data['id'] ?>">
         <div class="background-modal"></div>
         <div class="modal-div">
-            <p class="title-of-glyph"><?= $data['title'] ?></p>
-            <a class="close-modale id_<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
+            <div class="top-modal">
+                <p class="title-of-glyph"><?= $data['title'] ?></p>
+                <a class="close-modale id_<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
+            </div>
             <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" class="img-glyph-modal">
-            <a target="_blank" href="<?= $data['Youtube'] ?>"><i class="fa-brands fa-youtube"></i></a>
-            <a target="_blank" href="<?= $data['Twitch'] ?>"><i class="fa-brands fa-twitch"></i></a>
-            <a target="_blank" href="<?= $data['Discord'] ?>"><i class="fa-brands fa-discord"></i></a>
-            <a target="_blank" href="<?= $data['Twitter'] ?>"><i class="fa-brands fa-twitter"></i></a>
-            <a target="_blank" href="<?= $data['Instagram'] ?>"><i class="fa-brands fa-instagram"></i></a>
-            <a target="_blank" href="<?= $data['Facebook'] ?>"><i class="fa-brands fa-facebook"></i></a>
-            <a target="_blank" href="<?= $data['Site_1'] ?>"><i class="fa-solid fa-globe"></i></a>
-            <a target="_blank" href="<?= $data['Site_2'] ?>"><i class="fa-solid fa-globe"></i></a>
+            <div class="social-network">
+                <a target="_blank" href="<?= $data['Youtube'] ?>"><img class="icon-social" src="public/IMG/Social-network/Youtube_icon-icons.com_66802.svg" alt="Youtube icon"></a>
+                <a target="_blank" href="<?= $data['Twitch'] ?>"><img class="icon-social" src="public/IMG/Social-network/twitch_logo_icon_170383.svg" alt="Twitch icon"></a>
+                <a target="_blank" href="<?= $data['Discord'] ?>"><img class="icon-social" src="public/IMG/Social-network/discord_101785.svg" alt="Discord icon"></a>
+                <a target="_blank" href="<?= $data['Twitter'] ?>"><img class="icon-social" src="public/IMG/Social-network/Twitter_icon-icons.com_66803.svg" alt="Twitter icon"></a>
+                <a target="_blank" href="<?= $data['Instagram'] ?>"><img class="icon-social" src="public/IMG/Social-network/4202090instagramlogosocialsocialmedia-115598_115703.svg" alt="Imstagram icon"></a>
+                <a target="_blank" href="<?= $data['Facebook'] ?>"><img class="icon-social" src="public/IMG/Social-network/Facebook_icon-icons.com_66805.svg" alt="Facebook icon"></a>
+                <a target="_blank" href="<?= $data['Site_1'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-1 icon"></a>
+                <a target="_blank" href="<?= $data['Site_2'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-2 icon"></a>
+            </div>
             <p class="desc-of-glyph"><?= $data['description'] ?></p>
         </div>
     </div>
