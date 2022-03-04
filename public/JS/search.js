@@ -1,35 +1,23 @@
 class Search{
     constructor(){
-      /*
-      TODO: 
-      * ajouter la div qui englobe les "figures" 
-      * on va chercher dans les figures "figcaption"
-      * dans figcaption on va chercher la balise "p"
-      * dans la balise "p" on compare ce qui est marqué dans l'input et le textContent de p
-      */
-     
     }
     eventsearch(){
+      //select searchbar and figure
       let search = document.getElementById('search_bar');
       let figures = document.getElementsByTagName('figure');
-      console.log(figures.length);
-      //let filter = search.value.toLowerCase();
-      //console.log(filter);
       search.addEventListener('keyup', function keyup(e){
         let valueSearch = e.target.value;
         for(var i = 0; i < figures.length; i++){
-          console.log('dans le for');
-          let figcaption = figures[i].childNodes[3];
-          console.log(figures);
-          console.log(figcaption);
+          //select all child on figure
+          let figcaption = figures[i].childNodes[3];;
           let paragraph = figcaption.childNodes[1];
-          console.log(paragraph);
           let txtvalue = paragraph.innerHTML;
+          //check value on keyup to paragraph innerHTML
           if(txtvalue.toLowerCase().indexOf(valueSearch) > -1){
-            console.log('dans le if');
+            // if such a display block
             figures[i].style.display = 'block';
           }else{
-            console.log('dans le else');
+            // if not the same do not display
             figures[i].style.display = 'none';
           }
         }
