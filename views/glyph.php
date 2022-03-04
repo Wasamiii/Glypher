@@ -1,5 +1,5 @@
 <?php //Ne pas oublier la search bar ?>
-<div class="search-bar">
+<div class="search-bar" id="search_bar">
 <i class="fas fa-search"></i>
     <input class="search_input" type="text">
 </div>
@@ -27,14 +27,30 @@
             </div>
             <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" class="img-glyph-modal">
             <div class="social-network">
-                <a target="_blank" href="<?= $data['Youtube'] ?>"><img class="icon-social" src="public/IMG/Social-network/Youtube_icon-icons.com_66802.svg" alt="Youtube icon"></a>
-                <a target="_blank" href="<?= $data['Twitch'] ?>"><img class="icon-social" src="public/IMG/Social-network/twitch_logo_icon_170383.svg" alt="Twitch icon"></a>
-                <a target="_blank" href="<?= $data['Discord'] ?>"><img class="icon-social" src="public/IMG/Social-network/discord_101785.svg" alt="Discord icon"></a>
-                <a target="_blank" href="<?= $data['Twitter'] ?>"><img class="icon-social" src="public/IMG/Social-network/Twitter_icon-icons.com_66803.svg" alt="Twitter icon"></a>
-                <a target="_blank" href="<?= $data['Instagram'] ?>"><img class="icon-social" src="public/IMG/Social-network/4202090instagramlogosocialsocialmedia-115598_115703.svg" alt="Imstagram icon"></a>
-                <a target="_blank" href="<?= $data['Facebook'] ?>"><img class="icon-social" src="public/IMG/Social-network/Facebook_icon-icons.com_66805.svg" alt="Facebook icon"></a>
-                <a target="_blank" href="<?= $data['Site_1'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-1 icon"></a>
-                <a target="_blank" href="<?= $data['Site_2'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-2 icon"></a>
+                <?php if($data['Youtube'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Youtube']?>"><img class="icon-social" src="public/IMG/Social-network/Youtube_icon-icons.com_66802.svg" alt="Youtube icon"></a>
+                <?php } ?>
+                <?php if($data['Twitch'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Twitch'] ?>"><img class="icon-social" src="public/IMG/Social-network/twitch_logo_icon_170383.svg" alt="Twitch icon"></a>
+                <?php } ?>
+                <?php if($data['Discord'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Discord'] ?>"><img class="icon-social" src="public/IMG/Social-network/discord_101785.svg" alt="Discord icon"></a>
+                <?php } ?>
+                <?php if($data['Twitter'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Twitter'] ?>"><img class="icon-social" src="public/IMG/Social-network/Twitter_icon-icons.com_66803.svg" alt="Twitter icon"></a>
+                <?php } ?>
+                <?php if($data['Instagram'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Instagram'] ?>"><img class="icon-social" src="public/IMG/Social-network/4202090instagramlogosocialsocialmedia-115598_115703.svg" alt="Imstagram icon"></a>
+                <?php } ?>
+                <?php if($data['Facebook'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Facebook'] ?>"><img class="icon-social" src="public/IMG/Social-network/Facebook_icon-icons.com_66805.svg" alt="Facebook icon"></a>
+                <?php } ?>
+                <?php if($data['Site_1'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Site_1'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-1 icon"></a>
+                <?php } ?>
+                <?php if($data['Site_2'] !== ""){?>
+                    <a target="_blank" href="<?= $data['Site_2'] ?>"><img class="icon-social" src="public/IMG/Social-network/emblemweb_93503.svg" alt="Site-2 icon"></a>
+                <?php } ?>
             </div>
             <p class="desc-of-glyph"><?= $data['description'] ?></p>
         </div>
