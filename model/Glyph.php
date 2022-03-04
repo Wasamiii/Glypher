@@ -133,15 +133,5 @@ class Glyph extends Manager{
         $adderonGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
         return $adderonGlyph;
     }
-    //! à améliorer pour la search bar (au niveau du like)
-    public function searchSelect($titleSearch){
-        $db = $this->dbConnect();
-        $selectOnSearch = $db->prepare('SELECT * 
-        FROM `glyphs` 
-        WHERE `title` 
-        LIKE %');
-        $selectOnSearch->execute(array($titleSearch));
-        return $selectOnSearch;
-    }
 }
 ?>
