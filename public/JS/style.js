@@ -23,8 +23,10 @@ class Style {
   }
   darkAndlight() {
     style.basicGlypher();
+    
     this.btntoggle.addEventListener('click', () => {
       if (this.body.classList.contains('light')) {
+        //dark mode
         this.body.classList.add('dark');
         this.body.classList.remove('light');
         this.body.classList.remove('transcande');
@@ -34,6 +36,7 @@ class Style {
         this.transcande.style.display = 'none';
 
       } else if (this.body.classList.contains('dark')) {
+        //light mode
         this.body.classList.add('light');
         this.body.classList.remove('dark');
         this.body.classList.remove('transcande');
@@ -51,9 +54,8 @@ class Style {
       let shift = ev.shiftKey;
       this.btntoggle.addEventListener("click", () => {
         if (shift === true) {
-          //! this.body undefined but document.body is defined wtf
-          //console.log(this.body);
           if (this.body.classList.contains('dark')) {
+            //transcand mode
             this.body.classList.add('transcande');
             this.body.classList.remove('dark');
             this.body.classList.remove('light');
@@ -101,6 +103,7 @@ class Style {
             shift = false;
           }
         } else if (this.body.classList.contains('transcande') && shift == false) {
+          // return transcande to dark mode
           this.body.classList.add('dark');
           this.body.classList.remove('transcande');
           this.body.classList.remove('light');
