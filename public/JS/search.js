@@ -9,8 +9,8 @@ class Search{
         let valueSearch = e.target.value;
         for(var i = 0; i < figures.length; i++){
           //select all child on figure
-          let figcaption = figures[i].childNodes[3];;
-          let paragraph = figcaption.childNodes[1];
+          let figcaption = figures[i].lastElementChild;
+          let paragraph = figcaption.lastElementChild;
           let txtvalue = paragraph.innerHTML;
           //check value on keyup to paragraph innerHTML
           if(txtvalue.toLowerCase().indexOf(valueSearch) > -1){
@@ -22,7 +22,6 @@ class Search{
           }
         }
       });
-
     }
 }
 let search = new Search();
