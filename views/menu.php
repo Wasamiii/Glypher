@@ -23,7 +23,6 @@ if($_SESSION['admin'] == "1"){?>
         <a href="index.php?action=admin" id="administration">admin</a>
 <?php
 }
-
 ?>
 </div>
  <p id="bonjourPseudo"><?php echo 'Hello ' . $_SESSION['pseudo'];?></p>
@@ -32,13 +31,13 @@ if($_SESSION['admin'] == "1"){?>
 }else{   
 ?>
 <div id="allForm">
-<form action="index.php?action=getlog" method="post" id="connexionForm">
-        <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
-        <input type="password" name="password" placeholder="Password" class="inputSigin" required>
-        <input type="submit" value="Login" name="signin" id="connexionSigin">
-        <a href="index.php?action=members" id="singupLink">Signup</a>
-</form>
-</div>
+        <form action="index.php?action=getlog" method="post" id="connexionForm">
+                <input type="name" name="pseudo" placeholder="Pseudo" class="inputSigin" required>
+                <input type="password" name="password" placeholder="Password" class="inputSigin" required>
+                <input type="submit" value="Login" name="signin" id="connexionSigin">
+                <a href="index.php?action=members" id="singupLink">Signup</a>
+        </form>
+        </div>
 </div>
 <?php        
 }
