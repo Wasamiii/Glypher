@@ -11,5 +11,6 @@
 <script src="public/JS/fissures.js"></script>
 <script src="public/JS/barokiteer.js"></script>
 <script src="public/JS/search.js"></script>
+<script src="public/JS/modales.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('views/template.php');?>
