@@ -41,7 +41,6 @@ class Glyph extends Manager{
         var_dump($adderGlyph);
         return $adderGlyph;
     }
-    //! ajouter un WHERE title des glyphes avec LIKE pour la barre de recherche
     public function getsubmit(){
         $db=$this->dbConnect();
         $getSubmit = $db -> query(
@@ -132,6 +131,18 @@ class Glyph extends Manager{
             VALUES (?,?,?,?,?,?,?,?,?,?,?,NOW(),?)');
         $adderonGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
         return $adderonGlyph;
+    }
+    //Join Table glyph and user to glyphowned
+    //à modifier
+    public function ownedGlyph(){
+        $db = $this->dbConnect();
+        $ownedglyph = $db->prepare('SELECT * 
+        FROM glyphowned 
+        INNER JOIN glyphs ON glyphowned.id_glyph = glyphs.id 
+        INNER JOIN users ON glyphowned.id_user = users.user_id
+        WHERE id_user AND id_glyph');
+        $ownedglyph->execute(array());
+        return $ownedglyph;
     }
 }
 ?>
