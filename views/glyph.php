@@ -12,9 +12,9 @@
     </a>
 <?php while($data = $getglyph->fetch()){?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>">
-        <?php if(isset($_SESSION['id'])){ ?>
-            <input type="checkbox" name="checkglyph" id="checkglyph">
-            <?php } ?>
+    <?php if(isset($_SESSION['id'])){ ?>
+        <input type="checkbox" name="checkglyph" id="checkglyph">
+    <?php } ?>
         <img src="public/IMG/IMG-partenaire-warframe/<?= $data['img'] ?>" class="img-glyph">
         <figcaption class="figcaption-glyph">
             <p class="title-of-glyph"><?= $data['title'] ?></p>
