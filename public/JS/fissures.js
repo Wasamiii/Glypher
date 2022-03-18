@@ -46,10 +46,11 @@ callAPIfissures(){
                                 //T1
                                 let divAllFissurest1 = document.getElementById('fissuresTimerT1');
                                 let adder_pt1 = document.createElement("p");
-                                adder_pt1.textContent = "Lith ";
+                                adder_pt1.textContent = "Lith | ";
                                 let add_pt1 = divAllFissurest1.appendChild(adder_pt1);
                                 let attribPt1 = add_pt1.setAttribute("id", PFTimertiers);
                                 let add_span1InT1 = document.createElement("span");
+                                add_span1InT1.classList.add("fissuresTimerT1");
                                 let add_span2InT1 = document.createElement("span");
                                 let add_span3InT1 = document.createElement("span");
                                 let add_span4InT1 = document.createElement("span");
@@ -59,7 +60,7 @@ callAPIfissures(){
                                 let newspan2T1 = add_pt1.appendChild(add_span2InT1);
                                 newspan2T1.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T1 = add_pt1.appendChild(add_span3InT1);
-                                newspan3T1.innerHTML = get_Planete_Fissures + " ";
+                                newspan3T1.innerHTML = "| " + get_Planete_Fissures;
                                 let newDiv1t1 = add_pt1.appendChild(add_span4InT1);
                                 let attribDivt1 = newDiv1t1.setAttribute("id", get_node_Fissures);
                                 let classDivt1 = newDiv1t1.setAttribute("class", addmodifier);
@@ -68,11 +69,11 @@ callAPIfissures(){
                                 //T2
                                 let divAllFissurest2 = document.getElementById('fissuresTimerT2');
                                 let adder_pt2 = document.createElement("p");
-                                adder_pt2.textContent = "Meso ";
+                                adder_pt2.textContent = "Meso | ";
                                 let add_pt2 = divAllFissurest2.appendChild(adder_pt2);
                                 let attribPt2 = add_pt2.setAttribute("id", PFTimertiers);
                                 let add_span1InT2 = document.createElement("span");
-                                
+                                add_span1InT2.classList.add("fissuresTimerT2");
                                 //! ajouter les types de mission nom de mission et planête 
                                 let add_span2InT2 = document.createElement("span");
                                 let add_span3InT2 = document.createElement("span");
@@ -82,7 +83,7 @@ callAPIfissures(){
                                 let newspan2T2 = add_pt2.appendChild(add_span2InT2);
                                 newspan2T2.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T2 = add_pt2.appendChild(add_span3InT2);
-                                newspan3T2.innerHTML = get_Planete_Fissures + " ";
+                                newspan3T2.innerHTML = "| " + get_Planete_Fissures;
                                 let newDiv1t2 = add_pt2.appendChild(add_span4InT2);
                                 let attribDivt2 = newDiv1t2.setAttribute("id", get_node_Fissures);
                                 let classDivt2 = newDiv1t2.setAttribute("class", addmodifier);
@@ -91,10 +92,11 @@ callAPIfissures(){
                                 //T3
                                 let divAllFissurest3 = document.getElementById('fissuresTimerT3');
                                 let adder_pt3 = document.createElement("p");
-                                adder_pt3.textContent = "Neo ";
+                                adder_pt3.textContent = "Neo | ";
                                 let add_pt3 = divAllFissurest3.appendChild(adder_pt3);
                                 let attribPt3= add_pt3.setAttribute("id", PFTimertiers);
-                                let add_span1InT3 = document.createElement("span");//! ajouter les types de mission nom de mission et planête 
+                                let add_span1InT3 = document.createElement("span");
+                                add_span1InT3.classList.add("fissuresTimerT3");
                                 let add_span2InT3 = document.createElement("span");
                                 let add_span3InT3 = document.createElement("span");
                                 let add_span4InT3 = document.createElement("span");
@@ -103,7 +105,7 @@ callAPIfissures(){
                                 let newspan2T3 = add_pt3.appendChild(add_span2InT3);
                                 newspan2T3.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T3 = add_pt3.appendChild(add_span3InT3);
-                                newspan3T3.innerHTML = get_Planete_Fissures + " ";
+                                newspan3T3.innerHTML = "| " + get_Planete_Fissures;
                                 let newDiv1t3 = add_pt3.appendChild(add_span4InT3);
                                 let attribDivt3 = newDiv1t3.setAttribute("id", get_node_Fissures);
                                 let classDivt3 = newDiv1t3.setAttribute("class", addmodifier);
@@ -112,10 +114,11 @@ callAPIfissures(){
                                 //T4
                                 let divAllFissurest4 = document.getElementById('fissuresTimerT4');
                                 let adder_pt4 = document.createElement("p");
-                                adder_pt4.textContent = "Axi ";
+                                adder_pt4.textContent = "Axi | ";
                                 let add_pt4 = divAllFissurest4.appendChild(adder_pt4);
                                 let attribPt4 = add_pt4.setAttribute("id", PFTimertiers);
-                                let add_span1InT4 = document.createElement("span");//! ajouter les types de mission nom de mission et planête 
+                                let add_span1InT4 = document.createElement("span");
+                                add_span1InT4.classList.add("fissuresTimerT4");
                                 let add_span2InT4 = document.createElement("span");
                                 let add_span3InT4 = document.createElement("span");
                                 let add_span4InT4 = document.createElement("span");
@@ -124,7 +127,7 @@ callAPIfissures(){
                                 let newspan2T4 = add_pt4.appendChild(add_span2InT4);
                                 newspan2T4.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T4 = add_pt4.appendChild(add_span3InT4);
-                                newspan3T4.innerHTML = get_Planete_Fissures + " ";
+                                newspan3T4.innerHTML = "| " + get_Planete_Fissures;
                                 let newDiv1t4 = add_pt4.appendChild(add_span4InT4);
                                 let attribDivt4 = newDiv1t4.setAttribute("id", get_node_Fissures);
                                 let classDivt4 = newDiv1t4.setAttribute("class", addmodifier);
@@ -133,10 +136,11 @@ callAPIfissures(){
                                 //T5
                                 let divAllFissurest5 = document.getElementById('fissuresTimerT5');
                                 let adder_pt5 = document.createElement("p");
-                                adder_pt5.textContent = "Requiem ";
+                                adder_pt5.textContent = "Requiem | ";
                                 let add_pt5 = divAllFissurest5.appendChild(adder_pt5);
                                 let attribPt5 = add_pt5.setAttribute("id", PFTimertiers);
-                                let add_span1InT5 = document.createElement("span");//! ajouter les types de mission nom de mission et planête 
+                                let add_span1InT5 = document.createElement("span");
+                                add_span1InT5.classList.add("fissuresTimerT5")
                                 let add_span2InT5 = document.createElement("span");
                                 let add_span3InT5 = document.createElement("span");
                                 let add_span4InT5 = document.createElement("span");
@@ -145,7 +149,7 @@ callAPIfissures(){
                                 let newspan2T5 = add_pt5.appendChild(add_span2InT5);
                                 newspan2T5.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T5 = add_pt5.appendChild(add_span3InT5);
-                                newspan3T5.innerHTML = get_Planete_Fissures + " ";
+                                newspan3T5.innerHTML = "| " + get_Planete_Fissures;
                                 let newDiv1t5 = add_pt5.appendChild(add_span4InT5);
                                 let attribDivt5 = newDiv1t5.setAttribute("id", get_node_Fissures);
                                 let classDivt5 = newDiv1t5.setAttribute("class", addmodifier);
