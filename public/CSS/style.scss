@@ -85,7 +85,40 @@ input{
     text-indent: 5px;
     font-family: "Roboto-Regular";
 }
+div#global_dropdown_div{
+    position: relative;
+}
+#dropdown_btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 
+i.fa-bars{
+    color: #bbbbbb;
+}
+#dropdown_content{
+    visibility: hidden;
+    position: absolute;
+}
+div.show{
+    display: flex;
+    flex-direction: column;
+    visibility: visible!important;
+    //transition
+}
+#dropdown_content > a{
+    width: 150px;
+    padding: 10px 20px;
+    background-color: #141414;
+    text-decoration: none;
+    color: #bbbbbb;
+    font-family: "Roboto-Regular";
+    font-style: normal;
+}
+#dropdown_content > a:hover{
+    background-color:#1f1f1f;
+}
 a#homepage, a#about{
     font-family: "Roboto-Regular";
     font-style: normal;

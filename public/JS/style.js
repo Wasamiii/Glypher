@@ -130,7 +130,39 @@ class Style {
       });
     };
   }
+  //à voir plus tard
+  dropdown(){
+    let dropdownbtn = document.getElementById('dropdown_btn');
+    dropdownbtn.addEventListener("click",()=>{
+      let content_dropdown = document.querySelector('#dropdown_content');
+      if(content_dropdown.classList.contains("show")){
+        content_dropdown.classList.remove("show");
+      }else{
+        content_dropdown.classList.add("show");
+      }
+    });
+  }
+  //test checkbox
+  loginput(){
+    let getinput = document.querySelectorAll('.checkglyph');
+    for(let i = 0;getinput.length > i;i++){
+      getinput[i].addEventListener("click", ()=>{
+        console.log(getinput[i].checked);
+        if(getinput[i].checked == true){
+          let checkedvalue = getinput[i].value;
+          console.log(checkedvalue);
+          console.log("je suis dans le if pour l'input");
+          
+        }else{
+          console.log("je suis dans le else pour l'input");
+        }
+
+      });
+    }
+  }
 }
 let style = new Style();
 style.darkAndlight();
 style.shiftKey();
+style.dropdown();
+style.loginput();
