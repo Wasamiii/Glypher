@@ -20,7 +20,7 @@
                 ?>
                 
                 <p id="PfTimerT1"> Lith |  
-                    <span><?= $arrayT1[$i]['mission_fissures'] ?></span>
+                    <span class="fissuresTimerT1"><?= $arrayT1[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT1[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT1[$i]['planete'] ?></span>
                     <span id="<?=$arrayT1[$i]['node']?>" class="fissuresTimerT1">:</span>
@@ -39,7 +39,7 @@
             for($i = 0; $i<count($arrayT2);$i++){
         ?>
                 <p id="PfTimerT2"> Meso |  
-                    <span><?= $arrayT2[$i]['mission_fissures'] ?></span>
+                    <span class="fissuresTimerT2"><?= $arrayT2[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT2[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT2[$i]['planete'] ?></span>
                     <span id="<?=$arrayT2[$i]['node']?>" class="fissuresTimerT2">:</span>
@@ -55,7 +55,7 @@
             for($i = 0; $i<count($arrayT3);$i++){
                 ?>
                 <p id="PfTimerT3"> Neo |  
-                    <span><?= $arrayT3[$i]['mission_fissures'] ?></span>
+                    <span class="fissuresTimerT3"><?= $arrayT3[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT3[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT3[$i]['planete'] ?></span>
                     <span id="<?=$arrayT3[$i]['node']?>" class="fissuresTimerT3">:</span>
@@ -71,7 +71,7 @@
             for($i = 0; $i<count($arrayT4);$i++){
                 ?>
                 <p id="PfTimerT4"> Axi |  
-                    <span><?= $arrayT4[$i]['mission_fissures'] ?></span>
+                    <span class="fissuresTimerT4"><?= $arrayT4[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT4[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT4[$i]['planete'] ?></span>
                     <span id="<?=$arrayT4[$i]['node']?>" class="fissuresTimerT4">:</span>
@@ -87,7 +87,7 @@
             for($i = 0; $i<count($arrayT5);$i++){
                 ?>
                 <p id="PfTimerT5"> Requiem |  
-                    <span><?= $arrayT5[$i]['mission_fissures'] ?></span>
+                    <span class="fissuresTimerT5"><?= $arrayT5[$i]['mission_fissures'] ?></span>
                     <span><?= $arrayT5[$i]['trad_mission'] ?></span>
                     <span>|  <?= $arrayT5[$i]['planete'] ?></span>
                     <span id="<?=$arrayT5[$i]['node']?>" class="fissuresTimerT5">:</span>
