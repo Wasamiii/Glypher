@@ -3,16 +3,22 @@
         <h1 id="title-site" class="titlenight">Glypher</h1>
 </a>
 
-<i class="fas fa-bars"></i>
+<div id="global_dropdown_div">
+       <button id="dropdown_btn"> <i class="fas fa-bars"></i></button>
+        <div id="dropdown_content" class="dropdown_content">
+                <a href="views/onwed.php" target="_blank" >Owned Glyph</a>
+                <a href="index.php?action=notowned" target="_blank" >Not Owned Glyph</a>
+        </div>
+</div>
 <a href="index.php" id="homepage">Home</a>
 <!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
-<a href="about.php" id="about">About</a>
+<a href="views/about.php" id="about">About</a>
 <div class="btn-toggle">
 <div class="nightmode"><i class="far fa-sun"></i></div>
 <div class="lightmode"><i class="fas fa-moon"></i></div>
 <div class="transcand"><img src="public/IMG/PLOT.png"></div>
 </div>
-<div>
+<div id="btn_dis_admin">
 <?php
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
 ?>       
