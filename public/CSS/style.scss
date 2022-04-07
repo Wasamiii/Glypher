@@ -47,7 +47,7 @@
       0 0 38px rgba(234, 127, 255, 0),
       0 0 60px rgba(234, 127, 255,1);
     }
-  }
+}
 body.dark{
     background: #040920!important;
     color: #bbbbbb!important;
@@ -313,7 +313,7 @@ div.background-modal{
     opacity: 1;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 200%;
     background-color: #000a27d3;
     z-index: 13;
 }
