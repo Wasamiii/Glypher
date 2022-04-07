@@ -34,6 +34,9 @@ class Index extends Controller{
                 case'disconnect':
                     $instancecontroller->disconnect();
                 break;
+                case 'notowned':
+                    $instancecontroller->notowned();
+                break;
                 case 'submit': 
                     $instancecontroller->submit();
                 break;
