@@ -4,7 +4,6 @@ class Modale{
   }
   modal(){
     let figures = document.querySelectorAll('.modal-trigger');
-    //modal
     let imgGlyph = document.querySelectorAll('.img-glyph');
     let figcaption = document.querySelectorAll('.figcaption-glyph');
     let modale = document.querySelectorAll('.modal-container');
