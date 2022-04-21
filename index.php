@@ -34,8 +34,13 @@ class Index extends Controller{
                 case'disconnect':
                     $instancecontroller->disconnect();
                 break;
+                case 'owned':
+                    $id_user = $_SESSION['id'];
+                    $instancecontroller->ownedGlyph($id_user);
+                break;
                 case 'notowned':
-                    $instancecontroller->notowned();
+                    $id_user = $_SESSION['id'];
+                    $instancecontroller->notownedglyph($id_user);
                 break;
                 case 'submit': 
                     $instancecontroller->submit();
