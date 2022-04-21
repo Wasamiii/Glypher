@@ -88,6 +88,21 @@ class Controller
         $getglyph = $glypher->GetGlyph();
         require('views/basicsglypher.php');
     }
+    //!Owned / not owned glyph
+    public function ownedGlyph($id_user){
+        $getglyph = new Glyph();
+        $getownedglyph = $getglyph->selectowned($id_user);
+        require('views/owned.php');
+    }
+    public function notownedglyph($id_user){
+        $glypher = new Glyph();
+        $getnotownedglyph = $glypher->selectnotowned($id_user);
+        require('views/notowned.php');
+    }
+    public function addOwnedGlyph($id_user,$id_glyph){
+        $getglyph = new Glyph();
+        $addownedglyph = $getglyph->postownedglyph($id_user,$id_glyph);
+    }
     //redirect to submit
     public function submit()
     {
@@ -306,47 +321,47 @@ class Controller
             //header('Location: index.php?action=admin');
         }
     }
-        //btn delete glyph submit
-        function supprSubmitGlypher($id_submit)
-        {
-            $glypher = new Glyph();
-            $supprGlypher = $glypher->supprSubmitGlyph($id_submit);
+    //btn delete glyph submit
+    function supprSubmitGlypher($id_submit)
+    {
+        $glypher = new Glyph();
+        $supprGlypher = $glypher->supprSubmitGlyph($id_submit);
+        header('Location: index.php?action=admin');
+    }
+    //btn modify submit glyph (redirect view pages)
+    function getModSubmit($getModSubmit)
+    {
+        $glypher= new Glyph();
+        $getModGlyph = $glypher->getSubmitModify($getModSubmit);
+        require_once('views/modify-admin.php');
+    }
+    //submit modify form and no change validation
+    function modifySubmit($submit_Youtube, $submit_Twitch, $submit_Discord, $submit_Twitter, $submit_Instagram, $submit_Facebook, $submit_Site_1, $submit_Site_2, $desc_submit, $id_submit)
+    {
+        $glypher = new Glyph();
+        $modGlypher = $glypher->modifyGlyph(
+             $submit_Youtube,
+             $submit_Twitch,
+             $submit_Discord,
+             $submit_Twitter,
+             $submit_Instagram,
+             $submit_Facebook,
+             $submit_Site_1,
+             $submit_Site_2,
+             $desc_submit,
+             $id_submit
+        );
+        require_once('views/modify-admin.php');
+        if ($modGlypher == false) {
+            die(var_dump($modGlypher));
+        } else {
             header('Location: index.php?action=admin');
         }
-        //btn modify submit glyph (redirect view pages)
-        function getModSubmit($getModSubmit)
-        {
-            $glypher= new Glyph();
-            $getModGlyph = $glypher->getSubmitModify($getModSubmit);
-            require_once('views/modify-admin.php');
-        }
-        //submit modify form and no change validation
-        function modifySubmit($submit_Youtube, $submit_Twitch, $submit_Discord, $submit_Twitter, $submit_Instagram, $submit_Facebook, $submit_Site_1, $submit_Site_2, $desc_submit, $id_submit)
-        {
-            $glypher = new Glyph();
-            $modGlypher = $glypher->modifyGlyph(
-                $submit_Youtube,
-                $submit_Twitch,
-                $submit_Discord,
-                $submit_Twitter,
-                $submit_Instagram,
-                $submit_Facebook,
-                $submit_Site_1,
-                $submit_Site_2,
-                $desc_submit,
-                $id_submit
-            );
-            require_once('views/modify-admin.php');
-            if ($modGlypher == false) {
-                die(var_dump($modGlypher));
-            } else {
-                header('Location: index.php?action=admin');
-            }
-        }
-        //function disconnect
-        function disconnect()
-        {
-            session_destroy();
-            header('Location: index.php');
-        }
+    }
+    //function disconnect
+    function disconnect()
+    {
+        session_destroy();
+        header('Location: index.php');
+    }
     }
