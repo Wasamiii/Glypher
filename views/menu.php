@@ -6,7 +6,7 @@
 <div id="global_dropdown_div">
        <button id="dropdown_btn"> <i class="fas fa-bars"></i></button>
         <div id="dropdown_content" class="dropdown_content">
-                <a href="views/onwed.php" target="_blank" >Owned Glyph</a>
+                <a href="index.php?action=owned" target="_blank" >Owned Glyph</a>
                 <a href="index.php?action=notowned" target="_blank" >Not Owned Glyph</a>
         </div>
 </div>
@@ -32,7 +32,6 @@ if($_SESSION['admin'] == "1"){?>
 ?>
 </div>
  <p id="bonjourPseudo"><?php echo 'Hello ' . $_SESSION['pseudo'];?></p>
-
 <?php
 }else{   
 ?>
