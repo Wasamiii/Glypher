@@ -10,6 +10,7 @@
         </svg>
     </a>
 <?php 
+//! add comment
 $titleglyph = "";
 $arr_IMG = [];
 $arr_Youtube = [];
@@ -69,7 +70,7 @@ while ($data = $getglyph->fetch()) {
             ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
         <?php if (isset($_SESSION['id'])) { ?>
-        <input type="checkbox" name="checkglyph" class="checkglyph">
+        <input type="checkbox" name="checkglyph" class="checkglyph" value="<?= $data['id'] ?>">
         <?php } ?>
         <?php if (isset($arr_IMG[0])) { ?>
         <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph">
