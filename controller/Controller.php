@@ -103,6 +103,22 @@ class Controller
         $getglyph = new Glyph();
         $addownedglyph = $getglyph->postownedglyph($id_user,$id_glyph);
     }
+    public function shareownedGlyph($pseudo){
+        $getglyph = new Glyph();
+        $getmembers = new Members();
+        //non fonctionnel
+        $get_member = $getmembers->getsignup($pseudo);
+        $getownedglyph = $getglyph->selectowned($get_member);
+        require('views/ownedsahre.php');
+    }
+    public function sharenotownedGlyph($pseudo){
+        $getglyph = new Glyph();
+        $getmembers = new Members();
+        //non fonctionnel
+        $get_member = $getmembers->getsignup($pseudo);
+        $getnotownedglyph = $getglyph->selectnotowned($get_member);
+        require('views/notownedsahre.php');
+    }
     //redirect to submit
     public function submit()
     {

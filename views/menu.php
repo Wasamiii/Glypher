@@ -6,8 +6,8 @@
 <div id="global_dropdown_div">
        <button id="dropdown_btn"> <i class="fas fa-bars"></i></button>
         <div id="dropdown_content" class="dropdown_content">
-                <a href="index.php?action=owned" target="_blank" >Owned Glyph</a>
-                <a href="index.php?action=notowned" target="_blank" >Not Owned Glyph</a>
+                <a href="index.php?action=owned" >Owned Glyph</a>
+                <a href="index.php?action=notowned" >Not Owned Glyph</a>
         </div>
 </div>
 <a href="index.php" id="homepage">Home</a>

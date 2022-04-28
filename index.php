@@ -42,6 +42,16 @@ class Index extends Controller{
                     $id_user = $_SESSION['id'];
                     $instancecontroller->notownedglyph($id_user);
                 break;
+                case 'shareowned':
+                    //récupérer l'id via la BDD
+                    $username = $_GET['user'];
+                    $instancecontroller->shareownedGlyph($username);
+                break;
+                case 'sharenotowned':
+                    //récupérer l'id via la BDD
+                    $username = $_GET['user'];
+                    $instancecontroller->sharenotownedGlyph($username);
+                break;
                 case 'submit': 
                     $instancecontroller->submit();
                 break;
