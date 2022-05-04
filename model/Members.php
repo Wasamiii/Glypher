@@ -31,6 +31,12 @@ class Members extends Manager
         $resultat = $req->fetch();
         return $resultat;
     }
+    public function getuser_id($user_id){
+        $db = $this->dbConnect();
+        $getuser_id = $db->prepare('SELECT user_id FROM users WHERE pseudo = ?');
+        $getuser_id->execute(array($user_id));
+        return $getuser_id;
+    }
 }
 
 ?>
