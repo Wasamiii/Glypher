@@ -1,10 +1,26 @@
 <?php $title = "Not-Owned" ?>
 <?php ob_start(); ?>
-<div class="search-bar" id="search_bar">
-<i class="fas fa-search"></i>
-    <input class="search_input" type="text">
+<div class="container-search">
+    <div class="search-bar" id="search_bar">
+        <i class="fas fa-search"></i>
+        <input class="search_input" type="text">
+    </div>
+    <!-- index.php?action=sharenotowned&user=<?php  //echo($_SESSION['pseudo']);?> -->
+    <?php  if(isset($_SESSION)){ ?>
+    <div class="btn_share modal-btn">Share Not-Owned</div>
+    <div class="modal_container">
+        <div class="background_modal"></div>
+        <div class="btn_share modal-contain">
+            <div class="top-modal">
+                <p class="">Here is the link to share</p>
+                <a class="close-modale"><i class="fas fa-times" aria-hidden="true"></i></a>
+            </div>
+            <p class="markdown">https://index.php?action=sharenotowned&user=<?php echo($_SESSION['pseudo']);?></p>
+        
+        </div>
+    </div>
+    <?php } ?>
 </div>
-
 <div id="container-glyph">
 <?php 
 //! add comment

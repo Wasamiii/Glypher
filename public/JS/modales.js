@@ -2,7 +2,7 @@ class Modale{
   constructor(){
 
   }
-  modal(){
+  modalForm(){
     let figures = document.querySelectorAll('.modal-trigger');
     let imgGlyph = document.querySelectorAll('.img-glyph');
     let figcaption = document.querySelectorAll('.figcaption-glyph');
@@ -46,6 +46,29 @@ class Modale{
       });
     }
   }
+  modalbtn(){
+    let div_modal = document.querySelector('div.modal-btn');
+    let div_container = document.querySelector('div.modal_container');
+    let div_contain = document.querySelector('div.modal-contain');
+    let close_modale = document.querySelector('.close-modale');
+    let back_modale = document.querySelector('div.background_modal');
+    div_modal.addEventListener("click", function clicker(evt){
+      evt.preventDefault();
+      div_container.classList.toggle('active');
+      div_contain.classList.toggle('active');
+    });
+    back_modale.addEventListener("click", function bgclick(evt){
+      evt.preventDefault();
+      div_container.classList.remove('active');
+      div_contain.classList.remove('active');
+    });
+    close_modale.addEventListener('click',function btnclick(evt){
+      evt.preventDefault();
+      div_container.classList.remove('active');
+      div_contain.classList.remove('active');
+    });
+  }
 }
 let mod = new Modale();
-mod.modal();
+mod.modalForm();
+mod.modalbtn();

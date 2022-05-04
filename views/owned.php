@@ -1,10 +1,25 @@
 <?php $title = "Owned" ?>
 <?php ob_start(); ?>
-<div class="search-bar" id="search_bar">
-<i class="fas fa-search"></i>
-    <input class="search_input" type="text">
+<div class="container-search">
+    <div class="search-bar" id="search_bar">
+        <i class="fas fa-search"></i>
+        <input class="search_input" type="text">
+    </div>
+    <!-- index.php?action=shareowned&user=<?php // echo($_SESSION['pseudo']);?> -->
+    <?php   if(isset($_SESSION)){ ?>
+    <div class="btn_share modal-btn">Share Owned</div>
+    <div class="modal_container">
+        <div class="background_modal"></div>
+        <div class="btn_share modal-contain">
+            <div class="top-modal">
+                <p class="">Here is the link to share</p>
+                <a class="close-modale id_10" data-index="1"><i class="fas fa-times" aria-hidden="true"></i></a>
+            </div>
+            <p class="markdown">https://index.php?action=shareowned&user=<?php echo($_SESSION['pseudo']);?></p>
+        </div>
+    </div>
+    <?php } ?>
 </div>
-
 <div id="container-glyph">
 <?php 
 //! add comment
@@ -42,27 +57,27 @@ while ($data = $getownedglyph->fetch()) {
         $pusharr_Description = array_push($arr_Description,$data['description']);
         //ajouter les infos des images dans l'array
     } else {
-            $titleglyph = $data['title'];
-            $arr_IMG = [];
-            $arr_Youtube = [];
-            $arr_Twitch = [];
-            $arr_Discord = [];
-            $arr_Twitter = [];
-            $arr_Instagram = [];
-            $arr_Facebook = [];
-            $arr_Site1 = [];
-            $arr_Site2 = [];
-            $arr_Description = [];
-            $pusharr_IMG = array_push($arr_IMG, $data['img']);
-            $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
-            $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-            $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
-            $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
-            $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
-            $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
-            $pusharr_Site2 = array_push($arr_Site1,$data['Site_2']);
-            $pusharr_Description = array_push($arr_Description,$data['description']);
-            ?>
+        $titleglyph = $data['title'];
+        $arr_IMG = [];
+        $arr_Youtube = [];
+        $arr_Twitch = [];
+        $arr_Discord = [];
+        $arr_Twitter = [];
+        $arr_Instagram = [];
+        $arr_Facebook = [];
+        $arr_Site1 = [];
+        $arr_Site2 = [];
+        $arr_Description = [];
+        $pusharr_IMG = array_push($arr_IMG, $data['img']);
+        $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
+        $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
+        $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+        $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
+        $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
+        $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
+        $pusharr_Site2 = array_push($arr_Site1,$data['Site_2']);
+        $pusharr_Description = array_push($arr_Description,$data['description']);
+        ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
         <?php if (isset($_SESSION['id'])) { ?>
         <input type="checkbox" name="checkglyph" class="checkglyph" value="<?= $data['id'] ?>">
