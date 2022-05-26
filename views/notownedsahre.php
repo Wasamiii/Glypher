@@ -7,7 +7,6 @@
 
 <div id="container-glyph">
 <?php 
-echo($_GET['user']);
 //! add comment
 $titleglyph = "";
 $arr_IMG = [];
