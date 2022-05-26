@@ -7,9 +7,7 @@
 
 <div id="container-glyph">
 <?php 
-echo($_GET['user']);
 //! add comment
-//! affiche rien malheureusement
 $titleglyph = "";
 $arr_IMG = [];
 $arr_Youtube = [];
