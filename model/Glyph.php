@@ -205,24 +205,38 @@ class Glyph extends Manager
     public function postownedglyph($id_user, $id_glyph)
     {
         $db = $this->dbConnect();
-        $postglyphowned = $db->prepare('INSERT INTO glyphowned(id_user,id_glyph) VALUES (?,?)');
-        $postglyphowned->execute(array($id_user,$id_glyph));
-        return $postglyphowned;
+        $selectpostglyph = $db->prepare('SELECT title FROM glyphs WHERE id = ? ');
+        $selectpostglyph->execute(array($id_glyph));
+        $selectpostglyph = $selectpostglyph->fetch();
+        var_dump($selectpostglyph);
+        $selectidglyph = $db->prepare('SELECT id FROM glyphs WHERE title LIKE ?');
+        $selectidglyph->execute(array($selectpostglyph[0]));
+        var_dump($selectidglyph);
+
+        while($data = $selectidglyph -> fetch()){
+            var_dump($data);
+            $postglyphowned = $db->prepare('INSERT INTO glyphowned(id_user,id_glyph) VALUES (?,?)');
+            $postglyphowned->execute(array($id_user,$data[0]));
+            var_dump("ajout ".$id_user. "et ".$data[0]);
+        }
     }
-    //il y aura aussi un update au cas ou l'utilisateur à mal sélectionner tel ou tel glyphe
-    public function updateGlyph($id_user, $id_glyph)
-    {
-        $db = $this->dbConnect();
-        $updateglyh = $db->prepare('UPDATE glyphowned SET id_glyph WHERE id_user = ?');
-        $updateglyh->execute(array($id_user,$id_glyph));
-        return $updateglyh;
-    }
+    
     public function deleteGlyph($id_user, $id_glyph)
     {
         $db = $this->dbConnect();
-        $updateglyh = $db->prepare('DELETE glyphowned SET id_glyph WHERE id_user = ?');
-        $updateglyh->execute(array($id_user,$id_glyph));
-        return $updateglyh;
+        $selectpostglyph = $db->prepare('SELECT title FROM glyphs WHERE id = ? ');
+        $selectpostglyph->execute(array($id_glyph));
+        $selectpostglyph = $selectpostglyph->fetch();
+        var_dump($selectpostglyph);
+        $selectidglyph = $db->prepare('SELECT id FROM glyphs WHERE title LIKE ?');
+        $selectidglyph->execute(array($selectpostglyph[0]));
+        var_dump($selectidglyph);
+
+        while ($data = $selectidglyph -> fetch()) {
+            var_dump($data);
+            $updateglyh = $db->prepare('DELETE FROM glyphowned WHERE id_user = ? AND id_glyph = ?');
+            $updateglyh->execute(array($id_user,$data[0]));
+        }
     }
 }
 ?>
