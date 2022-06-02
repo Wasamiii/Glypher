@@ -36,11 +36,23 @@ class Index extends Controller{
                 break;
                 case 'owned':
                     $id_user = $_SESSION['id'];
+
+                    $id_glyph='';
                     $instancecontroller->ownedGlyph($id_user);
+
+                    $instancecontroller->deleteOwnedGlyph(
+                        $_POST['sessid'],
+                        $_POST['idglyph']);
                 break;
                 case 'notowned':
                     $id_user = $_SESSION['id'];
+                   
+                    $id_glyph='';
                     $instancecontroller->notownedglyph($id_user);
+
+                    $instancecontroller->addOwnedGlyph(
+                        $_POST['sessid'],
+                        $_POST['idglyph']);
                 break;
                 case 'shareowned':
                     //récupérer l'id via la BDD
