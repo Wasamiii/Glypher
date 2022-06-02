@@ -16,7 +16,6 @@
                 <a class="close-modale"><i class="fas fa-times" aria-hidden="true"></i></a>
             </div>
             <p class="markdown">https://index.php?action=sharenotowned&user=<?php echo($_SESSION['pseudo']);?></p>
-        
         </div>
     </div>
     <?php } ?>
@@ -60,6 +59,7 @@ while ($data = $getnotownedglyph->fetch()) {
     } else {
         if (count($arr_IMG)== null || empty($arr_IMG)) {
             $titleglyph = $data['title'];
+            $arr_id = [];
             $arr_IMG = [];
             $arr_Youtube = [];
             $arr_Twitch = [];
@@ -70,6 +70,7 @@ while ($data = $getnotownedglyph->fetch()) {
             $arr_Site1 = [];
             $arr_Site2 = [];
             $arr_Description = [];
+            $pusharr_id = array_push($arr_id,$data['id']);
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
@@ -80,10 +81,14 @@ while ($data = $getnotownedglyph->fetch()) {
             $pusharr_Site2 = array_push($arr_Site1,$data['Site_2']);
             $pusharr_Description = array_push($arr_Description,$data['description']);
         }else{
-            ?>
+    ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
         <?php if (isset($_SESSION['id'])) { ?>
-        <input type="checkbox" name="checkglyph" class="checkglyph" value="<?= $data['id'] ?>">
+        <form action="index.php?action=notowned" method="post" class="checkedglyph id_<?=$data['id']?>" enctype="multipart/form-data">
+            <input type="hidden" name="sessid" class="sessid id_<?=$data['id']?>" value="<?=$_SESSION['id']?>">
+            <input type="hidden" name="idglyph" class="idglyph id_<?=$data['id']?>" name="" value="<?=$arr_id[0]?>">
+            <input type="submit" name="checkglyph" class="checkglyph id_<?=$data['id']?>" value="">
+        </form>
         <?php } ?>
         <?php if (isset($arr_IMG[0])) { ?>
         <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph">
@@ -148,6 +153,7 @@ while ($data = $getnotownedglyph->fetch()) {
     </div>
         <?php
             $titleglyph = $data['title'];
+            $arr_id=[];
             $arr_IMG = [];
             $arr_Youtube = [];
             $arr_Twitch = [];
@@ -158,6 +164,7 @@ while ($data = $getnotownedglyph->fetch()) {
             $arr_Site1 = [];
             $arr_Site2 = [];
             $arr_Description = [];
+            $push_id = array_push($arr_id,$data['id']);
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
@@ -171,9 +178,12 @@ while ($data = $getnotownedglyph->fetch()) {
         }
     }
 }
- ?>
+var_dump($_POST['id_user']);
+?>
+<p class="session-notOwned"><?= $_SESSION['id'];?></p> 
 </div>
 <script src="public/JS/search.js"></script>
 <script src="public/JS/modales.js"></script>
+<script src="public/JS/postcheckbox.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('views/template.php');?>
