@@ -145,6 +145,25 @@ a#singupLink{
     box-sizing: border-box;
     border-radius: 50px;
 }
+div#btn_dis_admin{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: -2.5%;
+
+}
+div#btn_dis_admin > a#disconnect,a#administration{
+    font-family: 'Roboto-Regular';
+    padding: 5% 8%;
+    font-size: 20px;
+    text-decoration: none;
+    color: #141414;
+    background: #11A7B0;
+    border: 2px solid #141414;
+    border-radius: 50px;
+}
+
+
 div#timers{
     font-family: 'Roboto-Regular';
     display: flex;
@@ -333,6 +352,27 @@ figcaption{
 figcaption p {
     width: auto;
     text-align: center;
+}
+input.checkglyph{
+    height: 20px;
+    width: 20px;
+    margin: 5px 5px;
+    border: 1px solid #11A7B0;
+    border-radius: 10px;
+    background-color: #eee;
+    cursor: pointer;
+}
+input.checkglyph:hover{
+    background-color: #11A7B0;
+}
+input.checkglyph::after{
+    width: 5px;
+    height: 10px;
+    border: solid #11A7B0;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 .img-glyph{
     width: 128px;
