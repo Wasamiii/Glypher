@@ -101,8 +101,13 @@ class Controller
     }
     public function addOwnedGlyph($id_user,$id_glyph){
         $getglyph = new Glyph();
-        $addownedglyph = $getglyph->postownedglyph($id_user,$id_glyph);
+        $addownedglyph = $getglyph->postownedglyph($id_user, $id_glyph);
     }
+    public function deleteOwnedGlyph($id_user,$id_glyph){
+        $getglyph = new Glyph();
+        $addownedglyph = $getglyph->deleteGlyph($id_user,$id_glyph);
+    }
+    //share pages
     public function shareownedGlyph($pseudo){
         $getglyph = new Glyph();
         $getmembers = new Members();
