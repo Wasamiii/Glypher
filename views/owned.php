@@ -58,6 +58,7 @@ while ($data = $getownedglyph->fetch()) {
         //ajouter les infos des images dans l'array
     } else {
         $titleglyph = $data['title'];
+        $arr_id = [];
         $arr_IMG = [];
         $arr_Youtube = [];
         $arr_Twitch = [];
@@ -68,6 +69,7 @@ while ($data = $getownedglyph->fetch()) {
         $arr_Site1 = [];
         $arr_Site2 = [];
         $arr_Description = [];
+        $pusharr_id = array_push($arr_id,$data['id']);
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
@@ -80,7 +82,11 @@ while ($data = $getownedglyph->fetch()) {
         ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
         <?php if (isset($_SESSION['id'])) { ?>
-        <input type="checkbox" name="checkglyph" class="checkglyph" value="<?= $data['id'] ?>">
+            <form action="index.php?action=owned" method="post" class="checkedglyph id_<?=$data['id']?>" enctype="multipart/form-data">
+            <input type="hidden" name="sessid" class="sessid id_<?=$data['id']?>" value="<?=$_SESSION['id']?>">
+            <input type="hidden" name="idglyph" class="idglyph id_<?=$data['id']?>" name="" value="<?=$arr_id[0]?>">
+            <input type="submit" name="checkglyph" class="checkglyph id_<?=$data['id']?>" value="">
+        </form>
         <?php } ?>
         <?php if (isset($arr_IMG[0])) { ?>
         <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph">
@@ -145,6 +151,7 @@ while ($data = $getownedglyph->fetch()) {
     </div>
         <?php
             $titleglyph = $data['title'];
+            $arr_id = [];
             $arr_IMG = [];
             $arr_Youtube = [];
             $arr_Twitch = [];
@@ -155,6 +162,7 @@ while ($data = $getownedglyph->fetch()) {
             $arr_Site1 = [];
             $arr_Site2 = [];
             $arr_Description = [];
+            $pusharr_id = array_push($arr_id,$data['id']);
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
