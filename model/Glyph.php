@@ -39,7 +39,6 @@ class Glyph extends Manager
         ) 
         VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  NOW(), 0, ? )');
         $adderGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
-        var_dump($adderGlyph);
         return $adderGlyph;
     }
     public function getsubmit()
@@ -208,16 +207,14 @@ class Glyph extends Manager
         $selectpostglyph = $db->prepare('SELECT title FROM glyphs WHERE id = ? ');
         $selectpostglyph->execute(array($id_glyph));
         $selectpostglyph = $selectpostglyph->fetch();
-        var_dump($selectpostglyph);
+
         $selectidglyph = $db->prepare('SELECT id FROM glyphs WHERE title LIKE ?');
         $selectidglyph->execute(array($selectpostglyph[0]));
-        var_dump($selectidglyph);
 
         while($data = $selectidglyph -> fetch()){
-            var_dump($data);
             $postglyphowned = $db->prepare('INSERT INTO glyphowned(id_user,id_glyph) VALUES (?,?)');
             $postglyphowned->execute(array($id_user,$data[0]));
-            var_dump("ajout ".$id_user. "et ".$data[0]);
+
         }
     }
     
@@ -227,13 +224,12 @@ class Glyph extends Manager
         $selectpostglyph = $db->prepare('SELECT title FROM glyphs WHERE id = ? ');
         $selectpostglyph->execute(array($id_glyph));
         $selectpostglyph = $selectpostglyph->fetch();
-        var_dump($selectpostglyph);
+
         $selectidglyph = $db->prepare('SELECT id FROM glyphs WHERE title LIKE ?');
         $selectidglyph->execute(array($selectpostglyph[0]));
-        var_dump($selectidglyph);
+
 
         while ($data = $selectidglyph -> fetch()) {
-            var_dump($data);
             $updateglyh = $db->prepare('DELETE FROM glyphowned WHERE id_user = ? AND id_glyph = ?');
             $updateglyh->execute(array($id_user,$data[0]));
         }
