@@ -137,34 +137,25 @@ class Controller
             $fileInfo = pathinfo($_FILES['img_submit']['name']);
             $extension = $fileInfo['extension'];
             $allowedExtensions = ['png'];
-            var_dump($fileInfo);
             if (in_array($extension, $allowedExtensions)) {
                 $temp =  explode(".", $_FILES["img_submit"]["name"]);
                 $newfilename = $_POST['titlePost'].'.'.end($temp);
                 $newdir = 'public\IMG\submit\\';
                 $newFileDIR = $newdir . $newfilename;
-                var_dump($newFileDIR);
-                var_dump(file_exists($newFileDIR));
                 $mod = chmod($_FILES["img_submit"]["tmp_name"], 777);
                 $mod = $_FILES['img_submit']['tmp_name'];
                 if (file_exists($newFileDIR)) {
-                    var_dump("dans le if");
                     echo "Already exist !";
                     $i = 1;
                     while (file_exists($newdir .$_POST['titlePost'] . '('. $i . ').'. end($temp))) {
                         $i++;
                     }
                     $newfilename = $_POST['titlePost'] . '('. $i . ').'. end($temp);
-                    var_dump($newfilename);
                     $img_submit = move_uploaded_file($mod, $newdir . $newfilename);
                     $img_submit = $newfilename;
-                    var_dump($img_submit);
-                    var_dump($i);
                 } else {
-                    var_dump("dans le else");
                     $img_submit = move_uploaded_file($mod, $newdir . $newfilename);
                     $img_submit = $newfilename;
-                    var_dump($img_submit);
                 }
             } else {
                 echo "This is not a PNG image.";
@@ -285,43 +276,30 @@ class Controller
         $newdir = 'public\IMG\IMG-partenaire-warframe\\';
         if (file_exists($oldFileDIR)) {
             if(file_exists($newdir.$newfilename)){
-                var_dump("dans le if");
                 echo "Already exist !";
                 $i = 1;
                 while (file_exists($newdir .$get_submit['title_submit'] . '('. $i . ').png')) {
                     $i++;
                 }
                 $newfilename = $get_submit['title_submit'] . '('. $i . ').png';
-                var_dump($i);
                 $newFileDIR = $newdir . $newfilename;
-                var_dump($newfilename);
                 $img_submit = copy($oldFileDIR, $newFileDIR);
                 $modPrentDir = chmod($parenDIR,0777);
                 $modDir = chmod($oldDIR,0777);
                 $mod= chmod($oldFileDIR,0777);
-                var_dump($modDir);
-                var_dump($mod);
-                var_dump($oldFileDIR);
-                var_dump($newFileDIR);
                 //problème de permission même avec chmod
                 $img_submit = unlink(realpath($oldFileDIR));
             }else{
                 echo("doesn't exist!");
-                var_dump($newfilename);
                 $newFileDIR = $newdir . $newfilename;
                 $img_submit = copy($oldFileDIR, $newFileDIR);
-                var_dump($img_submit);
                 // unlink par la suite
                 $modPrentDir = chmod($parenDIR,0777);
                 $modDir = chmod($oldDIR,0777);
                 $mod= chmod($oldFileDIR,0777);
-                var_dump($modDir);
-                var_dump($mod);
-                var_dump($oldFileDIR);
                 //problème de permission même avec chmod
                 $img_submit = unlink(realpath($oldFileDIR));
             }
-            var_dump($img_submit);
             $validation_submit = $glypher->addOnGlyph(
                 $get_submit['title_submit'],
                 //surement à modifier
@@ -338,7 +316,6 @@ class Controller
                 $get_submit['id_user']
             );
             $suppr_submit = $glypher->supprSubmitGlyph($id_submit);
-            var_dump($get_submit);
             //header('Location: index.php?action=admin');
         }
     }
