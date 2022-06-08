@@ -50,7 +50,7 @@
 }
 body.dark{
     background: #040920!important;
-    color: #bbbbbb!important;
+    color: #bbbbbb;
 }
 
 /*----MENU----*/
@@ -430,21 +430,49 @@ div.background-modal{
 .top-modal{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 95%;
+}
+p.title-of-glyph.modale-title{
+    margin-left: 5%;
+    font-size: 24px;
+    color: #eeeeee;
+    letter-spacing: normal;
 }
 .close-modale{
     cursor: pointer;
+}
+a.close-modale i.fa-times{
+    font-size: 30px;
+    color: #eeeeee;
 }
 .img-glyph-modal{
     position: relative;
     left: 30%;
     width: 40%;
 }
+div.social-network{
+    margin-left: 4%;
+}
 .icon-social{
     width: 32px;
     height: 32px;
 }
 
+.claim_glyph{
+    display: flex;
+    width: 100px;
+    margin-top: 20px;
+    padding: 2% 5%;
+    border: 2px solid #ffffff ;
+    border-radius: 25px;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    text-decoration: none;
+    color: #eeeeee;
+    background-color: #060e33;
+
+}
 /*----Nightmode----*/
 h1#title-site.titlenight{
     color: rgb(178, 97, 194);
@@ -469,7 +497,7 @@ div.nightmode i.fa-sun{
 } 
 /*----Lightmode----*/
 body.light{
-    background:#f1f1f1;
+    background:#e0e0e0;
     color:#1f1f1f;
 }
 h1.titlelight{
@@ -603,9 +631,10 @@ li.list-admin{
     border: 2px solid #11A7B0;
     border-radius: 23px;
 }
-p#title-of-glyph{
+p.title-of-glyph{
     align-self: center;
 }
+
 #img-glyph-submit{
     max-width: 128px;
     max-height: 128px;
@@ -646,4 +675,29 @@ input.btn-modify{
 input.btn-modify:hover{
     background-color: #060e33;
     color: #8a8a8a;
+}
+/*--Footer--*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-left: 5%;
+}
+div#contact{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+div#contact > a{
+    margin-right: 5%;
+}
+div#contact-discord{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div#contact-discord > img{
+    width: 32px;
+    height: 32px;
 }
