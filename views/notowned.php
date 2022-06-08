@@ -49,7 +49,8 @@ while ($data = $getnotownedglyph->fetch()) {
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-        $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+        $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+        $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
         $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
         $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
         $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
@@ -74,7 +75,8 @@ while ($data = $getnotownedglyph->fetch()) {
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-            $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+            $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+            $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
             $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
             $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
             $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
@@ -101,7 +103,7 @@ while ($data = $getnotownedglyph->fetch()) {
         <div class="background-modal"></div>
         <div class="modal-div id_<?= $data['id'] ?>">
             <div class="top-modal">
-                <p class="title-of-glyph"><?= $titleglyph ?></p>
+                <p class="title-of-glyph modale-title"><?= $titleglyph ?></p>
                 <a class="close-modale id_<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
             </div>
             <?php if (isset($arr_IMG[0])) { ?>
@@ -118,7 +120,7 @@ while ($data = $getnotownedglyph->fetch()) {
                 <?php } ?>
                 <?php if (empty($arr_Discord[0])) {?>
                 <?php }else{?>
-                    <a target="_blank" href="<?= $arr_Discord[0] ?>" class='id_<?= $data['id'] ?>"'><img class="icon-social" src="public/IMG/Social-network/discord_101785.svg" alt="Discord icon"></a>
+                    <a target="_blank" href="<?= $arr_Discord[0] ?>" class='id_<?= $data['id'] ?>"'><img class="icon-social" src="public/IMG/Social-network/Discord-Logo-White.svg" alt="Discord icon"></a>
                 <?php } ?>
                 <?php if (empty($arr_Twitter[0])) {?>
                 <?php }else{ ?>
@@ -168,7 +170,8 @@ while ($data = $getnotownedglyph->fetch()) {
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-            $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+            $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+            $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
             $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
             $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
             $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
@@ -178,7 +181,6 @@ while ($data = $getnotownedglyph->fetch()) {
         }
     }
 }
-var_dump($_POST['id_user']);
 ?>
 <p class="session-notOwned"><?= $_SESSION['id'];?></p> 
 </div>
