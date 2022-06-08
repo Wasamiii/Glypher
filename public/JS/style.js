@@ -20,10 +20,12 @@ class Style {
     this.childfissuresTimer = document.querySelector('div#fissures > span');
     //all figures
     this.figure = document.querySelectorAll('figure');
+    //footer
+    this.github = document.querySelector('img#github-icon');
   }
   darkAndlight() {
     style.basicGlypher();
-    
+
     this.btntoggle.addEventListener('click', () => {
       if (this.body.classList.contains('light')) {
         //dark mode
@@ -31,6 +33,9 @@ class Style {
         this.body.classList.remove('light');
         this.body.classList.remove('transcande');
         this.title.classList.replace('titlelight', 'titlenight');
+        this.github.src = "public/IMG/Social-network/PNG/GitHub-Mark-Light-32px.png";
+        this.github.classList.toggle('light','dark');
+
         this.light.style.display = 'none';
         this.night.style.display = 'flex';
         this.transcande.style.display = 'none';
@@ -41,13 +46,15 @@ class Style {
         this.body.classList.remove('dark');
         this.body.classList.remove('transcande');
         this.title.classList.replace('titlenight', 'titlelight');
+        this.github.src = "public/IMG/Social-network/PNG/GitHub-Mark-32px.png";
+        this.github.classList.toggle('dark','light');
         this.light.style.display = 'flex';
         this.night.style.display = 'none';
         this.transcande.style.display = 'none';
       }
     });
   }
-
+  //Transcand mode
   shiftKey() {
     style.basicGlypher();
     document.onkeydown = (ev) => {
@@ -130,7 +137,7 @@ class Style {
       });
     };
   }
-  //à voir plus tard
+  //Dropdown btn for Owned/Not-owned glyph link
   dropdown(){
     let dropdownbtn = document.getElementById('dropdown_btn');
     dropdownbtn.addEventListener("click",()=>{
