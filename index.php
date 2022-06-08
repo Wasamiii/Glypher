@@ -39,20 +39,22 @@ class Index extends Controller{
 
                     $id_glyph='';
                     $instancecontroller->ownedGlyph($id_user);
-
-                    $instancecontroller->deleteOwnedGlyph(
-                        $_POST['sessid'],
-                        $_POST['idglyph']);
+                    if($_POST['idglyph']){
+                        $instancecontroller->deleteOwnedGlyph(
+                            $_POST['sessid'],
+                            $_POST['idglyph']);
+                    }
                 break;
                 case 'notowned':
                     $id_user = $_SESSION['id'];
                    
                     $id_glyph='';
                     $instancecontroller->notownedglyph($id_user);
-
-                    $instancecontroller->addOwnedGlyph(
-                        $_POST['sessid'],
-                        $_POST['idglyph']);
+                    if($_POST['idglyph']){
+                        $instancecontroller->addOwnedGlyph(
+                            $_POST['sessid'],
+                            $_POST['idglyph']);
+                    }
                 break;
                 case 'shareowned':
                     //récupérer l'id via la BDD
@@ -114,7 +116,7 @@ class Index extends Controller{
                 break;
                 case 'modifySubmit':
                     $getModGlyph = $_GET['id_submit'];
-                    die(var_dump( $instancecontroller->modifySubmit(
+                    die($instancecontroller->modifySubmit(
                         //définir les différents noms
                         $_POST['modify_Youtube'],
                         $_POST['modify_Twitch'],
@@ -125,7 +127,7 @@ class Index extends Controller{
                         $_POST['modify_Site_1'],
                         $_POST['modify_Site_2'],
                         $_POST['desc_modify'],
-                        $getModGlyph)));
+                        $getModGlyph));
                 break;
         
                 //Affiche la liste de base non membre connecté
