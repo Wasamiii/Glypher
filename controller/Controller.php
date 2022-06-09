@@ -34,7 +34,7 @@ class Controller
         $result = curl_exec($ch);
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
-        } else {
+        }else{
             // View result server
             $addBiginningResult = '{';
             $addEndingResult = '}';
@@ -45,7 +45,6 @@ class Controller
             $posStingEndActive = strpos($result, ',"VoidTraders"');
             $substrToPos = substr($result, $posStingStartActive, $posStingEndActive-$posStingStartActive);
             $newResult = json_decode(($addBiginningResult . $substrToPos . $addEndingResult), true);
-            // var_dump($newResult);
             //Tableau de rangement des fissures en fonction de leurs hauteur VoidT?
             $arrayT1 = [];
             $arrayT2 = [];
@@ -163,6 +162,12 @@ class Controller
                 }
             } else {
                 echo "This is not a PNG image.";
+            }
+            if(isset($desc_submit)){
+
+                if(strpos($desc_submit ,"www.warframe.com")){
+                    $desc_submit = '<a href="'.$desc_submit. '" class="claim_glyph" target="__blank">Redeem Code</a..>';
+                }
             }
         } else {
             echo "Return Code: ". $_FILES['img_submit']['error'];
