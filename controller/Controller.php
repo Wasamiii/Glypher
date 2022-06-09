@@ -18,7 +18,7 @@ class Controller
     public function __construct()
     {
     }
-    //affichage global + timers
+    //view global + timers
     public function basicglypher()
     {
         $postManager = new Members();
@@ -35,10 +35,10 @@ class Controller
         if (curl_errno($ch)) {
             echo 'Error:' . curl_error($ch);
         } else {
-            // Afficher le résultat du serveur
+            // View result server
             $addBiginningResult = '{';
             $addEndingResult = '}';
-            //position de ActiveMissions
+            //search position of ActiveMissions
             $posStingStartActive = strpos($result, '"ActiveMissions"');
             
             //les fissures sont dans ActiveMissions
@@ -88,7 +88,11 @@ class Controller
         $getglyph = $glypher->GetGlyph();
         require('views/basicsglypher.php');
     }
-    //!Owned / not owned glyph
+    //Redirect to about page
+    public function aboutPage(){
+        require('views/about.php');
+    }
+    //Owned / not owned glyph
     public function ownedGlyph($id_user){
         $getglyph = new Glyph();
         $getownedglyph = $getglyph->selectowned($id_user);
