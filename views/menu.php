@@ -12,7 +12,7 @@
 </div>
 <a href="index.php" id="homepage">Home</a>
 <!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
-<a href="views/about.php" id="about">About</a>
+<a href="index.php?action=about" id="about">About</a>
 <div class="btn-toggle">
 <div class="nightmode"><i class="far fa-sun"></i></div>
 <div class="lightmode"><i class="fas fa-moon"></i></div>
