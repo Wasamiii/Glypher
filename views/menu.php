@@ -11,7 +11,6 @@
         </div>
 </div>
 <a href="index.php" id="homepage">Home</a>
-<!--le about.php est provisoire ça deviendra une action j'y mettrais dedans toutes les information comment l'utiliser etc...-->
 <a href="index.php?action=about" id="about">About</a>
 <div class="btn-toggle">
 <div class="nightmode"><i class="far fa-sun"></i></div>
@@ -33,7 +32,7 @@ if($_SESSION['admin'] == "1"){?>
 </div>
  <p id="bonjourPseudo"><?php echo 'Hello ' . $_SESSION['pseudo'];?></p>
 <?php
-}else{   
+}else{
 ?>
 <div id="allForm">
         <form action="index.php?action=getlog" method="post" id="connexionForm">
