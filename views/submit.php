@@ -1,15 +1,13 @@
 <?php $title = 'Submit'?>
 <?php ob_start(); ?>
   
-
+<!-- Form add glyph with users connected -->
 
 <form id="blockSubmit" action="index.php?action=addpost" method="post" enctype="multipart/form-data">
   <div class="groupForm">
     <p>Nom du partenaire:</p>
     <input type="text" name="titlePost" placeholder="Title" required>
     <p>Image:</p>
-    <!-- Problème avec le drop area l'input ne fonctionne plus réellement renvoi undefined
-    / le drag&drop renvoi quelque chose mais n'envoi rien en BDD -->
     <div class="drag-area">
       <input type="file" name="img_submit"  placeholder="img" class="input-file" id="img-submit" accept="image/png">
       <label for="img-submit" class="label-file">Get the file</label>
