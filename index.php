@@ -34,6 +34,9 @@ class Index extends Controller{
                 case'disconnect':
                     $instancecontroller->disconnect();
                 break;
+                case 'about':
+                    $instancecontroller->aboutPage();
+                break;
                 case 'owned':
                     $id_user = $_SESSION['id'];
 
