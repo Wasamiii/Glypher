@@ -42,7 +42,7 @@ class Index extends Controller{
 
                     $id_glyph='';
                     $instancecontroller->ownedGlyph($id_user);
-                    if($_POST['idglyph']){
+                    if(isset($_POST['idglyph'])){
                         $instancecontroller->deleteOwnedGlyph(
                             $_POST['sessid'],
                             $_POST['idglyph']);
@@ -53,7 +53,7 @@ class Index extends Controller{
                    
                     $id_glyph='';
                     $instancecontroller->notownedglyph($id_user);
-                    if($_POST['idglyph']){
+                    if(isset($_POST['idglyph'])){
                         $instancecontroller->addOwnedGlyph(
                             $_POST['sessid'],
                             $_POST['idglyph']);
