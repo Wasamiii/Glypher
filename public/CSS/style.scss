@@ -163,7 +163,7 @@ div#btn_dis_admin > a#disconnect,a#administration{
     border-radius: 50px;
 }
 
-
+/*--Timers--*/
 div#timers{
     font-family: 'Roboto-Regular';
     display: flex;
@@ -172,7 +172,6 @@ div#timers{
 }
 i.fa-bars{
     font-size: 32px;
-
 }
 
 img#svgnight,img#svgday{
@@ -181,7 +180,6 @@ img#svgnight,img#svgday{
     height: 21px;
 }
 /*Modifier les svg en fonction des couleurs demandé*/
-
 #night { color: #0093ce; }
 #day,img#svgday { color: orange; }
 #night, #day {
@@ -458,7 +456,6 @@ div.social-network{
     width: 32px;
     height: 32px;
 }
-
 .claim_glyph{
     display: flex;
     width: 100px;
@@ -473,6 +470,7 @@ div.social-network{
     background-color: #060e33;
 
 }
+
 /*----Nightmode----*/
 h1#title-site.titlenight{
     color: rgb(178, 97, 194);
@@ -494,7 +492,8 @@ div.nightmode i.fa-sun{
     left: 40%;
     top: 18%;
     color: #000000;
-} 
+}
+
 /*----Lightmode----*/
 body.light{
     background:#e0e0e0;
@@ -520,6 +519,7 @@ div.lightmode i.fa-moon{
     top: 18%;
     color: #141414;
 }
+
 /*----Transcand----*/
 body.transcande{
     background: #0001ec;
@@ -548,8 +548,6 @@ div#cetustimer > span.transcande, div#timerBaro > span.transcande,div#fissures >
 figure.transcande{
     border:  0.5px solid #60ef01;
 }
-
-
 
 /*---Submit---*/
 form#blockSubmit{
@@ -605,15 +603,12 @@ label.label-file{
     border-color: green;
 }
 
-
-
 /*---Admin---*/
 div#contain-glyph-admin{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-
 }
 ul.listg-admin{
     list-style: none;
@@ -676,12 +671,37 @@ input.btn-modify:hover{
     background-color: #060e33;
     color: #8a8a8a;
 }
+
+/*--About--*/
+div.container-about{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+h2.h2-about{
+    display: flex;
+    justify-content: center;
+    margin: 2.5% 0 1% 0;
+    font-family: 'Roboto-Regular';
+    font-size: 36px;
+}
+p.p-about{
+    width: 75%;
+}
+h4.h4-about{
+    margin: 1% 0;
+    font-family: 'Roboto-Regular';
+    font-size: 24px;
+}
+
 /*--Footer--*/
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
+    margin-top: 10%;
     margin-left: 5%;
 }
 div#contact{
