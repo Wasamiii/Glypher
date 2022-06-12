@@ -7,7 +7,7 @@
 
 <div id="container-glyph">
 <?php 
-//! add comment
+//From an empty array to fill it with information
 $titleglyph = "";
 $arr_IMG = [];
 $arr_Youtube = [];
@@ -31,10 +31,12 @@ $arr_Site2 = array_filter($arr_Site2);
 $arr_Description = array_filter($arr_Description);
 while ($data = $getownedglyph->fetch()) {
     if ($titleglyph == $data['title']) {
+        //add infos in array
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-        $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+        $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+        $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
         $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
         $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
         $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
@@ -42,6 +44,7 @@ while ($data = $getownedglyph->fetch()) {
         $pusharr_Description = array_push($arr_Description,$data['description']);
     } else {
         $titleglyph = $data['title'];
+        $arr_id = [];
         $arr_IMG = [];
         $arr_Youtube = [];
         $arr_Twitch = [];
@@ -52,14 +55,16 @@ while ($data = $getownedglyph->fetch()) {
         $arr_Site1 = [];
         $arr_Site2 = [];
         $arr_Description = [];
+        $pusharr_id = array_push($arr_id,$data['id']);
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-        $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+        $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+        $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
         $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
         $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
         $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
-        $pusharr_Site2 = array_push($arr_Site1,$data['Site_2']);
+        $pusharr_Site2 = array_push($arr_Site2,$data['Site_2']);
         $pusharr_Description = array_push($arr_Description,$data['description']);
         ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
@@ -125,7 +130,9 @@ while ($data = $getownedglyph->fetch()) {
         </div>
     </div>
         <?php
+            //clear the array
             $titleglyph = $data['title'];
+            $arr_id = [];
             $arr_IMG = [];
             $arr_Youtube = [];
             $arr_Twitch = [];
@@ -136,16 +143,17 @@ while ($data = $getownedglyph->fetch()) {
             $arr_Site1 = [];
             $arr_Site2 = [];
             $arr_Description = [];
+            $pusharr_id = array_push($arr_id,$data['id']);
             $pusharr_IMG = array_push($arr_IMG, $data['img']);
             $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
             $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
-            $pusharr_Discord = array_push($arr_Twitter,$data['Twitter']);
+            $pusharr_Discord = array_push($arr_Discord,$data['Discord']);
+            $pusharr_Twitter = array_push($arr_Twitter,$data['Twitter']);
             $pusharr_Instagram = array_push($arr_Instagram,$data['Instagram']);
             $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
             $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
             $pusharr_Site2 = array_push($arr_Site2,$data['Site_2']);
             $pusharr_Description = array_push($arr_Description,$data['description']);
-            
     }
 }
  ?>
