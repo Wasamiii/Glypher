@@ -8,24 +8,20 @@ class Baro {
     callApiToBaro(){
         let funcCountBaro =()=>{
             //48h = 172 800ms 
-            //si le timer est à -172 800ms tu rapelle l'api 
+            //if timer est à -172 800ms recall api 
             //! timerForBaro == -172800
             let parseBaro;
             let barosession = sessionStorage.getItem('BaroKiteer');
             parseBaro = JSON.parse(barosession);
-            // console.log(parseBaro);
             let barolength = parseBaro.length;
-            // console.log(barolength);
-            //récupère ce qu'il y à dans l'array de baro 
+            //recovers what is in the baro array 
             let baroArray = parseBaro[0];
-            // console.log(baroArray);
             const get_timestamp_baro_expiry = Math.floor(baroArray["Activation"]["$date"]["$numberLong"] / 1000);
             const get_node_baro = baroArray["Node"];
 
             const datenow = new Date();
             let timeDate = Math.floor(datenow /1000);
             let timerForBaro = get_timestamp_baro_expiry  -timeDate;
-            // console.log(timerForBaro);
             if(timerForBaro < -172800){
                 refreshApiBaro();
             }else{

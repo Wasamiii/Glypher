@@ -1,7 +1,6 @@
 class Api{
   constructor(){
     this.url = "views/api.php";
-    // this.allTimers;
   }
   async syndicate(){
        let APIMissions =  await axios.get(this.url);
@@ -13,7 +12,6 @@ let refreshAPIcetus = ()=>{
   let timers = callApi.syndicate();
   timers.then(response => {
     const cetusSyndicate = response.data.SyndicateMissions.find(data =>data.Tag === 'CetusSyndicate');
-    // console.log(cetusSyndicate);
     if (!cetusSyndicate){
       return callback(undefined);
     }
@@ -31,7 +29,6 @@ let refreshAPIfissures = ()=>{
   let timers = callApi.syndicate();
   timers.then(response => {
     const fissuresMissions = response.data.ActiveMissions;
-    // console.log(fissuresMissions);
     if (!fissuresMissions){
       return callback(undefined);
     }
@@ -46,7 +43,6 @@ let refreshApiBaro = ()=>{
   let timers = callApi.syndicate();
   timers.then(response=>{
     const Baro = response.data.VoidTraders;
-    // console.log(Baro);
     if (!Baro){
       return callback(undefined);
     }

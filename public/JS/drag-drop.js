@@ -52,9 +52,7 @@ class DragandDrop{
                     inputIMG.files = dt.files;
                     console.log(inputIMG.files);
                     inputIMG.setAttribute('filename', droppedFiles[0].name);
-                    //this.inputIMG.value = e.dataTransfer.files[0];
                     showFiles(droppedFiles[0]);
-                    //console.log(showFiles(droppedFiles));
                 }else{
                     alert('is not a png');
                 }

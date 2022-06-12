@@ -10,17 +10,12 @@ callAPIfissures(){
             let fissuresSession = sessionStorage.getItem('Fissures');
             if(sessionStorage.getItem('Fissures') === null){
                 refreshAPIfissures();
-            }else{
-                //essayer d'en faire une boucle 
+            }else{ 
                 fissureParse = JSON.parse(fissuresSession);
                 let fissures_Length = fissureParse.length;
-                
-                //*console.log(fissureParse);
-                //*console.log(fissures_Length);
                 for(let index = 0;index < fissures_Length;index++){
                     
                     let fissures_array = fissureParse[index];
-                    // console.log(fissures_array);
                     const get_all_Timer_Fissures = Math.floor(fissures_array["Expiry"]["$date"]["$numberLong"] / 1000);
                     //*console.log("même fissures mais l'intérieur est séparé.");
                     const get_node_Fissures = fissures_array["Node"];
@@ -29,7 +24,6 @@ callAPIfissures(){
                     const get_Name_Missions_Fissures = fissures_array["Name_missions"];
                     const get_Mission_Type_Fissures = fissures_array["Mission_type"];
                     const get_Planete_Fissures = fissures_array["planete"];
-                    // console.log(get_Modifier_Fissures);
                     
                     const dateNow = new Date();
                     let time_date = Math.floor(dateNow /1000);
@@ -40,7 +34,6 @@ callAPIfissures(){
                     let addmodifier = "fissuresTimer" + modifierFissures;
                     let PFTimertiers = "PFTimer" + modifierFissures;
                     if(document.getElementById(get_node_Fissures) === null){
-                        // console.log(get_Modifier_Fissures);
                         switch (get_Modifier_Fissures){
                             case 'VoidT1':
                                 //T1
@@ -54,9 +47,9 @@ callAPIfissures(){
                                 let add_span2InT1 = document.createElement("span");
                                 let add_span3InT1 = document.createElement("span");
                                 let add_span4InT1 = document.createElement("span");
+                                // add type of mission and planete 
                                 let newspan1T1 = add_pt1.appendChild(add_span1InT1);
                                 newspan1T1.innerHTML = get_Name_Missions_Fissures + " ";
-                                //! ajouter les types de mission nom de mission et planête 
                                 let newspan2T1 = add_pt1.appendChild(add_span2InT1);
                                 newspan2T1.innerHTML = get_Mission_Type_Fissures + " ";
                                 let newspan3T1 = add_pt1.appendChild(add_span3InT1);
@@ -74,10 +67,10 @@ callAPIfissures(){
                                 let attribPt2 = add_pt2.setAttribute("id", PFTimertiers);
                                 let add_span1InT2 = document.createElement("span");
                                 add_span1InT2.classList.add("fissuresTimerT2");
-                                //! ajouter les types de mission nom de mission et planête 
                                 let add_span2InT2 = document.createElement("span");
                                 let add_span3InT2 = document.createElement("span");
                                 let add_span4InT2 = document.createElement("span");
+                                // add type of mission and planete
                                 let newspan1T2 = add_pt2.appendChild(add_span1InT2);
                                 newspan1T2.innerHTML = get_Name_Missions_Fissures + " ";
                                 let newspan2T2 = add_pt2.appendChild(add_span2InT2);
@@ -100,6 +93,7 @@ callAPIfissures(){
                                 let add_span2InT3 = document.createElement("span");
                                 let add_span3InT3 = document.createElement("span");
                                 let add_span4InT3 = document.createElement("span");
+                                // add type of mission and planete
                                 let newspan1T3 = add_pt3.appendChild(add_span1InT3);
                                 newspan1T3.innerHTML = get_Name_Missions_Fissures + " ";
                                 let newspan2T3 = add_pt3.appendChild(add_span2InT3);
@@ -122,6 +116,7 @@ callAPIfissures(){
                                 let add_span2InT4 = document.createElement("span");
                                 let add_span3InT4 = document.createElement("span");
                                 let add_span4InT4 = document.createElement("span");
+                                // add type of mission and planete
                                 let newspan1T4 = add_pt4.appendChild(add_span1InT4);
                                 newspan1T4.innerHTML = get_Name_Missions_Fissures + " ";
                                 let newspan2T4 = add_pt4.appendChild(add_span2InT4);
@@ -144,6 +139,7 @@ callAPIfissures(){
                                 let add_span2InT5 = document.createElement("span");
                                 let add_span3InT5 = document.createElement("span");
                                 let add_span4InT5 = document.createElement("span");
+                                // add type of mission and planete
                                 let newspan1T5 = add_pt5.appendChild(add_span1InT5);
                                 newspan1T5.innerHTML = get_Name_Missions_Fissures + " ";
                                 let newspan2T5 = add_pt5.appendChild(add_span2InT5);
@@ -155,20 +151,17 @@ callAPIfissures(){
                                 let classDivt5 = newDiv1t5.setAttribute("class", addmodifier);
                             break;
                             default:
-                                //console.log("En dehors de l'expression dans switch");
                         }
                     }
 
-                    //je récupère l'id ici et ça compare directement entre get_node_Fissures(qui viens de l'api) et l'id 
+                    //I get the id here and it compares directly between get_node_Fissures(which comes from the api) and the id 
                     let getIDfissures = document.getElementById(get_node_Fissures);
-                    //console.log(getIDfissures);
                     
-                    //!event pour supprimer le bon élément dans la session [array] lorsque l'expiry - date est à 0 
-                    //! reprendre le total des fissures et les comprarer pour pas avoir de doublons
+                    //event to delete the right element in the session [array] when the expiry - date is 0 
+                    //take the total of the cracks and compress them to avoid duplication
 
                    if(timer_Fissures <= 0 || getIDfissures === null){
                     
-                    //console.log('fissures suprimé!' + JSON.parse(sessionStorage.getItem('Fissures')));
                     let FstElement = document.getElementById('fissuresTimerT1');
                     while (FstElement.firstChild) {
                         FstElement.removeChild(FstElement.firstChild);
@@ -191,26 +184,18 @@ callAPIfissures(){
                     }
                     sessionStorage.removeItem('Fissures');
 
-                    // console.log(modifierFissures);
                     }else{
                     
-                    // console.log(timer_Fissures);
                     let fissures_S = Math.floor(timer_Fissures %60);
                     let fissures_M = Math.floor(((timer_Fissures - fissures_S) /60)%60);
                     let fissures_H = Math.floor((((timer_Fissures - fissures_S)/60)/60));
                     getIDfissures.textContent = ": " + fissures_H +"h " + fissures_M + "min " + fissures_S + "s";
                     }
-                    //console.log(get_node_Fissures);
-                    // console.log(get_Mission_Fissures);
-                    // console.log(get_Modifier_Fissures);
-                    // countFissures.innerHTML = fissures_H +"h" + fissures_M + "min" + fissures_S + "s";
 
                 }
-                //["MissionType"]["Modifier"]
             }
         };
         this.interval = setInterval(functionToFissures,1000);
-        //functionToFissures();
     }
 }
 let timerFissures = new Fissures();

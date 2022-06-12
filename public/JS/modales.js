@@ -1,7 +1,5 @@
 class Modale{
-  constructor(){
-
-  }
+  constructor(){}
   modalForm(){
     let figures = document.querySelectorAll('.modal-trigger');
     let imgGlyph = document.querySelectorAll('.img-glyph');
