@@ -1,6 +1,6 @@
 <?php $title = 'Modify'?>
 <?php ob_start(); 
-//&amp;id_submit=<?=$_GET['id_submit']
+//verify admin session
 ?>
 <?php if($_SESSION["admin"] == "1"){?>
 <form id="blockModify" action="index.php?action=modifySubmit&amp;id_submit=<?=$_GET['id_submit']?>" method="post">

@@ -1,5 +1,7 @@
 <?php $title='Admin' ?>
-<?php if ($_SESSION['admin'] === "1"){
+<?php 
+//check admin session and glyph submit by users
+if ($_SESSION['admin'] === "1"){
 ?>
 <?php ob_start();?>
 

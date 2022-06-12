@@ -5,7 +5,7 @@
 
 <form id="blockSubmit" action="index.php?action=addpost" method="post" enctype="multipart/form-data">
   <div class="groupForm">
-    <p>Nom du partenaire:</p>
+    <p>Partner name:</p>
     <input type="text" name="titlePost" placeholder="Title" required>
     <p>Image:</p>
     <div class="drag-area">

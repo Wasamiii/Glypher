@@ -1,11 +1,11 @@
 <?php $title = "Not-Owned" ?>
 <?php ob_start(); ?>
+<!-- Search bar live -->
 <div class="container-search">
     <div class="search-bar" id="search_bar">
         <i class="fas fa-search"></i>
         <input class="search_input" type="text">
     </div>
-    <!-- index.php?action=sharenotowned&user=<?php  //echo($_SESSION['pseudo']);?> -->
     <?php  if(isset($_SESSION)){ ?>
     <div class="btn_share modal-btn">Share Not-Owned</div>
     <div class="modal_container">
@@ -22,7 +22,7 @@
 </div>
 <div id="container-glyph">
 <?php 
-//! add comment
+//From an empty array to fill it with information
 $titleglyph = "";
 $arr_IMG = [];
 $arr_Youtube = [];
@@ -46,6 +46,7 @@ $arr_Site2 = array_filter($arr_Site2);
 $arr_Description = array_filter($arr_Description);
 while ($data = $getnotownedglyph->fetch()) {
     if ($titleglyph == $data['title']) {
+        //add infos img to the array
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
@@ -56,7 +57,6 @@ while ($data = $getnotownedglyph->fetch()) {
         $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
         $pusharr_Site2 = array_push($arr_Site1,$data['Site_2']);
         $pusharr_Description = array_push($arr_Description,$data['description']);
-    //ajouter les infos des images dans l'array
     } else {
         if (count($arr_IMG)== null || empty($arr_IMG)) {
             $titleglyph = $data['title'];
@@ -154,6 +154,7 @@ while ($data = $getnotownedglyph->fetch()) {
         </div>
     </div>
         <?php
+            //clear the array
             $titleglyph = $data['title'];
             $arr_id=[];
             $arr_IMG = [];
@@ -176,8 +177,7 @@ while ($data = $getnotownedglyph->fetch()) {
             $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
             $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
             $pusharr_Site2 = array_push($arr_Site2,$data['Site_2']);
-            $pusharr_Description = array_push($arr_Description,$data['description']);
-            
+            $pusharr_Description = array_push($arr_Description,$data['description']); 
         }
     }
 }

@@ -19,11 +19,13 @@
 </div>
 <div id="btn_dis_admin">
 <?php
+//check session id and pseudo
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
 ?>       
         <a href="index.php?action=disconnect" id="disconnect">Logout</a>
            
-<?php        
+<?php
+//check if admin connected    
 if($_SESSION['admin'] == "1"){?>
         <a href="index.php?action=admin" id="administration">admin</a>
 <?php

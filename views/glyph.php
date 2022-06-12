@@ -1,3 +1,4 @@
+<!-- Search bar live -->
 <div class="search-bar" id="search_bar">
 <i class="fas fa-search"></i>
     <input class="search_input" type="text">
@@ -10,7 +11,7 @@
         </svg>
     </a>
 <?php 
-//! add comment
+//From an empty array to fill it with information
 $titleglyph = "";
 $arr_IMG = [];
 $arr_Youtube = [];
@@ -34,6 +35,7 @@ $arr_Site2 = array_filter($arr_Site2);
 $arr_Description = array_filter($arr_Description);
 while ($data = $getglyph->fetch()) {
     if ($titleglyph == $data['title']) {
+        //add infos img to the array
         $pusharr_IMG = array_push($arr_IMG, $data['img']);
         $pusharr_Youtube = array_push($arr_Youtube,$data['Youtube']);
         $pusharr_Twitch = array_push($arr_Twitch,$data['Twitch']);
@@ -133,6 +135,7 @@ while ($data = $getglyph->fetch()) {
         </div>
     </div>
         <?php
+            //clear the array
             $titleglyph = $data['title'];
             $arr_IMG = [];
             $arr_Youtube = [];
@@ -153,8 +156,7 @@ while ($data = $getglyph->fetch()) {
             $pusharr_Facebook = array_push($arr_Facebook,$data['Facebook']);
             $pusharr_Site1 = array_push($arr_Site1,$data['Site_1']);
             $pusharr_Site2 = array_push($arr_Site2,$data['Site_2']);
-            $pusharr_Description = array_push($arr_Description,$data['description']);
-            
+            $pusharr_Description = array_push($arr_Description,$data['description']);    
         }
     }
 }
