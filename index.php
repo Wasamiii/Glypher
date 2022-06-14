@@ -3,7 +3,7 @@ session_start();
 require('controller/Controller.php');
 // var_dump(require 'vendor/autoload.php');
 use controller\Controller;
-//chercher à faire les choses en POO
+
 class Index extends Controller{
     public function __construct() {
         $instancecontroller = new Controller();
@@ -14,11 +14,11 @@ class Index extends Controller{
                 $callAction = "";
             }
             switch($callAction){
-                //affichage de base
+                //base view
                 case'basicglyphers':
                     $instancecontroller->basicglypher();
                 break;
-                //Redirige vers inscription
+                //Redirect to signup
                 case 'members':
                     $instancecontroller->signup();
                 break;
@@ -60,12 +60,12 @@ class Index extends Controller{
                     }
                 break;
                 case 'shareowned':
-                    //récupérer l'id via la BDD
+                    //retrieve the id via the DB
                     $username = $_GET['user'];
                     $instancecontroller->shareownedGlyph($username);
                 break;
                 case 'sharenotowned':
-                    //récupérer l'id via la BDD
+                    //retrieve the id via the DB
                     $username = $_GET['user'];
                     $instancecontroller->sharenotownedGlyph($username);
                 break;
@@ -101,14 +101,13 @@ class Index extends Controller{
                 break;
                 case 'validation':
                     $id_submit = $_GET['id_submit'];
-                    //les parametres ne vont pas undefined variables
                     $instancecontroller->valid_submit($id_submit);
                 break;
                 case'supprSubmit':
                     $id_submit = $_GET['id_submit'];
                     $instancecontroller->supprSubmitGlypher($id_submit);
                 break;
-                //Trouver comment récupérer l'id_submit
+                //Find out how to get the id_submit
                 case 'getModifySubmit':
                     if(isset($_SESSION['admin']) && $_SESSION['admin'] == "1"){
                         $getModGlypher = $_GET['id_submit'];
@@ -120,7 +119,7 @@ class Index extends Controller{
                 case 'modifySubmit':
                     $getModGlyph = $_GET['id_submit'];
                     die($instancecontroller->modifySubmit(
-                        //définir les différents noms
+                        //define the different names
                         $_POST['modify_Youtube'],
                         $_POST['modify_Twitch'],
                         $_POST['modify_Discord'],
@@ -133,7 +132,7 @@ class Index extends Controller{
                         $getModGlyph));
                 break;
         
-                //Affiche la liste de base non membre connecté
+                //Displays the basic list of not connected members
                 default:
                 $instancecontroller->basicglypher();
                 break;

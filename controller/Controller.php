@@ -2,7 +2,7 @@
 namespace controller;
 //require "vendor/autoload.php";
 
-//Charge les fichers qui appel la base de données
+//Load the files that call the database
 require_once('model/Manager.php');
 require_once('model/Members.php');
 require_once('model/Fissures.php');
@@ -41,11 +41,11 @@ class Controller
             //search position of ActiveMissions
             $posStingStartActive = strpos($result, '"ActiveMissions"');
             
-            //les fissures sont dans ActiveMissions
+            //the fissures is in ActiveMissions
             $posStingEndActive = strpos($result, ',"VoidTraders"');
             $substrToPos = substr($result, $posStingStartActive, $posStingEndActive-$posStingStartActive);
             $newResult = json_decode(($addBiginningResult . $substrToPos . $addEndingResult), true);
-            //Tableau de rangement des fissures en fonction de leurs hauteur VoidT?
+            //Array for different tier fissures
             $arrayT1 = [];
             $arrayT2 = [];
             $arrayT3 = [];
@@ -55,11 +55,10 @@ class Controller
 
             for ($i=0; $i<count($newResult['ActiveMissions']); $i++) {
             
-                //il faut touver les différents Node
+                //search the differents Node
                 $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
                 $timeFissures = $newResult['ActiveMissions'][$i]["Expiry"]["\$date"]["\$numberLong"];
-                // $countr_Fissurres = floor(($timeFissures/10000) - (time()/1000));
-                //Récupérer les Nodes aussi dans la BDD pour les comparer
+                //Get the Nodes also in the DB to compare them
                 $node = $Fissures->infosFissures($infos['node']);
                 
                
@@ -114,7 +113,6 @@ class Controller
     public function shareownedGlyph($pseudo){
         $getglyph = new Glyph();
         $getmembers = new Members();
-        //non fonctionnel
         $get_member = $getmembers->getsignup($pseudo);
         $getownedglyph = $getglyph->selectowned($get_member);
         require('views/ownedsahre.php');
@@ -122,7 +120,6 @@ class Controller
     public function sharenotownedGlyph($pseudo){
         $getglyph = new Glyph();
         $getmembers = new Members();
-        //non fonctionnel
         $get_member = $getmembers->getsignup($pseudo);
         $getnotownedglyph = $getglyph->selectnotowned($get_member);
         require('views/notownedsahre.php');
@@ -220,7 +217,7 @@ class Controller
                 }
             }
         }
-        //à modifier en fonction des différentes condition 2 pseudo identiques on retourne faux
+        //according to the different conditions 2 identical pseudo are returned false
         if ($signup !== false) {
             echo('Impossibilité de s\'inscrire pour l\'instant');
         } else {
@@ -250,7 +247,7 @@ class Controller
             $pseudo = $_POST['pseudo'];
             $password = $_POST['password'];
             $resultat = $verifylogin -> getlogin();
-            // Comparaison du pass envoyé via le formulaire avec la base
+            // Comparison of the pass sent via the form with the database
             $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
             if (!$resultat) {
                 echo 'Mauvais identifiant !';
@@ -296,22 +293,19 @@ class Controller
                 $modPrentDir = chmod($parenDIR,0777);
                 $modDir = chmod($oldDIR,0777);
                 $mod= chmod($oldFileDIR,0777);
-                //problème de permission même avec chmod
                 $img_submit = unlink(realpath($oldFileDIR));
             }else{
                 echo("doesn't exist!");
                 $newFileDIR = $newdir . $newfilename;
                 $img_submit = copy($oldFileDIR, $newFileDIR);
-                // unlink par la suite
+                // unlink
                 $modPrentDir = chmod($parenDIR,0777);
                 $modDir = chmod($oldDIR,0777);
                 $mod= chmod($oldFileDIR,0777);
-                //problème de permission même avec chmod
                 $img_submit = unlink(realpath($oldFileDIR));
             }
             $validation_submit = $glypher->addOnGlyph(
                 $get_submit['title_submit'],
-                //surement à modifier
                 $get_submit['img_submit'],
                 $get_submit['submit_Youtube'],
                 $get_submit['submit_Twitch'],
@@ -325,7 +319,6 @@ class Controller
                 $get_submit['id_user']
             );
             $suppr_submit = $glypher->supprSubmitGlyph($id_submit);
-            //header('Location: index.php?action=admin');
         }
     }
     //btn delete glyph submit
