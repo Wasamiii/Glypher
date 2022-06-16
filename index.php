@@ -1,7 +1,7 @@
 <?php
 session_start();
-require('controller/Controller.php');
-// var_dump(require 'vendor/autoload.php');
+require __DIR__ . '/vendor/autoload.php';
+
 use controller\Controller;
 
 class Index extends Controller{
