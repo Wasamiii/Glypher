@@ -18,6 +18,10 @@
                         </div>
                 </li>
                 <li>
+                        <?php
+                        //check session id and pseudo
+                        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+                        ?>    
                         <ul>
                                 <li>
                                         <p id="helloPseudo"><?php echo $_SESSION['pseudo'];?>  <i class="fas fa-angle-down not-rotate"></i></p>
@@ -28,10 +32,6 @@
                                         <a href="index.php?action=owned" >Owned Glyph</a>
                                         <a href="index.php?action=notowned" >Not Owned Glyph</a>
 
-                                        <?php
-                                        //check session id and pseudo
-                                        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-                                        ?>       
                                         <a href="index.php?action=disconnect" id="disconnect">Logout</a>
                                         <?php
                                         //check if admin connected    
