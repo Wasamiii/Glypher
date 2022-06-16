@@ -1,7 +1,7 @@
 <?php
 namespace model;
 require_once('Manager.php');
-// require '../vendor/autoload.php';
+
 use model\Manager;
 
 class Members extends Manager
@@ -16,6 +16,7 @@ class Members extends Manager
         echo "Le compte à été créée";
         return $register;      
     }
+
     public function getsignup($pseudo){
         $db = $this->dbConnect();
         $verifpseudo = $db->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
@@ -23,6 +24,7 @@ class Members extends Manager
         $count = $verifpseudo -> rowCount();
         return $count;
     }
+
     public function getlogin(){
         $db = $this->dbConnect();
         $pseudo = $_POST['pseudo'];
@@ -31,6 +33,7 @@ class Members extends Manager
         $resultat = $req->fetch();
         return $resultat;
     }
+    
     public function getuser_id($user_id){
         $db = $this->dbConnect();
         $getuser_id = $db->prepare('SELECT user_id FROM users WHERE pseudo = ?');
