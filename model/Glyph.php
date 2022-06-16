@@ -17,6 +17,8 @@ class Glyph extends Manager
         );
         return $reqgetglyph;
     }
+    
+    //add submit
     public function addGlyph($titlePost, $img_submit, $submit_Youtube, $submit_Twitch, $submit_Discord, $submit_Twitter, $submit_Instagram, $submit_Facebook, $submit_Site_1, $submit_Site_2, $desc_submit, $author)
     {
         $db=$this->dbConnect();
@@ -41,6 +43,7 @@ class Glyph extends Manager
         $adderGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
         return $adderGlyph;
     }
+
     public function getsubmit()
     {
         $db=$this->dbConnect();
@@ -50,10 +53,10 @@ class Glyph extends Manager
             ORDER BY id_submit ASC
             '
         );
-        // $getSubmit->fetch();
         return $getSubmit;
     }
-    //suppr submit
+
+    //delete submit
     public function supprSubmitGlyph($id_submit)
     {
         $db = $this->dbConnect();
@@ -61,8 +64,8 @@ class Glyph extends Manager
         $supprglyph->execute(array($id_submit));
         return $supprglyph;
     }
+
     //Partie modification
-    //Trouver comment récupérer l'id_submit
     public function getSubmitModify($getIdSubmit)
     {
         $db= $this->dbConnect();
@@ -88,6 +91,7 @@ class Glyph extends Manager
         $getSubmitMod = $getSubmit->fetch();
         return $getSubmitMod;
     }
+
     public function modifyGlyph($submit_Youtube, $submit_Twitch, $submit_Discord, $submit_Twitter, $submit_Instagram, $submit_Facebook, $submit_Site_1, $submit_Site_2, $desc_submit, $id_submit)
     {
         $db = $this->dbConnect();
@@ -107,6 +111,7 @@ class Glyph extends Manager
         $modGlyph->execute(array($submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$id_submit));
         return $modGlyph;
     }
+
     //Validation
     public function validGlyph($id_submit)
     {
@@ -117,6 +122,7 @@ class Glyph extends Manager
         $valid_glyph->execute(array($id_submit));
         return $valid_glyph;
     }
+
     public function addOnGlyph($titlePost, $img_submit, $submit_Youtube, $submit_Twitch, $submit_Discord, $submit_Twitter, $submit_Instagram, $submit_Facebook, $submit_Site_1, $submit_Site_2, $desc_submit, $author)
     {
         $db = $this->dbConnect();
@@ -138,6 +144,7 @@ class Glyph extends Manager
         $adderonGlyph->execute(array($titlePost,$img_submit,$submit_Youtube,$submit_Twitch,$submit_Discord,$submit_Twitter,$submit_Instagram,$submit_Facebook,$submit_Site_1,$submit_Site_2,$desc_submit,$author));
         return $adderonGlyph;
     }
+
     //Join Table glyph and user to glyphowned
     public function getownedGlyph($user_id, $id_glyph)
     {
@@ -150,6 +157,7 @@ class Glyph extends Manager
         $ownedglyph->execute(array($user_id,$id_glyph));
         return $ownedglyph;
     }
+
     public function selectnotowned($id_user)
     {
         $db = $this->dbConnect();
@@ -176,6 +184,7 @@ class Glyph extends Manager
         $notownedglyph->execute(array($id_user));
         return $notownedglyph;
     }
+
     public function selectowned($id_user){
         $db = $this->dbConnect();
         $ownedglyph = $db->prepare('SELECT
@@ -201,6 +210,7 @@ class Glyph extends Manager
         $ownedglyph->execute(array($id_user));
         return $ownedglyph;
     }
+
     public function postownedglyph($id_user, $id_glyph)
     {
         $db = $this->dbConnect();
