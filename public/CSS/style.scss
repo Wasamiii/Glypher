@@ -54,11 +54,6 @@ body.dark{
 }
 
 /*----MENU----*/
-header{
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-}
 a#Logo-site{
     width: auto;
     height:auto;
@@ -76,6 +71,11 @@ h1#title-site{
     font-family: 'Neonneon';
     margin: 0 0 0 10%;
 }
+nav.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 input{
     height: 25px;
     background: #FFFFFF;
@@ -85,8 +85,20 @@ input{
     text-indent: 5px;
     font-family: "Roboto-Regular";
 }
-div#global_dropdown_div{
+ul{
+    list-style: none;
+}
+.menu-withoutLogo{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+}
+#global_dropdown_div{
     position: relative;
+    padding-left: 0;
 }
 #dropdown_btn{
     border: none;
@@ -94,9 +106,7 @@ div#global_dropdown_div{
     cursor: pointer;
 }
 
-i.fa-bars{
-    color: #bbbbbb;
-}
+
 #dropdown_content{
     visibility: hidden;
     position: absolute;
@@ -105,7 +115,6 @@ div.show{
     display: flex;
     flex-direction: column;
     visibility: visible!important;
-    //transition
 }
 #dropdown_content > a{
     width: 150px;
@@ -145,24 +154,18 @@ a#singupLink{
     box-sizing: border-box;
     border-radius: 50px;
 }
-div#btn_dis_admin{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin-left: -2.5%;
 
-}
-div#btn_dis_admin > a#disconnect,a#administration{
+#helloPseudo{
     font-family: 'Roboto-Regular';
-    padding: 5% 8%;
-    font-size: 20px;
-    text-decoration: none;
-    color: #141414;
-    background: #11A7B0;
-    border: 2px solid #141414;
-    border-radius: 50px;
+    font-size: 24px;
+    color: #bbbbbb;
 }
-
+.fa-angle-down{
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rotate{
+    transform: rotate(180deg);
+}
 /*--Timers--*/
 div#timers{
     font-family: 'Roboto-Regular';
@@ -226,7 +229,6 @@ div.search-bar{
     border-radius: 24px;
 }
 i.fa-search{
-    width: 8%;
     height: auto;
     font-size: 24px;
     margin-left: 10px;
@@ -461,7 +463,7 @@ div.social-network{
     width: 100px;
     margin-top: 20px;
     padding: 2% 5%;
-    border: 2px solid #ffffff ;
+    border: 2px solid #eeeeee ;
     border-radius: 25px;
     font-family: 'Roboto-Regular';
     font-size: 16px;
@@ -484,7 +486,6 @@ div.nightmode{
     box-sizing: border-box;
     border-radius: 50px;
     cursor: pointer;
-    
 }
 div.nightmode i.fa-sun{
     position: relative;
@@ -720,4 +721,49 @@ div#contact-discord{
 div#contact-discord > img{
     width: 32px;
     height: 32px;
+}
+@media screen and (max-width:920px){
+    div#timers{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:768px){
+    a#Logo-site{
+        flex-direction: column;
+    }
+    a #img-logo-site{
+        width: 50%;
+    }
+    h1#title-site{
+        font-size: 32px;
+    }
+    div.nightmode{
+        width: 64px;
+    }
+    div.lightmode{
+        width: 64px;
+    }
+    div.nightmode i.fa-sun, div.lightmode i.fa-moon{
+        left: 20%;
+    }
+    div#cetustimer,div#timerBaro,div#fissures{
+        margin: 2.5% 0;
+    }
+}
+@media screen and (max-width:560px){
+    nav.navbar{
+        flex-direction: column;
+    }
+    h1#title-site{
+        margin: 0;
+    }
+    ul.menu-withoutLogo{
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+    }
+    #search_bar{
+        margin-left: 0;
+        width: 90%;
+    }
 }
