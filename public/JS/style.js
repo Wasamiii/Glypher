@@ -139,13 +139,18 @@ class Style {
   }
   //Dropdown btn for Owned/Not-owned glyph link
   dropdown(){
-    let dropdownbtn = document.getElementById('dropdown_btn');
+    let dropdownbtn = document.getElementById('helloPseudo');
+    let arrow = document.querySelector('.not-rotate');
     dropdownbtn.addEventListener("click",()=>{
       let content_dropdown = document.querySelector('#dropdown_content');
       if(content_dropdown.classList.contains("show")){
         content_dropdown.classList.remove("show");
+        arrow.classList.remove('rotate');
+        arrow.classList.add('not-rotate');
       }else{
         content_dropdown.classList.add("show");
+        arrow.classList.add('rotate');
+        arrow.classList.remove('not-rotate');
       }
     });
   }
