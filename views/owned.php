@@ -15,7 +15,7 @@
                 <p class="">Here is the link to share</p>
                 <a class="close-modale id_10" data-index="1"><i class="fas fa-times" aria-hidden="true"></i></a>
             </div>
-            <p class="markdown">https://index.php?action=shareowned&user=<?php echo($_SESSION['pseudo']);?></p>
+            <p class="markdown">http://localhost/index.php?action=shareowned&user=<?php echo($_SESSION['pseudo']);?></p>
         </div>
     </div>
     <?php } ?>
@@ -179,6 +179,7 @@ while ($data = $getownedglyph->fetch()) {
     }
 }
  ?>
+    <p class="session"><?= $_SESSION['id'];?></p> 
 </div>
 <script src="public/JS/search.js"></script>
 <script src="public/JS/modales.js"></script>

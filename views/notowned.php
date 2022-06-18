@@ -15,7 +15,7 @@
                 <p class="">Here is the link to share</p>
                 <a class="close-modale"><i class="fas fa-times" aria-hidden="true"></i></a>
             </div>
-            <p class="markdown">https://index.php?action=sharenotowned&user=<?php echo($_SESSION['pseudo']);?></p>
+            <p class="markdown">http://localhost/index.php?action=sharenotowned&user=<?php echo($_SESSION['pseudo']);?></p>
         </div>
     </div>
     <?php } ?>
@@ -182,7 +182,7 @@ while ($data = $getnotownedglyph->fetch()) {
     }
 }
 ?>
-<p class="session-notOwned"><?= $_SESSION['id'];?></p> 
+    <p class="session"><?= $_SESSION['id'];?></p> 
 </div>
 <script src="public/JS/search.js"></script>
 <script src="public/JS/modales.js"></script>
