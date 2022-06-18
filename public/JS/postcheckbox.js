@@ -4,7 +4,7 @@ class Checkboxvalid {
   }
   //add iduser on sessionStorage
   loginput() {
-    let p_session = document.querySelector('p.session-notOwned');
+    let p_session = document.querySelector('p.session');
     let session = sessionStorage.setItem('id_user', p_session.textContent);
   }
 }
