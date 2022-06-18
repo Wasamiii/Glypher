@@ -88,6 +88,7 @@ class Index extends Controller{
                             $_POST['desc_submit'],
                             $_SESSION['id']
                         );
+                        header('Location: index.php');
                     }else{
                         die(var_dump('not valid'));
                     }
