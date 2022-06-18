@@ -16,7 +16,9 @@
         <?php require_once("menu.php");?>
     </header>
     <?=$content?>
-    <footer><?php require_once("footer.php"); ?></footer>
+    <footer>
+        <?php require_once("footer.php"); ?>
+    </footer>
 </body>
 <script src="public/JS/style.js"></script>
 <script src="public/JS/modales.js"></script>
