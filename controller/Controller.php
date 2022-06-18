@@ -115,14 +115,14 @@ class Controller
         $getmembers = new Members();
         $get_member = $getmembers->getsignup($pseudo);
         $getownedglyph = $getglyph->selectowned($get_member);
-        require('views/ownedsahre.php');
+        require('views/ownedshare.php');
     }
     public function sharenotownedGlyph($pseudo){
         $getglyph = new Glyph();
         $getmembers = new Members();
         $get_member = $getmembers->getsignup($pseudo);
         $getnotownedglyph = $getglyph->selectnotowned($get_member);
-        require('views/notownedsahre.php');
+        require('views/notownedshare.php');
     }
     //redirect to submit
     public function submit()
