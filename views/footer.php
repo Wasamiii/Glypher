@@ -7,7 +7,7 @@
 </div>
 <div id="div-copyright">
     <p id="copyright">
-All content copyright Wasamii © 2022.
-All rights reserved.
-</p>
+        All content copyright Wasamii © 2022.
+        All rights reserved.
+    </p>
 </div>
