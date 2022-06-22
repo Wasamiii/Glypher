@@ -163,7 +163,7 @@ class Controller
             if(isset($desc_submit)){
                 //check if www.warframe.com for glabal promocode create a link
                 if(strpos($desc_submit ,"www.warframe.com")){
-                    $desc_submit = '<a href="'.$desc_submit. '" class="claim_glyph" target="__blank">Redeem Code</a>';
+                    $desc_submit = '<a href="'.$desc_submit. '" class="claim_glyph" target="_blank">Redeem Code</a>';
                 }
             }
         } else {
