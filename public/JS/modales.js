@@ -47,4 +47,3 @@ class Modale{
 }
 let mod = new Modale();
 mod.modalForm();
-mod.modalbtn();
