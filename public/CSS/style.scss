@@ -105,8 +105,6 @@ ul{
     background-color: transparent;
     cursor: pointer;
 }
-
-
 #dropdown_content{
     visibility: hidden;
     position: absolute;
@@ -154,7 +152,6 @@ a#singupLink{
     box-sizing: border-box;
     border-radius: 50px;
 }
-
 #helloPseudo{
     font-family: 'Roboto-Regular';
     font-size: 24px;
@@ -176,9 +173,7 @@ div#timers{
 i.fa-bars{
     font-size: 32px;
 }
-
 img#svgnight,img#svgday{
-    
     width: 21px;
     height: 21px;
 }
@@ -189,9 +184,9 @@ img#svgnight,img#svgday{
     font-weight: bold;
     display: none;
 }
-
-#cetustimer[data-cycle=night] #night, #cetustimer[data-cycle=day] #day { display: inline }
-
+#cetustimer[data-cycle=night] #night, #cetustimer[data-cycle=day] #day { 
+    display: inline 
+}
 span#countdown{
       color: #dadada;
   }
@@ -333,7 +328,6 @@ div#border-submitbtn{
     justify-content: center;
     font-family: 'Roboto-Regular';
 }
-
 figure{
     display: block;
     width: 132px;
@@ -474,7 +468,6 @@ div.social-network{
     text-decoration: none;
     color: #eeeeee;
     background-color: #060e33;
-
 }
 
 /*----Nightmode----*/
@@ -529,7 +522,7 @@ div.lightmode i.fa-moon{
 body.transcande{
     background: #0001ec;
     color: #ff00f2;
-    }
+}
 div.transcand{
     display: none;
     width: 127px;
@@ -555,9 +548,9 @@ figure.transcande{
 }
 
 /*---Submit---*/
-form#blockSubmit{
+div.groupForm{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -569,11 +562,14 @@ p{
     display: none !important;
 }
 .tox-tinymce{
-    width: 900px;
+    width: auto;
 }
 input.btn-submit{
+    margin-top: 20px;
     padding: 5px 15px;
     text-indent: 0;
+    box-sizing: content-box;
+    font-family: 'Roboto-Regular';
     border: 2px solid #11A7B0;
     background-color: #10c7d4bd;
     transition: ease-in-out 0.2s;
@@ -587,9 +583,8 @@ input.input-file{
     color: transparent;
     background-color: transparent;
     border-color: transparent;
-    width: 90px;
-    cursor: pointer;
-    
+    width: 127px;
+    cursor: pointer; 
 }
 label.label-file{
     cursor: pointer;
