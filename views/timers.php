@@ -2,8 +2,8 @@
     <div id="cetustimer" data-cycle="">
             <span id="itsCetus">Cetus :
             </span><br/>
-            <span id="day"><img id="svgday" src="public\IMG\sun-solid.svg" alt="Day on cetus">Day</span>
-            <span id="night"><img  id="svgnight"src="public\IMG\moon-solid.svg" alt="Night on cetus">Night</span>
+            <span id="day"><img id="svgday" src="public/IMG/sun-solid.svg" alt="Day on cetus">Day</span>
+            <span id="night"><img  id="svgnight" src="public/IMG/moon-solid.svg" alt="Night on cetus">Night</span>
             <span id="countdowncetus"></span>
         </div>
         <div id="timerBaro">
