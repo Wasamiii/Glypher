@@ -140,9 +140,9 @@ class Controller
             if (in_array($extension, $allowedExtensions)) {
                 $temp =  explode(".", $_FILES["img_submit"]["name"]);
                 $newfilename = $_POST['titlePost'].'.'.end($temp);
-                $newdir = 'public\IMG\submit\\';
+                $newdir = 'public/IMG/submit/';
                 $newFileDIR = $newdir . $newfilename;
-                $mod = chmod($_FILES["img_submit"]["tmp_name"], 777);
+                $mod = chmod($_FILES["img_submit"]["tmp_name"], 0777);
                 $mod = $_FILES['img_submit']['tmp_name'];
                 if (file_exists($newFileDIR)) {
                     echo "Already exist !";
@@ -276,10 +276,10 @@ class Controller
         $get_submit = $glypher->getSubmitModify($id_submit);
 
         $newfilename = $get_submit['title_submit'] .'.png';
-        $parenDIR = 'public\IMG\\';
-        $oldDIR = '.\public\IMG\submit\\';
+        $parenDIR = 'public/IMG/';
+        $oldDIR = 'public/IMG/submit/';
         $oldFileDIR = $oldDIR . $newfilename;
-        $newdir = 'public\IMG\IMG-partenaire-warframe\\';
+        $newdir = 'public/IMG/IMG-partenaire-warframe/';
         if (file_exists($oldFileDIR)) {
             if(file_exists($newdir.$newfilename)){
                 echo "Already exist !";
@@ -289,20 +289,21 @@ class Controller
                 }
                 $newfilename = $get_submit['title_submit'] . '('. $i . ').png';
                 $newFileDIR = $newdir . $newfilename;
+                $modPrentDir = chmod($newFileDIR, 0777);
                 $img_submit = copy($oldFileDIR, $newFileDIR);
-                $modPrentDir = chmod($parenDIR,0777);
-                $modDir = chmod($oldDIR,0777);
-                $mod= chmod($oldFileDIR,0777);
+                $modDir = chmod($oldDIR, 0777);
+                $mod= chmod($oldFileDIR, 0777);
                 $img_submit = unlink(realpath($oldFileDIR));
             }else{
-                echo("doesn't exist!");
+                echo "doesn't exist!";
                 $newFileDIR = $newdir . $newfilename;
                 $img_submit = copy($oldFileDIR, $newFileDIR);
+                $modPrentDir = chmod($newFileDIR, 0777);
                 // unlink
-                $modPrentDir = chmod($parenDIR,0777);
-                $modDir = chmod($oldDIR,0777);
-                $mod= chmod($oldFileDIR,0777);
+                $modDir = chmod($oldDIR, 0777);
+                $mod= chmod($oldFileDIR, 0777);
                 $img_submit = unlink(realpath($oldFileDIR));
+                header("Location: index.php?action=admin");
             }
             $validation_submit = $glypher->addOnGlyph(
                 $get_submit['title_submit'],
