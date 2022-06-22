@@ -1,5 +1,5 @@
 <div id="contact">
-    <a href="https://github.com/Wasamiii" target="__blank" id="github-link"><img src="public/IMG/Social-network/PNG/GitHub-Mark-Light-32px.png" alt="github icon" id="github-icon" class="dark"></a>
+    <a href="https://github.com/Wasamiii" target="_blank" id="github-link"><img src="public/IMG/Social-network/PNG/GitHub-Mark-Light-32px.png" alt="github icon" id="github-icon" class="dark"></a>
     <div id="contact-discord">
         <img src="public/IMG/Social-network/Discord-Logo-Color.svg" alt="contact me in discord">
         <p id="discord-profile">Wasamii#1000</p>

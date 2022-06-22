@@ -8,7 +8,7 @@ if ($_SESSION['admin'] === "1"){
 <div id="contain-glyph-admin">
     <?php while($data = $getglyph->fetch()){?>
         <figure class="contain-glyph modal-trigger id_<?= $data['id_submit'] ?>">
-        <img src="public/IMG/submit/<?= $data['img_submit'] ?>" class="img-glyph">
+        <img src="public/IMG/submit/<?= $data['img_submit'] ?>" class="img-glyph" alt="<?= $data['title_submit'] ?> glyph submit">
         <figcaption class="figcaption-glyph">
             <p class="title-of-glyph"><?= $data['title_submit'] ?></p>
         </figcaption>
@@ -20,7 +20,7 @@ if ($_SESSION['admin'] === "1"){
                 <p class="title-of-glyph"><?= $data['title_submit'] ?></p>
                 <a class="close-modale id_<?= $data['id_submit'] ?>"><i class="fas fa-times"></i></a>
             </div>
-            <img src="public/IMG/submit/<?= $data['img_submit'] ?>" class="img-glyph-modal">
+            <img src="public/IMG/submit/<?= $data['img_submit'] ?>" class="img-glyph-modal" alt="<?= $data['title_submit'] ?> glyph submit">
             <div class="social-network">
                 <?php if(!empty($data['submit_Youtube'])){?>
                     <a target="_blank" href="<?= $data['submit_Youtube'] ?>"><img class="icon-social" src="public/IMG/Social-network/Youtube_icon-icons.com_66802.svg" alt="Youtube icon"></a>

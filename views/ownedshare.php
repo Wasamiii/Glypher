@@ -69,7 +69,7 @@ while ($data = $getownedglyph->fetch()) {
         ?>
     <figure class="contain-glyph modal-trigger id_<?= $data['id'] ?>"> 
         <?php if (isset($arr_IMG[0])) { ?>
-        <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph">
+        <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph" alt="<?= $titleglyph ?> Glyph">
         <?php } ?>
         <figcaption class="figcaption-glyph">
             <p class="title-of-glyph"><?= $titleglyph ?></p>
@@ -83,7 +83,7 @@ while ($data = $getownedglyph->fetch()) {
                 <a class="close-modale id_<?= $data['id'] ?>"><i class="fas fa-times"></i></a>
             </div>
             <?php if (isset($arr_IMG[0])) { ?>
-            <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph-modal">
+            <img src="public/IMG/IMG-partenaire-warframe/<?= $arr_IMG[0] ?>" class="img-glyph-modal" alt="<?= $titleglyph ?> Glyph">
             <?php } ?>
             <div class="social-network">
                 <?php if (empty($arr_Youtube[0])) {?>
@@ -161,4 +161,4 @@ while ($data = $getownedglyph->fetch()) {
 <script src="public/JS/search.js"></script>
 <script src="public/JS/modales.js"></script>
 <?php $content = ob_get_clean(); ?>
-<?php require_once('views/template.php');?>
+<?php require_once('views/Template.php');?>
