@@ -183,5 +183,6 @@ while ($data = $getownedglyph->fetch()) {
 </div>
 <script src="public/JS/search.js"></script>
 <script src="public/JS/modales.js"></script>
+<script src="public/JS/modale-btn.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('views/template.php');?>
