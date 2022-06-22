@@ -56,5 +56,5 @@
     <script src="public/JS/drag-drop.js"></script>
 <?php $content = ob_get_clean(); ?>
 <?php
-require('views/template.php');
+require('views/Template.php');
 ?>
