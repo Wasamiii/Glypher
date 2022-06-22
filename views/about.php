@@ -16,4 +16,4 @@ Removal: Removal of glyph information can be requested by their legal owner by s
     </div>
     
 <?php $content = ob_get_clean(); ?>
-<?php require_once('views/template.php');?>
+<?php require_once('views/Template.php');?>
