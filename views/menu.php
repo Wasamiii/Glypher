@@ -14,7 +14,7 @@
                         <div class="btn-toggle">
                                 <div class="nightmode"><i class="far fa-sun"></i></div>
                                 <div class="lightmode"><i class="fas fa-moon"></i></div>
-                                <div class="transcand"><img src="public/IMG/PLOT.png"></div>
+                                <div class="transcand"><img src="public/IMG/PLOT.png" alt="transcand mode"></div>
                         </div>
                 </li>
                 <li>
