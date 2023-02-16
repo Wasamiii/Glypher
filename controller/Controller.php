@@ -1,6 +1,5 @@
 <?php
 namespace controller;
-//require "vendor/autoload.php";
 
 //Load the files that call the database
 require_once('model/Manager.php');
@@ -52,8 +51,10 @@ class Controller
             $arrayT4 = [];
             $arrayT5 = [];
             $notInDB = [];
+            //Add for php 8.2
+            $goodResult = is_countable($newResult['ActiveMissions']) && count($newResult['ActiveMissions']);
 
-            for ($i=0; $i<count($newResult['ActiveMissions']); $i++) {
+            for ($i=0; $i<$goodResult; $i++) {
             
                 //search the differents Node
                 $infos = $Fissures->infosFissures($newResult['ActiveMissions'][$i]['Node'])->fetch();
@@ -295,7 +296,6 @@ class Controller
                 $mod= chmod($oldFileDIR, 0777);
                 $img_submit = unlink(realpath($oldFileDIR));
             }else{
-                echo "doesn't exist!";
                 $newFileDIR = $newdir . $newfilename;
                 $img_submit = copy($oldFileDIR, $newFileDIR);
                 $modPrentDir = chmod($newFileDIR, 0777);
